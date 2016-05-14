@@ -1,0 +1,39 @@
+<template name="webGL">
+
+    <link rel="stylesheet" href="360-webviewer/WebGL/TemplateData/style.css">
+    <link rel="shortcut icon" href="360-webviewer/WebGL/TemplateData/favicon.ico"/>
+    <script src="360-webviewer/WebGL/TemplateData/UnityProgress.js"></script>
+    <p class="header"><span>Unity WebGL Player | </span>360Viewer</p>
+
+    <div class="template-wrap clear">
+        <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px"
+                width="960px"></canvas>
+        <br>
+
+        <div class="logo"></div>
+        <div class="fullscreen"><img src="360-webviewer/WebGL/TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen"
+                                     title="Fullscreen" onclick="SetFullscreen(1);"/></div>
+        <div class="title">360Viewer</div>
+    </div>
+    <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+    <script type='text/javascript'>
+        var Module = {
+            TOTAL_MEMORY: 536870912,
+            errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+            compatibilitycheck: null,
+            dataUrl: "360-webviewer/WebGL/Development/WebGL.data",
+            codeUrl: "360-webviewer/WebGL/Development/UnityEngine.js",
+            memUrl: "360-webviewer/WebGL/Development/UnityEngine.mem",
+            dynamicLibraries: ["360-webviewer/WebGL/Development/WebGL.js"],
+        };
+    </script>
+
+    <script src="360-webviewer/WebGL/Development/UnityLoader.js"></script>
+
+
+    <div id="orientationUI">
+        test
+    </div>
+
+    <script src="360-webviewer/WebGL/Development/Viewer.js"></script>
+</template>

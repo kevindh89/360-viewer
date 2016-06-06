@@ -8,6 +8,12 @@ Template.hello.onCreated(function helloOnCreated() {
     this.counter = new ReactiveVar(0);
 });
 
+Template.hello.onRendered(function() {
+    $('#uploadBtn').click(function(event) {
+        $('#files').click();
+    });
+});
+
 Template.hello.helpers({
     counter() {
         return Template.instance().counter.get();
@@ -34,7 +40,17 @@ Template.hello.events({
         var reader = new FileReader();
         reader.onload = function(evt) {
             if (evt.target.readyState === FileReader.DONE) {
-                document.getElementById('image').src = evt.target.result;
+                var chuncks = evt.target.result.match(/(.{1,65000})/g);
+
+                chuncks.forEach(function(chunck) {
+                    //console.log(chunck);
+                    SendMessage("Sphere", "UploadImageFromWeb", chunck);
+                });
+                SendMessage("Sphere", "UploadImageFromWeb", "[finished-upload]");
+
+                //SendMessage("Sphere", "UploadImageFromWeb", evt.target.result);
+
+                //document.getElementById('image').src = evt.target.result;
             }
         };
 

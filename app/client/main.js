@@ -40,17 +40,7 @@ Template.hello.events({
         var reader = new FileReader();
         reader.onload = function(evt) {
             if (evt.target.readyState === FileReader.DONE) {
-                var chuncks = evt.target.result.match(/(.{1,65000})/g);
-
-                chuncks.forEach(function(chunck) {
-                    //console.log(chunck);
-                    SendMessage("Sphere", "UploadImageFromWeb", chunck);
-                });
-                SendMessage("Sphere", "UploadImageFromWeb", "[finished-upload]");
-
-                //SendMessage("Sphere", "UploadImageFromWeb", evt.target.result);
-
-                //document.getElementById('image').src = evt.target.result;
+                document.querySelector('a-sky').setAttribute('src', evt.target.result);
             }
         };
 

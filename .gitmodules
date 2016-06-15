@@ -1,3 +1,0 @@
-[submodule "app/public/360-webviewer"]
-	path = app/public/360-webviewer
-	url = git@bitbucket.org:flipcovr/360-viewer-2.git

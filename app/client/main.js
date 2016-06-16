@@ -8,9 +8,53 @@ Template.hello.onCreated(function helloOnCreated() {
     this.counter = new ReactiveVar(0);
 });
 
+let vrMode = false;
+
+function enterVr() {
+    var scene = document.querySelector('a-scene');
+    if (scene) {
+        if (scene.hasLoaded) {
+            scene.enterVR();
+        } else {
+            scene.addEventListener('loaded', scene.enterVR);
+        }
+    }
+}
+
+function hideHUD() {
+    $('#hud').fadeOut('fast', () => {
+        vrMode = true;
+    });
+}
+
+function showHUD() {
+    $('#hud').fadeIn('fast', () => {
+        vrMode = false;
+    });
+}
+
 Template.hello.onRendered(function() {
+    const scene = document.querySelector('a-scene');
+    scene.addEventListener('enter-vr', (event) => {
+        hideHUD();
+    });
+    scene.addEventListener('exit-vr', (event) => {
+        showHUD();
+    });
+    scene.addEventListener('click', (event) => {
+        if (vrMode === false) {
+            return;
+        }
+        scene.exitVR();
+    });
+
     $('#uploadBtn').click(function(event) {
         $('#files').click();
+    });
+
+    $('#vrBtn').click(function(event) {
+        var scene = document.querySelector('a-scene');
+        enterVr();
     });
 });
 

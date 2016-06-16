@@ -10,6 +10,20 @@ body {
     margin-top: 10px;
 }
 
+#uploadBtn {
+    position: absolute;
+    left: 0;
+    margin: 15px 20px;
+    z-index: 100000000000;
+}
+
+#vrBtn {
+    position: absolute;
+    right: 0;
+    margin: 15px 20px;
+    z-index: 100000000000;
+}
+
 .action-container {
     height: 70px;
     width: 100%;

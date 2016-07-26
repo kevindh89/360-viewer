@@ -60,3 +60,7 @@ body {
 .mdl-textfield--file .mdl-button--file {
     right: 0;
 }
+
+.material-icons.cardboard {
+    background-image: url('images/cardboard-icon.png');
+}

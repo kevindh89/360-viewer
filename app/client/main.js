@@ -6,10 +6,6 @@ import './main.html';
 Template.main.onCreated(function mainOnCreated() {
     // counter starts at 0
     this.counter = new ReactiveVar(0);
-
-    Meteor.subscribe('galleryObjects', 'v3n');
-
-    console.log(GalleryObjects.find({clientId: 'v3n'}).fetch());
 });
 
 let vrMode = false;

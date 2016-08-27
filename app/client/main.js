@@ -3,9 +3,13 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
+Template.main.onCreated(function mainOnCreated() {
     // counter starts at 0
     this.counter = new ReactiveVar(0);
+
+    Meteor.subscribe('galleryObjects', 'v3n');
+
+    console.log(GalleryObjects.find({clientId: 'v3n'}).fetch());
 });
 
 let vrMode = false;
@@ -33,7 +37,7 @@ function showHUD() {
     });
 }
 
-Template.hello.onRendered(function() {
+Template.main.onRendered(function() {
     const scene = document.querySelector('a-scene');
     scene.addEventListener('enter-vr', (event) => {
         hideHUD();
@@ -58,13 +62,13 @@ Template.hello.onRendered(function() {
     });
 });
 
-Template.hello.helpers({
+Template.main.helpers({
     counter() {
         return Template.instance().counter.get();
     },
 });
 
-Template.hello.events({
+Template.main.events({
     'change #files'(event, instance) {
         // increment the counter when button is clicked
 
@@ -92,4 +96,11 @@ Template.hello.events({
         //reader.readAsBinaryString(blob);
         reader.readAsDataURL(file);
     },
+    'click #galleryBtn': () => {
+        if ($('#quickSelector').css('display') === 'none') {
+            $('#quickSelector').fadeIn();
+            return;
+        }
+        $('#quickSelector').fadeOut();
+    }
 });

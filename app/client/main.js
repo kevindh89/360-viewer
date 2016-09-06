@@ -6,6 +6,13 @@ import './main.html';
 Template.main.onCreated(function mainOnCreated() {
     // counter starts at 0
     this.counter = new ReactiveVar(0);
+
+    window.addEventListener("orientationchange", function() {
+        // Announce the new orientation number
+        // 90 = landscape
+        // 0 = portrait
+        // > fix that it rerenders af rotating.
+    }, false);
 });
 
 let vrMode = false;

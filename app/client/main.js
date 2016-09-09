@@ -63,6 +63,7 @@ Template.main.onRendered(function() {
             queue.shift();
             return;
         }
+        document.querySelector('a-sky').setAttribute('src', 'R0010471.JPG');
         scene.exitVR();
     });
 

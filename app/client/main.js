@@ -3,6 +3,8 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
+let queue = [];
+
 Template.main.onCreated(function mainOnCreated() {
     // counter starts at 0
     this.counter = new ReactiveVar(0);
@@ -43,6 +45,10 @@ function showHUD() {
 Template.main.onRendered(function() {
     const scene = document.querySelector('a-scene');
     scene.addEventListener('enter-vr', (event) => {
+        queue = [];
+        _.each(GalleryObjects.find({}).fetch(), object => {
+            queue.push(object.image);
+        });
         hideHUD();
     });
     scene.addEventListener('exit-vr', (event) => {
@@ -50,6 +56,11 @@ Template.main.onRendered(function() {
     });
     scene.addEventListener('click', (event) => {
         if (vrMode === false) {
+            return;
+        }
+        if (queue.length > 0) {
+            document.querySelector('a-sky').setAttribute('src', queue[0]);
+            queue.shift();
             return;
         }
         scene.exitVR();

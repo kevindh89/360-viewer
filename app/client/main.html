@@ -32,9 +32,11 @@
 
             <a-scene vr-mode-ui="enabled: false">
                 <a-entity id="hud" position="0 1.8 5" camera look-controls>
-                    <a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="galleryBtn"><i class="material-icons">view_carousel</i></a>
-                    <div id="quickSelector">
-                        {{> quickSelector}}
+                    <div style="display: none;">
+                        <a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="galleryBtn"><i class="material-icons">view_carousel</i></a>
+                        <div id="quickSelector">
+                            {{> quickSelector}}
+                        </div>
                     </div>
                     <!--<a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="uploadBtn"><i class="material-icons">add_a_photo</i></a>-->
                     <a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="vrBtn"><i class="material-icons cardboard">cardboard</i></a>

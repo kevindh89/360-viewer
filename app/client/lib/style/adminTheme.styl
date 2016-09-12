@@ -1,0 +1,71 @@
+primaryBrandColor = #e9342d;
+secondaryBrandColor = #f08366;
+
+html, body {
+  height: 100%;
+}
+
+div.admin-container {
+  background: #f1f1f1;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 10px;
+  }
+
+  div.card {
+    border-top: 5px solid #ebebeb;
+    box-shadow: none;
+    padding: 5px 15px;
+    text-align: left;
+  }
+
+  div.content-container {
+    position: relative;
+    display: table-cell;
+    vertical-align: top;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  div.sidebar-menu {
+    vertical-align: top;
+    background: #303641;
+    width: 280px;
+    position: relative;
+    z-index: 100;
+
+    div.logo-header {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: primaryBrandColor;
+      font-size: 20px;
+      letter-spacing: 5px;
+      padding: 15px 0;
+    }
+
+    ul.main-menu {
+      color: #cccccc;
+      li.menu-item {
+        height: 30px;
+        line-height: 30px;
+        a {
+          color: #ccc;
+          width: 100%;
+          height: 30px;
+          text-decoration: none;
+          display: inline-block;
+          &:hover {
+            background: #412c32;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -22,3 +22,4 @@ underscore@1.0.9
 aldeed:collection2
 stylus@2.513.5
 shell-server
+iron:router

@@ -36,6 +36,13 @@ Clients = new Mongo.Collection("clients", {
 ClientSchema = new SimpleSchema({
     username: {
         type: String
+    },
+    slug: {
+        type: String
+    },
+    host: {
+        type: String,
+        optional: true
     }
 });
 

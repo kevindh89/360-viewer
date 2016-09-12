@@ -8,10 +8,6 @@ Template.quickSelector.events({
     }
 });
 
-Template.quickSelector.onCreated(() => {
-    Meteor.subscribe('galleryObjects', window.location.hostname);
-});
-
 Template.quickSelector.helpers({
     galleryObjects: () => {
         return GalleryObjects.find({}, {limit: 3});

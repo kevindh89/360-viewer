@@ -1,11 +1,15 @@
 <template name="adminMenu">
     <div id="admin-menu" class="admin-menu sidebar-menu">
+        <img src="/images/logo-128x128.png" class="logo" />
         <div class="logo-header">
-            Vensterworks
+            <span style="font-weight: 600;">Venster</span><span style="font-weight: 100;">works</span>
         </div>
         <ul class="main-menu">
             <li class="menu-item">
                 <a href="{{pathFor 'admin'}}">Dashboard</a>
+            </li>
+            <li class="menu-item">
+                <a href="{{pathFor 'createClient'}}">Create client</a>
             </li>
         </ul>
     </div>

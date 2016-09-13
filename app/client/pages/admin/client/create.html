@@ -1,15 +1,9 @@
 <template name="createClient">
-    <form>
-        <label for="username">
-            Username:
-        </label>
-        <input type="text" class="form-control" id="username" />
-        <br />
-        <label for="slug">
-            Slug (defines the url on which the viewer will become available, ie. http://360.vensterworks.com/<em>vensterworks</em>)
-        </label>
-        <input type="text" class="form-control" id="slug" />
+    <div class="col-md-12">
+        <div class="card">
+            <h1>Create client</h1>
 
-        <input type="submit" class="btn btn-primary" value="Create client" id="createClientButton" />
-    </form>
+            {{> createClientForm}}
+        </div>
+    </div>
 </template>

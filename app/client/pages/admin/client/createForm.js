@@ -1,7 +1,7 @@
 /**
  * Created by kevindeheer on 12-09-16.
  */
-Template.createClient.events({
+Template.createClientForm.events({
     'click input#createClientButton': function(evt) {
         evt.preventDefault();
 

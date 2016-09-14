@@ -1,3 +1,18 @@
 <template name="clientOverview">
-
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Slug</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each clients}}
+        <tr>
+            <td>{{username}}</td>
+            <td>{{slug}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
 </template>

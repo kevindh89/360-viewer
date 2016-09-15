@@ -77,13 +77,17 @@ div.admin-container {
           height: 35px;
           text-decoration: none;
           display: inline-block;
-          padding-left: 13px;
+          padding-left: 15px;
           &:hover {
             background: #243049;
             color: white;
             padding-left: 10px;
-            border-left: 3px solid #ffffff;
+            border-left: 5px solid #ffffff !important;
           }
+        }
+        a.active {
+          border-left: 5px solid #999;
+          padding-left: 10px;
         }
       }
     }
@@ -97,5 +101,11 @@ div.admin-container {
   }
   table {
     text-align: left;
+
+    th {
+      font-weight: bold;
+      background: #ffffff;
+      color: #999;
+    }
   }
 }

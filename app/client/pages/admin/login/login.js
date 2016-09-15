@@ -1,11 +1,13 @@
 Template.login.events({
     'submit .login-form': function(event) {
         event.preventDefault();
-        const username = $('#username').val();
-        const password = $('#password').val();
+        const username = $('#vw-uname').val();
+        const password = $('#vw-pwd').val();
 
-        Meteor.loginWithPassword(username, password, function(error) {
-            InitAdminLayout();
+        $('#login-form').fadeOut(250, () => {
+            Meteor.loginWithPassword(username, password, function(error) {
+                InitAdminLayout();
+            });
         });
     }
 });

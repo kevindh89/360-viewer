@@ -1,12 +1,14 @@
 <template name="adminLayout">
     <div class="admin-container">
-        {{#if currentUser}}
-        {{> adminMenu}}
-        <div id="content-container" class="content-container">
-            {{> yield}}
+        <div class="admin-container-content">
+            {{#if currentUser}}
+                {{> adminMenu}}
+                <div id="content-container" class="content-container">
+                    {{> yield}}
+                </div>
+            {{else}}
+                {{> login}}
+            {{/if}}
         </div>
-        {{else}}
-            {{> login}}
-        {{/if}}
     </div>
 </template>

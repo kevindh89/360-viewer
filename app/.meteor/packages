@@ -23,3 +23,5 @@ stylus@2.513.5
 shell-server
 iron:router
 chrismbeckett:toastr
+accounts-base
+accounts-password

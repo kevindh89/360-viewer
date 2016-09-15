@@ -3,3 +3,9 @@ Template.adminMenu.helpers({
         return Router.current().route.getName() === route;
     }
 });
+
+Template.adminMenu.events({
+    'click #logoutButton': () => {
+        Accounts.logout();
+    }
+});

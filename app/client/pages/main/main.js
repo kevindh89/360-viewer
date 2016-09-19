@@ -46,15 +46,15 @@ Template.main.onRendered(function() {
     const scene = document.querySelector('a-scene');
     scene.addEventListener('enter-vr', (event) => {
         queue = [];
-        _.each(GalleryObjects.find({}).fetch(), object => {
-            queue.push(object.image);
-        });
+        //_.each(GalleryObjects.find({}).fetch(), object => {
+        //    queue.push(object.image);
+        //});
         hideHUD();
     });
     scene.addEventListener('exit-vr', (event) => {
         showHUD();
     });
-    scene.addEventListener('click', (event) => {
+    scene.addEventListener('dblclick', (event) => {
         if (vrMode === false) {
             return;
         }
@@ -63,7 +63,7 @@ Template.main.onRendered(function() {
             queue.shift();
             return;
         }
-        document.querySelector('a-sky').setAttribute('src', 'R0010471.JPG');
+        //document.querySelector('a-sky').setAttribute('src', 'R0010471.JPG');
         scene.exitVR();
     });
 

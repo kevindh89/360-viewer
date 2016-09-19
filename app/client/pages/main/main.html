@@ -1,25 +1,34 @@
 <template name="main">
     <div class="action-container">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
-            <div class="mdl-button mdl-button--primary mdl-button--icon mdl-button--file">
-                <i class="material-icons">attach_file</i><input type="file" id="files">
-            </div>
-            <div class="clear"></div>
-
             <a-scene vr-mode-ui="enabled: false">
-                <a-entity id="hud" position="0 1.8 5" camera look-controls>
-                    <a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="galleryBtn"><i class="material-icons">view_carousel</i></a>
-                    <div id="quickSelector">
-                        {{> quickSelector}}
-                    </div>
-                    <!--<a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="uploadBtn"><i class="material-icons">add_a_photo</i></a>-->
-                    <a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="vrBtn"><i class="material-icons cardboard">cardboard</i></a>
-                </a-entity>
                 <a-assets>
-                    <img id="photo" src="R0010471.JPG" />
+                    <img id="photo" src="R0010471.JPG"/>
                 </a-assets>
+                <a-entity position="0 -5 0" rotation="0 90 -60">
+                    {{> quickSelector}}
+                </a-entity>
+                <a-entity id="hud" position="0 1.8 5" camera look-controls>
+                    <a-entity cursor="fuse: true; timeout: 0"
+                              position="0 0 -5" scale="0.1 0.1 0.1"
+                              geometry="primitive: ring"
+                              material="color: #e9342d; shader: flat">
+                        <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale"
+                                     fill="forwards" from="0.2 0.2 0.2" to="0.1 0.1 0.1" dur="1000"></a-animation>
+                    </a-entity>
+                    <a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="vrBtn"><i
+                            class="material-icons cardboard">cardboard</i></a>
+                </a-entity>
                 <a-sky id="image" src="#photo" rotation="0 0 0"></a-sky>
             </a-scene>
+
+            <script type="text/javascript">
+                $('.galleryObject').on('click', function(evt) {
+                    let src = this.getAttribute('material').src.substring(4);
+                    src = src.substring(0, src.length - 1);
+                    $('#image').attr('src', src);
+                });
+            </script>
         </div>
     </div>
 </template>

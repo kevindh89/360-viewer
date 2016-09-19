@@ -1,11 +1,6 @@
 <template name="quickSelector">
-    <div class="container-fluid">
-        <div class="row">
-            {{#each galleryObjects}}
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <img src="{{image}}" />
-                </div>
-            {{/each}}
-        </div>
-    </div>
+    {{#each galleryObjects}}
+        <a-entity class="galleryObject" mixin="image" geometry="primitive: sphere" material="{{gallerySrc this}}"
+                position="{{getPosition @index}}" fill="both"></a-entity>
+    {{/each}}
 </template>

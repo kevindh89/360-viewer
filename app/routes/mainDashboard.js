@@ -1,4 +1,4 @@
 Router.route('mainDashboard', {
-    path: '/dashboard',
+    path: '/admin/dashboard',
     layoutTemplate: 'adminLayout'
 });

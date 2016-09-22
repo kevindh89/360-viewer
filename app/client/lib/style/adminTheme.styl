@@ -1,5 +1,6 @@
 primaryBrandColor = #e9342d;
 secondaryBrandColor = #f08366;
+darkenedSecondaryBrandColor = #d74b2e;
 
 @font-face {
   font-family: 'berlin'
@@ -20,6 +21,15 @@ div.admin-container {
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 10px;
+  }
+
+  .btn-primary {
+    background: darkenedSecondaryBrandColor;
+    border-color: darkenedSecondaryBrandColor;
+    &:hover, &:active {
+      background: secondaryBrandColor;
+      border-color: secondaryBrandColor;
+    }
   }
 
   div.admin-container-content {

@@ -1,5 +1,5 @@
 Router.route('clientOverview', {
-    path: '/client-overview',
+    path: '/admin/client-overview',
     layoutTemplate: 'adminLayout',
     waitOn() {
         return [

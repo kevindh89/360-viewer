@@ -81,6 +81,9 @@ Template.main.helpers({
     counter() {
         return Template.instance().counter.get();
     },
+    client() {
+        return Clients.findOne({});
+    }
 });
 
 Template.main.events({

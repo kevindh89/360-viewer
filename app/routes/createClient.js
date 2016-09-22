@@ -1,4 +1,4 @@
 Router.route('createClient', {
-    path: '/create-client',
+    path: '/admin/create-client',
     layoutTemplate: 'adminLayout'
 });

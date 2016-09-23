@@ -4,6 +4,7 @@
         <tr>
             <th>Name</th>
             <th>Slug</th>
+            <th>#</th>
         </tr>
         </thead>
         <tbody>
@@ -11,6 +12,9 @@
         <tr>
             <td>{{username}}</td>
             <td>{{slug}}</td>
+            <td>
+                <a href="{{pathFor 'editClient' id=_id}}">Edit</a>
+            </td>
         </tr>
         {{/each}}
         </tbody>

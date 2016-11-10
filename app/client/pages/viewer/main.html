@@ -1,7 +1,15 @@
 <template name="main">
+    {{#if isPortraitOriented}}
+        <div class="portrait-text">
+            PUT IN CARDBOARD
+            AND START VR MODE
+        </div>
+        <div class="portrait-overlay"></div>
+        <div class="portrait-overlay-back"></div>
+    {{/if}}
     <div class="action-container">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
-            <a-scene vr-mode-ui="enabled: false">
+            <a-scene vr-mode-ui="enabled: false" inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
                 <a-assets>
                     <img id="photo" src="R0010471.JPG"/>
                 </a-assets>
@@ -9,7 +17,7 @@
                     {{> quickSelector}}
                 </a-entity>
                 <a-entity id="hud" position="0 1.8 5" camera look-controls>
-                    <a-entity cursor="fuse: true; timeout: 0"
+                    <a-entity id="cursor" cursor="fuse: true; timeout: 0"
                               position="0 0 -5" scale="0.1 0.1 0.1"
                               geometry="primitive: ring"
                               material="color: {{#if client.style.pointerColor}}{{client.style.pointerColor}}{{else}}#e9342d{{/if}}; shader: flat">

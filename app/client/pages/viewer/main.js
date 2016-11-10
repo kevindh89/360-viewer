@@ -4,6 +4,16 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
 let queue = [];
+const isLandscapeOriented = new ReactiveVar(screen.orientation.angle === 90);
+function updateLandscapeTrackers() {
+    isLandscapeOriented.set(screen.orientation.angle === 90);
+
+    if (screen.orientation.angle === 90) {
+        document.getElementById('cursor').setAttribute('visible', true);
+    } else {
+        document.getElementById('cursor').setAttribute('visible', false);
+    }
+}
 
 Template.main.onCreated(function mainOnCreated() {
     // counter starts at 0
@@ -14,6 +24,7 @@ Template.main.onCreated(function mainOnCreated() {
         // 90 = landscape
         // 0 = portrait
         // > fix that it rerenders af rotating.
+        updateLandscapeTrackers();
     }, false);
 });
 
@@ -43,6 +54,8 @@ function showHUD() {
 }
 
 Template.main.onRendered(function() {
+    updateLandscapeTrackers();
+
     const scene = document.querySelector('a-scene');
     scene.addEventListener('enter-vr', (event) => {
         queue = [];
@@ -78,6 +91,9 @@ Template.main.onRendered(function() {
 });
 
 Template.main.helpers({
+    isPortraitOriented() {
+        return !isLandscapeOriented.get();
+    },
     counter() {
         return Template.instance().counter.get();
     },

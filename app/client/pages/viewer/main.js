@@ -34,7 +34,9 @@ function enterVr() {
     var scene = document.querySelector('a-scene');
     if (scene) {
         if (scene.hasLoaded) {
+            document.body.scrollTo = 0;
             scene.enterVR();
+            document.body.scrollTo = 0;
         } else {
             scene.addEventListener('loaded', scene.enterVR);
         }

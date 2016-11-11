@@ -9,12 +9,12 @@
                     {{> quickSelector}}
                 </a-entity>
                 <a-entity id="hud" position="0 1.8 5" camera look-controls>
-                    <a-entity cursor="fuse: true; timeout: 0"
-                              position="0 0 -5" scale="0.1 0.1 0.1"
+                    <a-entity id="cursor" cursor="fuse: true; timeout: 0" cursor-listener
+                              position="0 0 -5" scale="0.15 0.15 0.15"
                               geometry="primitive: ring"
                               material="color: {{#if client.style.pointerColor}}{{client.style.pointerColor}}{{else}}#e9342d{{/if}}; shader: flat">
                         <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale"
-                                     fill="forwards" from="0.2 0.2 0.2" to="0.1 0.1 0.1" dur="1000"></a-animation>
+                                     fill="forwards" to="0.05 0.05 0.05" dur="1000"></a-animation>
                     </a-entity>
                     <a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="vrBtn"
                             style="{{#if client.style.backgroundColor}}background-color: {{client.style.backgroundColor}} !important;{{/if}}">
@@ -25,10 +25,20 @@
             </a-scene>
 
             <script type="text/javascript">
-                $('.galleryObject').on('click', function(evt) {
-                    let src = this.getAttribute('material').src.substring(4);
-                    src = src.substring(0, src.length - 1);
-                    $('#image').attr('src', src);
+                AFRAME.registerComponent('cursor-listener', {
+                    init: function () {
+                        this.el.addEventListener('click', function (evt) {
+                            const el = evt.detail.intersectedEl;
+                            let src = el.getAttribute('material').src.substring(4);
+                            src = src.substring(0, src.length - 1);
+                            $('#image').attr('src', src);
+                        });
+                        this.el.addEventListener('mouseleave', function (evt) {
+                            // Reset cursor size
+                            const cursor = evt.srcElement;
+                            cursor.setAttribute('scale', '0.15 0.15 0.15');
+                        });
+                    }
                 });
             </script>
         </div>

@@ -1,3 +1,5 @@
 app/node_modules/
 .idea/
 app/public/360-viewer/*
+app/public/360-viewer
+.DS_Store

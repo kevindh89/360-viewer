@@ -6,12 +6,14 @@ import './main.html';
 let queue = [];
 const isLandscapeOriented = new ReactiveVar(screen.orientation.angle === 90);
 function updateLandscapeTrackers() {
-    isLandscapeOriented.set(screen.orientation.angle === 90);
+    isLandscapeOriented.set(screen.orientation.angle === 90 || screen.orientation.angle === 270);
 
-    if (screen.orientation.angle === 90) {
+    if (screen.orientation.angle === 90 || screen.orientation.angle === 270) {
         document.getElementById('cursor').setAttribute('visible', true);
+        enterVr();
     } else {
         document.getElementById('cursor').setAttribute('visible', false);
+        exitVr();
     }
 }
 
@@ -34,11 +36,22 @@ function enterVr() {
     var scene = document.querySelector('a-scene');
     if (scene) {
         if (scene.hasLoaded) {
+            scene.enterVR();
+        } else {
+            scene.addEventListener('loaded', scene.enterVR);
+        }
+    }
+}
+
+function exitVr() {
+    var scene = document.querySelector('a-scene');
+    if (scene) {
+        if (scene.hasLoaded) {
             document.body.scrollTo = 0;
             scene.enterVR();
             document.body.scrollTo = 0;
         } else {
-            scene.addEventListener('loaded', scene.enterVR);
+            scene.addEventListener('loaded', scene.exitVR);
         }
     }
 }

@@ -1,124 +1,157 @@
 /* CSS declarations go here */
 html {
-    width: 100%;
+  width: 100%;
 }
 
 body {
-    background: #f5f5f5;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    margin-top: 10px;
-}
-.portrait-text {
-    width: 100%;
-    height: 100%;
-    z-index: 99;
-    position: absolute;
-    padding-top: 50%;
-    font-size: 40px;
-    display: block;
-    font-weight: bold;
+  background: #f5f5f5;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.portrait-overlay {
+.portrait-text {
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  position: absolute;
+  padding-top: 2%;
+  font-size: 40px;
+  color: white;
+  display: block;
+  font-weight: bold;
+
+  .title {
+    margin-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
     width: 100%;
-    height: 100%;
-    background: #fff;
-    opacity: 0.1;
+    h1 {
+      font-family: Tahoma;
+      letter-spacing: 4px;
+      font-size: 25px;
+      text-transform: uppercase;
+    }
+    p.lead {
+      margin-top: 10%;
+      font-size: 14px;
+    }
+  }
+  img.boaz {
+    margin-left: 2%;
+    width: 100%;
+  }
+  img.charlie {
+    margin-right: 2%;
+    width: 100%;
+  }
+  .boaz-text {
+    font-size: 14px;
+    margin-top: 2%;
+  }
+  .charlie-text {
+    font-size: 14px;
+    margin-top: 2%;
+  }
+  .no-vr-glasses-text {
+    font-size: 12px;
+    margin-top: 10%;
+  }
+  .start-app-text {
+    font-size: 12px;
     position: absolute;
-    font-size: 40px;
-    z-index: 100;
-    display: block;
+    bottom: 50px;
+    right: 8px;
+  }
 }
 
 .portrait-overlay-back {
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    opacity: 0.7;
-    position: absolute;
-    font-size: 40px;
-    z-index: 98;
-    display: block;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.7;
+  position: absolute;
+  font-size: 40px;
+  z-index: 98;
+  display: block;
 }
 
 #quickSelector {
-    position: absolute;
-    text-align: center;
-    display: none;
+  position: absolute;
+  text-align: center;
+  display: none;
 }
 
 #galleryBtn {
-    position: absolute;
-    left: 0;
-    margin: 15px 20px;
-    z-index: 100000000000;
+  position: absolute;
+  left: 0;
+  margin: 15px 20px;
+  z-index: 100000000000;
 }
 
-
 #uploadBtn {
-    position: absolute;
-    left: 0;
-    margin: 15px 20px;
-    z-index: 100000000000;
+  position: absolute;
+  left: 0;
+  margin: 15px 20px;
+  z-index: 100000000000;
 }
 
 #vrBtn {
-    position: absolute;
-    right: 0;
-    padding-top: 29px;
-    margin: -20px -50px;
-    border-radius: 0;
-    z-index: 100000000000;
-    text-align: center;
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    width: 145.5px;
-    height: 85.5px;
+  position: absolute;
+  right: 0;
+  padding-top: 29px;
+  margin: -20px -50px;
+  border-radius: 0;
+  z-index: 100000000000;
+  text-align: center;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 145.5px;
+  height: 85.5px;
 
-    img {
-        width: 36px;
-        height: 36px;
-        display: inline-block;
-    }
+  img {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+  }
 }
 
 .action-container {
-    height: 100%;
-    width: 100%;
-    display: inline-block;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
 }
 
 .mdl-textfield--file {
-    position: relative;
-    height: 100%;
+  position: relative;
+  height: 100%;
 }
 
 .mdl-button--file {
-    cursor: pointer;
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .mdl-button--file input {
-    right: 0;
-    top: 0;
-    width: 1px;
-    height: 1px;
-    position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  position: absolute;
 }
 
 .mdl-textfield--file .mdl-textfield__input {
-    box-sizing: border-box;
-    width: calc(100% - 32px);
+  box-sizing: border-box;
+  width: calc(100% - 32px);
 }
 
 .mdl-textfield--file .mdl-button--file {
-    right: 0;
+  right: 0;
 }

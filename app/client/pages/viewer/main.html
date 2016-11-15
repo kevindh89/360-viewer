@@ -1,15 +1,42 @@
 <template name="main">
     {{#if isPortraitOriented}}
         <div class="portrait-text">
-            PUT IN CARDBOARD
-            AND START VR MODE
+            <div class="col-xs-12 col-sm-12 title">
+                <h1>360º photo viewer</h1>
+                <p class="lead">Insert your phone in VR glasses</p>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 boaz-text">
+                    Use a Boaz
+                </div>
+                <div class="col-xs-6 col-sm-6 charlie-text">
+                    Use a Charlie
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6">
+                    <img src="images/boaz.png" class="boaz"/>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <img src="images/charlie.png" class="charlie"/>
+                </div>
+            </div>
+
+            <div class="row no-vr-glasses-text">
+                Don't have VR glasses? <a href="http://www.vensterworks.com" target="_blank">Order now!</a>
+            </div>
+            <div class="start-app-text">
+                Start the app
+                <br />|<br />|<br />v
+            </div>
         </div>
         <div class="portrait-overlay"></div>
         <div class="portrait-overlay-back"></div>
     {{/if}}
     <div class="action-container">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
-            <a-scene vr-mode-ui="enabled: false" inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+            <a-scene vr-mode-ui="enabled: true"
+                     inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
                 <a-assets>
                     <img id="photo" src="R0010471.JPG"/>
                 </a-assets>
@@ -24,24 +51,24 @@
                         <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale"
                                      fill="forwards" to="0.05 0.05 0.05" dur="1000"></a-animation>
                     </a-entity>
-                    <a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="vrBtn"
-                            style="{{#if client.style.backgroundColor}}background-color: {{client.style.backgroundColor}} !important;{{/if}}">
-                        <img src="cardboard-white.png" />
-                    </a>
+                    <!--<a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="vrBtn"-->
+                    <!--style="{{#if client.style.backgroundColor}}background-color: {{client.style.backgroundColor}} !important;{{/if}}">-->
+                    <!--<img src="cardboard-white.png" />-->
+                    <!--</a>-->
                 </a-entity>
                 <a-sky id="image" src="#photo" rotation="0 0 0"></a-sky>
             </a-scene>
 
             <script type="text/javascript">
                 AFRAME.registerComponent('cursor-listener', {
-                    init: function () {
-                        this.el.addEventListener('click', function (evt) {
+                    init: function() {
+                        this.el.addEventListener('click', function(evt) {
                             const el = evt.detail.intersectedEl;
                             let src = el.getAttribute('material').src.substring(4);
                             src = src.substring(0, src.length - 1);
                             $('#image').attr('src', src);
                         });
-                        this.el.addEventListener('mouseleave', function (evt) {
+                        this.el.addEventListener('mouseleave', function(evt) {
                             // Reset cursor size
                             const cursor = evt.srcElement;
                             cursor.setAttribute('scale', '0.15 0.15 0.15');

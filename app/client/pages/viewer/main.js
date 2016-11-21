@@ -70,6 +70,22 @@ function showHUD() {
 
 Template.main.onRendered(function() {
     updateLandscapeTrackers();
+    var mySwiper = new Swiper('.swiper-container', {
+        speed: 400,
+        spaceBetween: 100,
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+
+    mySwiper.on('onSlideChangeStart', (event) => {
+        $('.highlighted-by-swiper').addClass('hide');
+        $('.highlighted-by-swiper').removeClass('highlighted-by-swiper');
+        if (event.activeIndex === 2) {
+            // highlight vr mode
+            $('#vr-mode-text').addClass('highlighted-by-swiper');
+            $('#vr-mode-text').removeClass('hide');
+        }
+    });
 
     const scene = document.querySelector('a-scene');
     scene.addEventListener('enter-vr', (event) => {

@@ -71,6 +71,7 @@ Template.main.onRendered(function() {
         hideHUD();
     });
     scene.addEventListener('exit-vr', (event) => {
+        mySwiper.update();
         showHUD();
     });
     scene.addEventListener('dblclick', (event) => {

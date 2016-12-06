@@ -7,14 +7,6 @@ let queue = [];
 const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
 function updateLandscapeTrackers() {
     isLandscapeOriented.set(window.orientation === 90 || window.orientation === -90);
-
-    if (window.orientation === 90 || window.orientation === -90) {
-        document.getElementById('cursor').setAttribute('visible', true);
-        enterVr();
-    } else {
-        document.getElementById('cursor').setAttribute('visible', false);
-        exitVr();
-    }
 }
 
 Template.main.onCreated(function mainOnCreated() {
@@ -31,30 +23,6 @@ Template.main.onCreated(function mainOnCreated() {
 });
 
 let vrMode = false;
-
-function enterVr() {
-    var scene = document.querySelector('a-scene');
-    if (scene) {
-        if (scene.hasLoaded) {
-            scene.enterVR();
-        } else {
-            scene.addEventListener('loaded', scene.enterVR);
-        }
-    }
-}
-
-function exitVr() {
-    var scene = document.querySelector('a-scene');
-    if (scene) {
-        if (scene.hasLoaded) {
-            document.body.scrollTo = 0;
-            scene.enterVR();
-            document.body.scrollTo = 0;
-        } else {
-            scene.addEventListener('loaded', scene.exitVR);
-        }
-    }
-}
 
 function hideHUD() {
     $('#hud').fadeOut('fast', () => {

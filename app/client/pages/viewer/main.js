@@ -4,11 +4,11 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
 let queue = [];
-const isLandscapeOriented = new ReactiveVar(screen.orientation.angle === 90);
+const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
 function updateLandscapeTrackers() {
-    isLandscapeOriented.set(screen.orientation.angle === 90 || screen.orientation.angle === 270);
+    isLandscapeOriented.set(window.orientation === 90 || window.orientation === -90);
 
-    if (screen.orientation.angle === 90 || screen.orientation.angle === 270) {
+    if (window.orientation === 90 || window.orientation === -90) {
         document.getElementById('cursor').setAttribute('visible', true);
         enterVr();
     } else {

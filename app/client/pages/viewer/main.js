@@ -7,6 +7,12 @@ let queue = [];
 const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
 function updateLandscapeTrackers() {
     isLandscapeOriented.set(window.orientation === 90 || window.orientation === -90);
+
+    if (window.orientation === 90 || window.orientation === -90) {
+        document.getElementById('cursor').setAttribute('visible', true);
+    } else {
+        document.getElementById('cursor').setAttribute('visible', false);
+    }
 }
 
 Template.main.onCreated(function mainOnCreated() {
@@ -23,6 +29,7 @@ Template.main.onCreated(function mainOnCreated() {
 });
 
 let vrMode = false;
+
 
 function hideHUD() {
     $('#hud').fadeOut('fast', () => {

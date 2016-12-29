@@ -32,6 +32,9 @@ Tours = new Mongo.Collection("tours", {
  * @type {SimpleSchema}
  */
 TourObjectSchema = new SimpleSchema({
+    id: {
+        type: String
+    },
     x: {
         type: Number
     },

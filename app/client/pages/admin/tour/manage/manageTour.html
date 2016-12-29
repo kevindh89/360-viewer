@@ -1,0 +1,34 @@
+<template name="manageTour">
+    <div class="col-md-12 manage-tour-container">
+        <div class="card">
+            <h1>Manage tour: {{name}}</h1>
+
+            <a href="#" class="btn btn-success pull-right">Upload image</a>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Preview</th>
+                    <th>Position (x, y, z)</th>
+                    <th>#</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {{#each tourObjects}}
+                <tr>
+                    <td><img src="{{previewImage}}" class="preview-image" /></td>
+                    <td>{{x}}, {{y}}, {{z}}</td>
+                    <td>
+                        <a href="#" class="btn btn-danger">
+                            Remove
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</template>

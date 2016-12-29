@@ -1,6 +1,11 @@
 Template.adminMenu.helpers({
-    isRoute(route) {
-        return Router.current().route.getName() === route;
+    isRoute() {
+        for (let i = 0; i < arguments.length; i++) {
+            if (Router.current().route.getName() === arguments[i]) {
+                return true;
+            }
+        }
+        return false;
     }
 });
 

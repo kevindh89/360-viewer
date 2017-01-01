@@ -3,7 +3,8 @@ Router.route('manageTour', {
     layoutTemplate: 'adminLayout',
     waitOn() {
         return [
-            Meteor.subscribe('tour', this.params.id)
+            Meteor.subscribe('tour', this.params.id),
+            Meteor.subscribe('files.images.all')
         ];
     },
     data() {

@@ -47,6 +47,10 @@ TourObjectSchema = new SimpleSchema({
     file360Image: {
         type: String,
         optional: true
+    },
+    previewImage: {
+        type: String,
+        optional: true
     }
 });
 

@@ -106,5 +106,8 @@ Template.tour.helpers({
     },
     client() {
         return Clients.findOne({});
+    },
+    getImageLink(tourObject) {
+        return TourImages.findOne({_id: tourObject.file360Image}).link();
     }
 });

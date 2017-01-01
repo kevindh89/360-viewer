@@ -69,6 +69,11 @@
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
             <a-scene vr-mode-ui="enabled: true"
                      inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+                <a-assets>
+                    {{#each tourObjects}}
+                        <img id="photo" src="{{getImageLink this}}"/>
+                    {{/each}}
+                </a-assets>
                 <a-entity position="0 0 0">
                     {{> tourObjectSelector}}
                 </a-entity>

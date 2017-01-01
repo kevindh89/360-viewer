@@ -9,6 +9,6 @@ Template.tourObjectSelector.events({
 
 Template.tourObjectSelector.helpers({
     gallerySrc: (obj) => {
-        return 'src: url(' + obj.file360Image + ')';
+        return 'src: url(' + TourImages.findOne({_id: obj.file360Image}).link() + ')';
     }
 });

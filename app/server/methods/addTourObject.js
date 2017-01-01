@@ -6,7 +6,7 @@ Meteor.methods({
         Tours.update({_id: tourId}, {
             $push: {
                 tourObjects: {
-                    id: 'test',
+                    id: tourImageId,
                     file360Image: tourImageId,
                     previewImage: tourImageId,
                     x: 10,

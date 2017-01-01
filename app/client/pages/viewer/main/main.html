@@ -1,0 +1,113 @@
+<template name="main">
+    <div class="portrait-text" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}">
+        <div class="row title-row">
+            <div class="col-xs-12 col-sm-12 title">
+                <h1>360º photo viewer</h1>
+            </div>
+        </div>
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <h2>View 360 images in single or VR mode</h2>
+
+                    <p class="lead">
+                        <em>Swipe to the left to learn how to use the app..</em>
+                        <br/>
+                        <img src="/images/swipe-gesture.png">
+                    </p>
+                </div>
+                <div class="swiper-slide">
+                    <h2>HOW TO: Single mode</h2>
+
+                    <p class="lead">
+                        <em>Try to rotate your smartphone to switch between viewing the 360 image and this introduction</em>
+                        <br/>
+                        <img src="/images/rotate-phone-icon.png" class="swipe-gesture">
+                    </p>
+                </div>
+                <div class="swiper-slide">
+                    <h2>HOW TO: VR mode</h2>
+
+                    <p class="lead">
+                        <em>
+                            Click <img src="/images/vr-icon.png" class="vr-icon"/> in the right bottom corner.
+                            <br/>
+                            Put your phone in VR glasses and you're ready to go!
+                        </em>
+                    </p>
+
+                    <img src="/images/boaz.png" class="boaz"/>
+                    <img src="/images/charlie.png" class="charlie"/>
+
+                    <div class="row no-vr-glasses-text">
+                        Don't you have any VR glasses? <a href="http://www.vensterworks.com/products"
+                                                          target="_blank">Order now!</a>
+                    </div>
+                </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!--<div id="start-app-text" class="start-app-text">-->
+        <!--Start 360 viewer-->
+        <!--<br/>|<br/>v-->
+        <!--</div>-->
+        <div id="start-app-icon" class="start-app-icon">
+            <img src="/images/logo-with-text.png" onclick="window.open('http://www.vensterworks.com', '_blank');"/>
+        </div>
+        <div id="vr-mode-text" class="start-vr-text hide">
+            VR mode
+            <br/>|<br/>v
+        </div>
+    </div>
+    <div class="portrait-overlay" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}"></div>
+    <div class="portrait-overlay-back" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}"></div>
+    <div class="action-container">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
+            <a-scene vr-mode-ui="enabled: true"
+                     inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+                <a-assets>
+                    <img id="photo" src="R0010471.JPG"/>
+                </a-assets>
+                <a-entity position="0 0 0">
+                    {{> quickSelector}}
+                </a-entity>
+                <a-entity id="hud" position="0 10 0" camera look-controls>
+                    <a-entity id="cursor" cursor="fuse: true; timeout: 0" cursor-listener
+                              position="0 0 -5" scale="0.15 0.15 0.15"
+                              geometry="primitive: ring"
+                              material="color: {{#if client.style.pointerColor}}{{client.style.pointerColor}}{{else}}#e9342d{{/if}}; shader: flat">
+                        <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale"
+                                     fill="forwards" to="0.05 0.05 0.05" dur="1000"></a-animation>
+                    </a-entity>
+                    <!--<a class="btn-floating btn-large waves-effect waves-light red lighten-1" id="vrBtn"-->
+                    <!--style="{{#if client.style.backgroundColor}}background-color: {{client.style.backgroundColor}} !important;{{/if}}">-->
+                    <!--<img src="cardboard-white.png" />-->
+                    <!--</a>-->
+                </a-entity>
+                <a-sky id="image" src="#photo" rotation="0 0 0"></a-sky>
+            </a-scene>
+
+            <script type="text/javascript">
+                AFRAME.registerComponent('cursor-listener', {
+                    init: function() {
+                        this.el.addEventListener('click', function(evt) {
+                            const el = evt.detail.intersectedEl;
+                            let src = el.getAttribute('material').src.substring(4);
+                            src = src.substring(0, src.length - 1);
+                            $('#image').attr('src', src);
+                        });
+                        this.el.addEventListener('mouseleave', function(evt) {
+                            // Reset cursor size
+                            const cursor = evt.srcElement;
+                            cursor.setAttribute('scale', '0.15 0.15 0.15');
+                        });
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</template>

@@ -19,3 +19,14 @@ Router.route('clientViewer', {
         ];
     }
 });
+
+Router.route('tourViewer', {
+    path: '/tour/:id',
+    template: 'tour',
+    waitOn: function() {
+        return [
+            Meteor.subscribe('clientForTour', this.params.id),
+            Meteor.subscribe('tour', this.params.id)
+        ]
+    }
+})

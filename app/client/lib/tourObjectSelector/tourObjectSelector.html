@@ -1,0 +1,6 @@
+<template name="tourObjectSelector">
+    {{#each tourObjects}}
+        <a-entity class="galleryObject" mixin="image" geometry="primitive: sphere" material="{{gallerySrc this}}"
+                  position="{{x}} {{y}} {{z}}" fill="both"></a-entity>
+    {{/each}}
+</template>

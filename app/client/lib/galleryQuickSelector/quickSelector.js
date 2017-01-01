@@ -4,7 +4,6 @@
 Template.quickSelector.events({
     'click img': (event) => {
         document.querySelector('a-sky').setAttribute('src', event.target.src);
-        $('#quickSelector').fadeOut();
     }
 });
 

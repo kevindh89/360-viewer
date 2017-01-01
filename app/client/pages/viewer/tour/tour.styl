@@ -1,0 +1,212 @@
+/* CSS declarations go here */
+html {
+  width: 100%;
+}
+
+body {
+  background: #f5f5f5;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Open Sans', Tahoma, sans-serif !important;
+}
+
+@media (min-width: 769px) {
+  .portrait-overlay,
+  .portrait-overlay-back,
+  .portrait-text {
+    display: none !important;
+  }
+}
+
+.portrait-text {
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  position: absolute;
+  font-size: 40px;
+  color: white;
+  display: block;
+  font-weight: bold;
+
+  .title {
+    text-align: center;
+    width: 100%;
+    h1 {
+      letter-spacing: 4px;
+      font-size: 25px;
+      text-transform: uppercase;
+    }
+  }
+  .title-row {
+    margin-bottom: 10px;
+  }
+  a {
+    color: white;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 18px;
+    color: darkgrey;
+    font-weight: normal;
+  }
+  em {
+    margin: 5px 0 15px 0;
+    display: inline-block;
+  }
+  img {
+    margin: 25px 0;
+    max-height: 150px;
+  }
+  .lead {
+    font-size: 14px;
+  }
+  .swiper-container {
+    height: 65%;
+  }
+  .highlighted-by-swiper {
+    color: #ffb294;
+  }
+  .swipe-gesture {
+    margin-top: 15px;
+  }
+  .boaz {
+    margin-top: 0;
+    width: 30%;
+  }
+  .charlie {
+    margin-top: 0;
+    width: 30%;
+  }
+  .vr-icon {
+    width: 30px;
+    margin: 0 3px 5px 5px;
+  }
+  .boaz-text {
+    font-size: 14px;
+    margin-top: 2%;
+  }
+  .charlie-text {
+    font-size: 14px;
+    margin-top: 2%;
+    width: 50%;
+  }
+  .no-vr-glasses-text {
+    font-size: 12px;
+    color: #aaa;
+  }
+  .start-app-text {
+    font-size: 12px;
+    position: absolute;
+    bottom: 50px;
+    left: 17px;
+  }
+  .start-vr-text {
+    font-size: 12px;
+    position: absolute;
+    bottom: 50px;
+    right: 17px;
+  }
+  .start-app-icon {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    img {
+      height: 15px;
+      opacity: 0.8;
+    }
+  }
+}
+
+.portrait-overlay-back {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.8;
+  position: absolute;
+  font-size: 40px;
+  z-index: 98;
+  display: block;
+}
+
+#uploadBtn {
+  position: absolute;
+  left: 0;
+  margin: 15px 20px;
+  z-index: 100000000000;
+}
+
+#vrBtn {
+  position: absolute;
+  right: 0;
+  padding-top: 29px;
+  margin: -20px -50px;
+  border-radius: 0;
+  z-index: 100000000000;
+  text-align: center;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 145.5px;
+  height: 85.5px;
+
+  img {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+  }
+}
+
+.action-container {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+}
+
+.mdl-textfield--file {
+  position: relative;
+  height: 100%;
+}
+
+.mdl-button--file {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.mdl-button--file input {
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+}
+
+.mdl-textfield--file .mdl-textfield__input {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+}
+
+.mdl-textfield--file .mdl-button--file {
+  right: 0;
+}
+
+// Custom swiper settings
+.swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  border-radius: 100%;
+  background: white;
+  opacity: .2;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #fb8465;
+}

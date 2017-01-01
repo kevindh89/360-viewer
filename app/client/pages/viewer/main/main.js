@@ -136,12 +136,5 @@ Template.main.events({
         //var blob = file.slice(start, stop + 1);
         //reader.readAsBinaryString(blob);
         reader.readAsDataURL(file);
-    },
-    'click #galleryBtn': () => {
-        if ($('#quickSelector').css('display') === 'none') {
-            $('#quickSelector').fadeIn();
-            return;
-        }
-        $('#quickSelector').fadeOut();
     }
 });

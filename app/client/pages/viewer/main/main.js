@@ -3,7 +3,6 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-let queue = [];
 const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
 function updateLandscapeTrackers() {
     isLandscapeOriented.set(window.orientation === 90 || window.orientation === -90);
@@ -66,10 +65,6 @@ Template.main.onRendered(function() {
 
     const scene = document.querySelector('a-scene');
     scene.addEventListener('enter-vr', (event) => {
-        queue = [];
-        //_.each(GalleryObjects.find({}).fetch(), object => {
-        //    queue.push(object.image);
-        //});
         hideHUD();
     });
     scene.addEventListener('exit-vr', (event) => {
@@ -80,22 +75,10 @@ Template.main.onRendered(function() {
         if (vrMode === false) {
             return;
         }
-        if (queue.length > 0) {
-            document.querySelector('a-sky').setAttribute('src', queue[0]);
-            queue.shift();
+        if ($(event.target).hasClass('galleryObject')) {
             return;
         }
-        //document.querySelector('a-sky').setAttribute('src', 'R0010471.JPG');
         scene.exitVR();
-    });
-
-    $('#uploadBtn').click(function(event) {
-        $('#files').click();
-    });
-
-    $('#vrBtn').click(function(event) {
-        var scene = document.querySelector('a-scene');
-        enterVr();
     });
 });
 

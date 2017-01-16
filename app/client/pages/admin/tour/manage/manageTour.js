@@ -12,6 +12,8 @@ Template.manageTour.onCreated(function() {
     });
 
     template.uploadFormData = uploadForm;
+
+    template.selectedTourObjectId = new ReactiveVar();
 });
 
 Template.manageTour.helpers({
@@ -23,6 +25,9 @@ Template.manageTour.helpers({
     },
     getImage(tourImageId) {
         return TourImages.findOne({_id: tourImageId}) !== undefined ? TourImages.findOne({_id: tourImageId}).link() : '';
+    },
+    tourObjectId() {
+        return Template.instance().selectedTourObjectId;
     }
 });
 

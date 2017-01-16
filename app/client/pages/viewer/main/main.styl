@@ -210,3 +210,37 @@ body {
   opacity: 1;
   background: #fb8465;
 }
+
+
+// Overwriting the default a-frame screen when in portrait position and VR mode.
+.a-orientation-modal {
+  background: url("rotate-phone.svg") center/50% 50% no-repeat #000000 !important;
+  color: white !important;
+  opacity: 0.85;
+
+  button {
+    background: url("close-vr.svg") !important;
+  }
+}
+.a-orientation-modal:before {
+  content: 'Insert your phone in a Boaz, Charlie or other VR glasses';
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  left: 0;
+  transform: translateY(20%);
+  width: 100%;
+  color: white !important;
+  font-family: 'Open Sans', Tahoma, sans-serif !important;
+}
+.a-orientation-modal:after {
+  font-family: 'Open Sans', Tahoma, sans-serif !important;
+  content: 'Tap the screen to exit VR mode';
+  display: block;
+  color: white !important;
+}
+
+.a-canvas {
+  // This fixes an issue with iPhones, when exiting VR mode the whole screen would get a right and bottom white border.
+  padding: 0 !important;
+}

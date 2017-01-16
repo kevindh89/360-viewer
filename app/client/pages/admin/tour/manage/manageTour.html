@@ -23,6 +23,8 @@
                 </div>
             </div>
 
+            {{> adjustPosition tourId=_id tourObjectId=tourObjectId}}
+
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -36,7 +38,10 @@
                 {{#each tourObjects}}
                 <tr>
                     <td><img src="{{getImage previewImage}}" class="preview-image" /></td>
-                    <td>{{x}}, {{y}}, {{z}}</td>
+                    <td>
+                        <label class="label label-primary">{{x}}, {{y}}, {{z}}</label>
+                        <a href="#" class="btn btn-default btn-xs">Adjust position</a>
+                    </td>
                     <td>
                         <a href="#" class="btn btn-danger delete-btn" data-tour-object-id="{{id}}">
                             Remove

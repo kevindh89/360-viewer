@@ -25,6 +25,8 @@ Template.main.onCreated(function mainOnCreated() {
         // 0 = portrait
         // > fix that it rerenders af rotating.
         updateLandscapeTrackers();
+
+        $('.swiper-slide').css('width', screen.width);
     }, false);
 });
 
@@ -74,7 +76,7 @@ Template.main.onRendered(function() {
         mySwiper.update();
         showHUD();
     });
-    scene.addEventListener('dblclick', (event) => {
+    scene.addEventListener('click', (event) => {
         if (vrMode === false) {
             return;
         }

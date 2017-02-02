@@ -4,6 +4,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
 const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
+const mySwiper;
 function updateLandscapeTrackers() {
     isLandscapeOriented.set(window.orientation === 90 || window.orientation === -90);
 
@@ -25,7 +26,10 @@ Template.main.onCreated(function mainOnCreated() {
         // > fix that it rerenders af rotating.
         updateLandscapeTrackers();
 
-        $('.swiper-slide').css('width', screen.width);
+        Meteor.setTimeout(() => {
+            mySwiper.update();
+            $('.swiper-slide').css('width', screen.width);
+        }, 100);
     }, false);
 });
 
@@ -46,7 +50,7 @@ function showHUD() {
 
 Template.main.onRendered(function() {
     updateLandscapeTrackers();
-    var mySwiper = new Swiper('.swiper-container', {
+    mySwiper = new Swiper('.swiper-container', {
         speed: 400,
         spaceBetween: 100,
         pagination: '.swiper-pagination',

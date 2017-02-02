@@ -4,7 +4,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
 const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
-const mySwiper;
+let mySwiper;
 function updateLandscapeTrackers() {
     isLandscapeOriented.set(window.orientation === 90 || window.orientation === -90);
 

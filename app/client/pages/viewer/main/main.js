@@ -8,6 +8,10 @@ let mySwiper;
 function updateLandscapeTrackers() {
     isLandscapeOriented.set(window.orientation === 90 || window.orientation === -90);
 
+    if (screen.width > 969) {
+        // at desktop screens never hide the cursor.
+        return;
+    }
     if (window.orientation === 90 || window.orientation === -90) {
         document.getElementById('cursor').setAttribute('visible', true);
     } else {
@@ -84,6 +88,38 @@ Template.main.onRendered(function() {
         }
         scene.exitVR();
     });
+
+    this.autorun(() => {
+        if (!Clients.findOne()) {
+            return;
+        }
+        const activeGalleryObject = GalleryObjects.findOne({
+            _id: Clients.findOne().activeGalleryObject
+        });
+        if (!activeGalleryObject) {
+            return;
+        }
+        $('#image').attr('src', activeGalleryObject.image);
+    });
+
+    AFRAME.registerComponent('cursor-listener', {
+        init: function() {
+            this.el.addEventListener('click', function(evt) {
+                const el = evt.detail.intersectedEl;
+                let src = el.getAttribute('material').src.substring(4);
+                src = src.substring(0, src.length - 1);
+                $('#image').attr('src', src);
+                const clientId = Clients.findOne()._id;
+                Meteor.call('updateActiveGalleryObject', clientId, el.getAttribute('data-id'));
+                evt.stopPropagation();
+            });
+            this.el.addEventListener('mouseleave', function(evt) {
+                // Reset cursor size
+                const cursor = evt.srcElement;
+                cursor.setAttribute('scale', '0.15 0.15 0.15');
+            });
+        }
+    });
 });
 
 Template.main.helpers({
@@ -95,6 +131,11 @@ Template.main.helpers({
     },
     client() {
         return Clients.findOne({});
+    },
+    activeImage: function() {
+        return GalleryObjects.findOne({
+            _id: Clients.findOne({}).activeGalleryObject
+        });
     }
 });
 

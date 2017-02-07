@@ -43,6 +43,10 @@ ClientSchema = new SimpleSchema({
     host: {
         type: String,
         optional: true
+    },
+    activeGalleryObject: {
+        type: String,
+        optional: true
     }
 });
 

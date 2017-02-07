@@ -16,9 +16,9 @@ Template.quickSelector.helpers({
     },
     getPosition: (index) => {
         const positions = {
-            0: '3 0 0',
-            1: '-3 0 -3',
-            2: '-3 0 3'
+            0: '10 3.50 0',
+            1: '-7.50 3.50 -10',
+            2: '-7.50 3.50 10'
         };
         return positions[index];
     }

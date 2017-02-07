@@ -70,7 +70,7 @@
             <a-scene vr-mode-ui="enabled: true"
                      inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
                 <a-assets>
-                    <img id="photo" src="R0010471.JPG"/>
+                    <img id="photo" src="{{activeImage.image}}"/>
                 </a-assets>
                 <a-entity position="0 0 0">
                     {{> quickSelector}}
@@ -87,24 +87,6 @@
                 <a-sky id="image" src="#photo" rotation="0 0 0"></a-sky>
             </a-scene>
 
-            <script type="text/javascript">
-                AFRAME.registerComponent('cursor-listener', {
-                    init: function() {
-                        this.el.addEventListener('click', function(evt) {
-                            const el = evt.detail.intersectedEl;
-                            let src = el.getAttribute('material').src.substring(4);
-                            src = src.substring(0, src.length - 1);
-                            $('#image').attr('src', src);
-                            evt.stopPropagation();
-                        });
-                        this.el.addEventListener('mouseleave', function(evt) {
-                            // Reset cursor size
-                            const cursor = evt.srcElement;
-                            cursor.setAttribute('scale', '0.15 0.15 0.15');
-                        });
-                    }
-                });
-            </script>
         </div>
     </div>
 </template>

@@ -77,11 +77,11 @@
                 </a-entity>
                 <a-entity id="hud" position="0 10 0" camera look-controls>
                     <a-entity id="cursor" cursor="fuse: true; timeout: 0" cursor-listener
-                              position="0 0 -5" scale="0.15 0.15 0.15"
+                              position="0 0 -5" scale="0.30 0.30 0.30"
                               geometry="primitive: ring"
                               material="color: {{#if client.style.pointerColor}}{{client.style.pointerColor}}{{else}}#e9342d{{/if}}; shader: flat">
-                        <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale"
-                                     fill="forwards" to="0.05 0.05 0.05" dur="1000"></a-animation>
+                        <a-animation begin="mouseover-clickable" easing="ease-in" attribute="scale"
+                                     fill="forwards" to="0.15 0.15 0.15" dur="1000"></a-animation>
                     </a-entity>
                 </a-entity>
                 <a-sky id="image" src="#photo" rotation="0 0 0"></a-sky>

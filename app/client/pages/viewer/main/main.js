@@ -112,11 +112,25 @@ Template.main.onRendered(function() {
                 const clientId = Clients.findOne()._id;
                 Meteor.call('updateActiveGalleryObject', clientId, el.getAttribute('data-id'));
                 evt.stopPropagation();
+                cursor.setAttribute('scale', '0.30 0.30 0.30');
             });
             this.el.addEventListener('mouseleave', function(evt) {
                 // Reset cursor size
                 const cursor = evt.srcElement;
-                cursor.setAttribute('scale', '0.15 0.15 0.15');
+                cursor.setAttribute('scale', '0.30 0.30 0.30');
+            });
+            this.el.addEventListener('mouseenter', function(evt) {
+                const cursor = evt.srcElement;
+                const el = evt.detail.intersectedEl;
+
+                let src = el.getAttribute('material').src.substring(4);
+                src = src.substring(0, src.length - 1);
+
+                if ($('#image').attr('src') === src) {
+                    // If the image is currently active, don't trigger the animation.
+                    return;
+                }
+                cursor.emit('mouseover-clickable');
             });
         }
     });

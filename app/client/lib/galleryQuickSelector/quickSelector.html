@@ -1,9 +1,0 @@
-<template name="quickSelector">
-    {{#each galleryObjects}}
-        <a-entity class="galleryObject" mixin="image" geometry="primitive: sphere" scale="2 2 2" material="{{gallerySrc this}}"
-                  data-id="{{this._id}}"
-                position="{{getPosition @index}}" fill="both">
-            <a-animation easing="linear" attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite"></a-animation>
-        </a-entity>
-    {{/each}}
-</template>

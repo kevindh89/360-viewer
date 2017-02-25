@@ -44,7 +44,7 @@ ClientSchema = new SimpleSchema({
         type: String,
         optional: true
     },
-    activeGalleryObject: {
+    activeScene: {
         type: String,
         optional: true
     }

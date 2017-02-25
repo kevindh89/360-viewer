@@ -5,7 +5,7 @@
  * Get the gallery objects by the client host.
  * The application can be ran on a specific domain or subdomain, on basis of which the correct client is shown.
  */
-Meteor.publish('galleryObjectsForHost', host => {
+Meteor.publish('scenesForHost', host => {
     const client = Clients.findOne({host: host});
 
     if (!client) {
@@ -13,7 +13,7 @@ Meteor.publish('galleryObjectsForHost', host => {
         return;
     }
 
-    return GalleryObjects.find({
+    return Scenes.find({
         clientId: client._id
     });
 });
@@ -21,7 +21,7 @@ Meteor.publish('galleryObjectsForHost', host => {
 /**
  * Get gallery objects by the client slug (short identifier used in url).
  */
-Meteor.publish('galleryObjectsForClient', slug => {
+Meteor.publish('scenesForClient', slug => {
     const client = Clients.findOne({slug: slug});
 
     if (!client) {
@@ -29,7 +29,7 @@ Meteor.publish('galleryObjectsForClient', slug => {
         return;
     }
 
-    return GalleryObjects.find({
+    return Scenes.find({
         clientId: client._id
     });
 });

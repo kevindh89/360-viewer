@@ -13,6 +13,9 @@
                     <h2>View 360 images in single or VR mode</h2>
 
                     <p class="lead">
+                        <video autoplay="true" id="videoElement">
+
+                        </video>
                         <em>Swipe to the left to learn how to use the app..</em>
                         <br/>
                         <img src="/images/swipe-gesture.png">
@@ -69,13 +72,19 @@
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
             <a-scene vr-mode-ui="enabled: true"
                      inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+                <a-box position="0 3.5 -2" rotation="30 30 0" color="skyblue"
+                       event-set__enter="_event: mouseenter; material.color: yellowgreen; scale: 3 1 1"
+                       event-set__leave="_event: mouseleave; material.color: skyblue; scale: 1 1 1">
+                    <a-animation attribute="rotation" begin="click" dur="500" fill="backwards" to="30 30 360"></a-animation>
+                </a-box>
+
                 <a-assets>
                     <img id="photo" src="{{activeImage.image}}"/>
                 </a-assets>
                 <a-entity position="0 0 0">
                     {{> quickSelector}}
                 </a-entity>
-                <a-entity id="hud" position="0 10 0" camera look-controls>
+                <a-entity id="hud" position="0 10 0" camera look-controls mouse-cursor>
                     <a-entity id="cursor" cursor="fuse: true; timeout: 0" cursor-listener
                               position="0 0 -5" scale="0.30 0.30 0.30"
                               geometry="primitive: ring"

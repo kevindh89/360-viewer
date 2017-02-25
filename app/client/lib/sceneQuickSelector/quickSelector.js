@@ -8,8 +8,8 @@ Template.quickSelector.events({
 });
 
 Template.quickSelector.helpers({
-    galleryObjects: () => {
-        return GalleryObjects.find({}, {limit: 3});
+    scenes: () => {
+        return Scenes.find({}, {limit: 3});
     },
     gallerySrc: (obj) => {
         return 'src: url(' + obj.image + ')';

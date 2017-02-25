@@ -54,6 +54,7 @@ function showHUD() {
 
 Template.main.onRendered(function() {
     updateLandscapeTrackers();
+
     mySwiper = new Swiper('.swiper-container', {
         speed: 400,
         spaceBetween: 100,
@@ -83,23 +84,28 @@ Template.main.onRendered(function() {
         if (vrMode === false) {
             return;
         }
-        if ($(event.target).hasClass('galleryObject')) {
+        if ($(event.target).hasClass('scene')) {
             return;
         }
         scene.exitVR();
+    });
+
+    const cursor = document.querySelector('#cursor');
+    cursor.addEventListener('click', (event) => {
+        console.log('click', event);
     });
 
     this.autorun(() => {
         if (!Clients.findOne()) {
             return;
         }
-        const activeGalleryObject = GalleryObjects.findOne({
-            _id: Clients.findOne().activeGalleryObject
+        const activeScene = Scenes.findOne({
+            _id: Clients.findOne().activeScene
         });
-        if (!activeGalleryObject) {
+        if (!activeScene) {
             return;
         }
-        $('#image').attr('src', activeGalleryObject.image);
+        $('#image').attr('src', activeScene.image);
     });
 
     AFRAME.registerComponent('cursor-listener', {
@@ -110,7 +116,7 @@ Template.main.onRendered(function() {
                 src = src.substring(0, src.length - 1);
                 $('#image').attr('src', src);
                 const clientId = Clients.findOne()._id;
-                Meteor.call('updateActiveGalleryObject', clientId, el.getAttribute('data-id'));
+                Meteor.call('updateActiveScene', clientId, el.getAttribute('data-id'));
                 evt.stopPropagation();
                 cursor.setAttribute('scale', '0.30 0.30 0.30');
             });
@@ -147,8 +153,8 @@ Template.main.helpers({
         return Clients.findOne({});
     },
     activeImage: function() {
-        return GalleryObjects.findOne({
-            _id: Clients.findOne({}).activeGalleryObject
+        return Scenes.findOne({
+            _id: Clients.findOne({}).activeScene
         });
     }
 });

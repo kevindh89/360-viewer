@@ -153,9 +153,10 @@ Template.main.helpers({
         return Clients.findOne({});
     },
     activeImage: function() {
-        return Scenes.findOne({
+        const scene = Scenes.findOne({
             _id: Clients.findOne({}).activeScene
         });
+        return scene.findPropertiesOfType(Scene.__properties.SKY).file;
     }
 });
 

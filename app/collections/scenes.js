@@ -6,10 +6,14 @@ Scene = class Scene {
         _.extend(this, doc);
     }
 
-    properties() {
+    static get __properties() {
         return {
             SKY: 'sky'
         };
+    }
+
+    findPropertiesOfType(type) {
+        return _.findWhere(this.properties, { type: type });
     }
 
     dummy() {
@@ -46,6 +50,9 @@ ScenePropertySchema = new SimpleSchema({
  * @type {SimpleSchema}
  */
 SceneSchema = new SimpleSchema({
+    clientId: {
+        type: String
+    },
     properties: {
         type: [ScenePropertySchema]
     }

@@ -1,6 +1,6 @@
 <template name="quickSelector">
     {{#each scenes}}
-        <a-entity class="scene" mixin="image" geometry="primitive: sphere" scale="2 2 2" material="{{gallerySrc this}}"
+        <a-entity class="scene" mixin="image" geometry="primitive: sphere" scale="2 2 2" material="{{skyImage this}}"
                   data-id="{{this._id}}" event-set__enter="_event: mouseenter; material.color: yellowgreen; scale: 3 1 1"
                 position="{{getPosition @index}}" fill="both">
             <a-animation easing="linear" attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite"></a-animation>

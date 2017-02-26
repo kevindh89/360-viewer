@@ -11,8 +11,8 @@ Template.quickSelector.helpers({
     scenes: () => {
         return Scenes.find({}, {limit: 3});
     },
-    gallerySrc: (obj) => {
-        return 'src: url(' + obj.image + ')';
+    skyImage: (scene) => {
+        return 'src: url(' + scene.findPropertiesOfType(Scene.__properties.SKY).file + ')';
     },
     getPosition: (index) => {
         const positions = {

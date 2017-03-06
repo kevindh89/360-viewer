@@ -115,8 +115,10 @@ Template.main.onRendered(function() {
                 cursor.setAttribute('scale', '0.30 0.30 0.30');
             });
             this.el.addEventListener('mouseleave', function(evt) {
+                console.log('mouseleave', evt);
                 // Reset cursor size
                 const cursor = evt.srcElement;
+                cursor.emit('mouseleave-clickable');
                 cursor.setAttribute('scale', '0.30 0.30 0.30');
             });
             this.el.addEventListener('mouseenter', function(evt) {

@@ -21,20 +21,28 @@ Meteor.publish('scenesForHost', host => {
 /**
  * Get gallery objects by the client slug (short identifier used in url).
  */
-Meteor.publish('scenesForClient', slug => {
-    const client = Clients.findOne({slug: slug});
+Meteor.publishComposite('scenesForClient', function(slug) {
+    return {
+        find: () => {
+            const client = Clients.findOne({slug: slug});
 
-    if (!client) {
-        console.error('Client not found for slug: ' + slug);
-        return;
+            if (!client) {
+                console.error('Client not found for slug: ' + slug);
+                return;
+            }
+
+            return Scenes.find({
+                clientId: client._id
+            });
+        },
+        children: [
+            {
+                find: (scene) => {
+                    return HyperlinkObjects.find({
+                        sceneId: scene._id
+                    });
+                }
+            }
+        ]
     }
-
-    return Scenes.find({
-        clientId: client._id
-    });
-});
-
-// TODO: coding in an airplane without publishComposite package atm. Should be fixed later on.
-Meteor.publish('hyperlinkObjectsAll', () => {
-    return HyperlinkObjects.find();
 });

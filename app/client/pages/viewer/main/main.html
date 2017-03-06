@@ -95,7 +95,7 @@
                               position="0 0 -5" scale="0.30 0.30 0.30"
                               geometry="primitive: ring"
                               material="color: {{#if client.style.pointerColor}}{{client.style.pointerColor}}{{else}}#e9342d{{/if}}; shader: flat">
-                        <a-animation begin="mouseover-clickable" easing="ease-in" attribute="scale"
+                        <a-animation begin="mouseover-clickable" end="mouseleave-clickable" easing="ease-in" attribute="scale"
                                      fill="forwards" to="0.15 0.15 0.15" dur="1000"></a-animation>
                     </a-entity>
                 </a-entity>

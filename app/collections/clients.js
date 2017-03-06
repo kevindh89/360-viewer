@@ -43,10 +43,6 @@ ClientSchema = new SimpleSchema({
     host: {
         type: String,
         optional: true
-    },
-    activeScene: {
-        type: String,
-        optional: true
     }
 });
 

@@ -7,8 +7,7 @@ TestData.register(
         new Client({
             _id: 'test',
             username: 'vensterworks',
-            slug: 'v3n',
-            activeScene: 'test'
+            slug: 'v3n'
         })
     ]
 );

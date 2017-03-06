@@ -82,7 +82,13 @@
                     <img id="photo" src="{{activeImage}}"/>
                 </a-assets>
                 <a-entity position="0 0 0">
-                    {{> quickSelector}}
+                    {{#each hyperlinkObjects}}
+                        <a-entity class="scene" mixin="image" geometry="primitive: sphere" scale="2 2 2" material="{{skyImage getScene this}}"
+                                  data-id="{{getScene._id}}" event-set__enter="_event: mouseenter; material.color: yellowgreen; scale: 3 1 1"
+                                  position="{{getPosition}}" fill="both">
+                            <a-animation easing="linear" attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite"></a-animation>
+                        </a-entity>
+                    {{/each}}
                 </a-entity>
                 <a-entity id="hud" position="0 10 0" camera look-controls mouse-cursor>
                     <a-entity id="cursor" cursor="fuse: true; timeout: 0" cursor-listener

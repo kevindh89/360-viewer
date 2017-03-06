@@ -6,6 +6,7 @@ import './tests/testdata/_init.js';
 import './tests/testdata/clients.js';
 import './tests/testdata/scenes.js';
 import './tests/testdata/accounts.js';
+import './tests/testdata/hyperlinkObjects.js';
 
 Meteor.startup(() => {
     // code to run on server at startup

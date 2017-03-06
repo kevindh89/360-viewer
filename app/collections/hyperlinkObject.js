@@ -5,26 +5,27 @@ HyperlinkObject = class HyperlinkObject {
     constructor(doc) {
         _.extend(this, doc);
     }
+
+    findOnClickEvents(type) {
+        return _.findWhere(this.onClickEvents, { type: type });
+    }
 };
 
-EventSchema = new SimpleSchema({
-    type: {
-        type: String // one of Events.types()
-    }
-});
-
 HyperlinkObjectSchema = new SimpleSchema({
+    sceneId: {
+        type: String
+    },
     position: {
         type: Object
     },
     'position.x': {
-        type: Number
+        type: String
     },
     'position.y': {
-        type: Number
+        type: String
     },
     'position.z': {
-        type: Number
+        type: String
     },
     onClickEvents: {
         type: [EventSchema]

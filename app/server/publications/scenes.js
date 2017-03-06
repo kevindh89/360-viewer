@@ -33,3 +33,8 @@ Meteor.publish('scenesForClient', slug => {
         clientId: client._id
     });
 });
+
+// TODO: coding in an airplane without publishComposite package atm. Should be fixed later on.
+Meteor.publish('hyperlinkObjectsAll', () => {
+    return HyperlinkObjects.find();
+});

@@ -4,6 +4,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
 const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
+const activeSceneId = new ReactiveVar('test');
 let mySwiper;
 function updateLandscapeTrackers() {
     isLandscapeOriented.set(window.orientation === 90 || window.orientation === -90);
@@ -26,15 +27,16 @@ Template.main.onCreated(function mainOnCreated() {
     window.addEventListener("orientationchange", function() {
         // Announce the new orientation number
         // 90 = landscape
-        // 0 = portrait
-        // > fix that it rerenders af rotating.
-        updateLandscapeTrackers();
+            return;
+            // 0 = portrait
+            // > fix that it rerenders af rotating.
+            updateLandscapeTrackers();
 
-        Meteor.setTimeout(() => {
-            mySwiper.update();
-            $('.swiper-slide').css('width', screen.width);
-        }, 100);
-    }, false);
+            Meteor.setTimeout(() => {
+                mySwiper.update();
+                $('.swiper-slide').css('width', screen.width);
+            }, 100);
+        }, false);
 });
 
 let vrMode = false;
@@ -85,7 +87,6 @@ Template.main.onRendered(function() {
             return;
         }
         if ($(event.target).hasClass('scene')) {
-            return;
         }
         scene.exitVR();
     });
@@ -99,13 +100,6 @@ Template.main.onRendered(function() {
         if (!Clients.findOne()) {
             return;
         }
-        const activeScene = Scenes.findOne({
-            _id: Clients.findOne().activeScene
-        });
-        if (!activeScene) {
-            return;
-        }
-        $('#image').attr('src', activeScene.image);
     });
 
     AFRAME.registerComponent('cursor-listener', {
@@ -116,7 +110,7 @@ Template.main.onRendered(function() {
                 src = src.substring(0, src.length - 1);
                 $('#image').attr('src', src);
                 const clientId = Clients.findOne()._id;
-                Meteor.call('updateActiveScene', clientId, el.getAttribute('data-id'));
+                activeSceneId.set(el.getAttribute('data-id'));
                 evt.stopPropagation();
                 cursor.setAttribute('scale', '0.30 0.30 0.30');
             });
@@ -154,9 +148,27 @@ Template.main.helpers({
     },
     activeImage: function() {
         const scene = Scenes.findOne({
-            _id: Clients.findOne({}).activeScene
+            _id: activeSceneId.get()
         });
         return scene.findPropertiesOfType(Scene.__properties.SKY).file;
+    },
+
+    hyperlinkObjects: () => {
+        return HyperlinkObjects.find({
+            sceneId: activeSceneId.get()
+        });
+    },
+    skyImage: (scene) => {
+        return 'src: url(' + scene.findPropertiesOfType(Scene.__properties.SKY).file + ')';
+    },
+
+    // this == HyperlinkObject
+    getScene: function() {
+        const sceneId = this.findOnClickEvents(Event.__types.HYPERLINK) !== undefined ? this.findOnClickEvents(Event.__types.HYPERLINK).data.navigateToSceneId : undefined;
+        return Scenes.findOne({_id: sceneId});
+    },
+    getPosition: function() {
+        return this.position.x + ' ' + this.position.y + ' ' + this.position.z;
     }
 });
 

@@ -1,5 +1,5 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import {Template} from 'meteor/templating';
+import {ReactiveVar} from 'meteor/reactive-var';
 
 import './main.html';
 
@@ -24,19 +24,101 @@ Template.main.onCreated(function mainOnCreated() {
     // counter starts at 0
     this.counter = new ReactiveVar(0);
 
-    window.addEventListener("orientationchange", function() {
+    window.addEventListener("orientationchange", function () {
         // Announce the new orientation number
         // 90 = landscape
-            return;
-            // 0 = portrait
-            // > fix that it rerenders af rotating.
-            updateLandscapeTrackers();
+        return;
+        // 0 = portrait
+        // > fix that it rerenders af rotating.
+        updateLandscapeTrackers();
 
-            Meteor.setTimeout(() => {
-                mySwiper.update();
-                $('.swiper-slide').css('width', screen.width);
-            }, 100);
-        }, false);
+        Meteor.setTimeout(() => {
+            mySwiper.update();
+            $('.swiper-slide').css('width', screen.width);
+        }, 100);
+    }, false);
+
+    window.addEventListener("keydown", (evt) => {
+        console.log(evt);
+        const hyperlinkObject = document.querySelector(".hyperlink-object");
+        if (evt.keyCode === 37) {
+            // move left
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x - 1,
+                y: hyperlinkObject.getAttribute('position').y,
+                z: hyperlinkObject.getAttribute('position').z,
+            });
+        }
+
+        if (evt.keyCode === 38) {
+            // move forward
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x,
+                y: hyperlinkObject.getAttribute('position').y,
+                z: hyperlinkObject.getAttribute('position').z - 1,
+            });
+        }
+
+        if (evt.keyCode === 39) {
+            // move right
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x + 1,
+                y: hyperlinkObject.getAttribute('position').y,
+                z: hyperlinkObject.getAttribute('position').z,
+            });
+        }
+
+        if (evt.keyCode === 40) {
+            // move backward
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x,
+                y: hyperlinkObject.getAttribute('position').y,
+                z: hyperlinkObject.getAttribute('position').z + 1,
+            });
+        }
+
+        if (evt.keyCode === 87) {
+            // move up
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x,
+                y: hyperlinkObject.getAttribute('position').y + 1,
+                z: hyperlinkObject.getAttribute('position').z,
+            });
+        }
+
+        if (evt.keyCode === 83) {
+            // move down
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x,
+                y: hyperlinkObject.getAttribute('position').y - 1,
+                z: hyperlinkObject.getAttribute('position').z,
+            });
+        }
+
+        if (evt.keyCode === 81) {
+            // rotate ccw
+            hyperlinkObject.setAttribute('rotation', {
+                x: hyperlinkObject.getAttribute('rotation').x,
+                y: hyperlinkObject.getAttribute('rotation').y + 5,
+                z: hyperlinkObject.getAttribute('rotation').z,
+            });
+        }
+
+        if (evt.keyCode === 69) {
+            // rotate cw
+            hyperlinkObject.setAttribute('rotation', {
+                x: hyperlinkObject.getAttribute('rotation').x,
+                y: hyperlinkObject.getAttribute('rotation').y - 5,
+                z: hyperlinkObject.getAttribute('rotation').z,
+            });
+        }
+
+        if (evt.keyCode === 80) {
+            // get current position and rotation
+            console.log('Position', hyperlinkObject.getAttribute('position'));
+            console.log('Rotation', hyperlinkObject.getAttribute('rotation'));
+        }
+    });
 });
 
 let vrMode = false;
@@ -54,7 +136,7 @@ function showHUD() {
     });
 }
 
-Template.main.onRendered(function() {
+Template.main.onRendered(function () {
     updateLandscapeTrackers();
 
     mySwiper = new Swiper('.swiper-container', {
@@ -103,29 +185,32 @@ Template.main.onRendered(function() {
     });
 
     AFRAME.registerComponent('cursor-listener', {
-        init: function() {
-            this.el.addEventListener('click', function(evt) {
+        init: function () {
+            this.el.addEventListener('click', function (evt) {
                 const el = evt.detail.intersectedEl;
-                let src = el.getAttribute('material').src.substring(4);
+                let src = el.getAttribute('data-src').substring(4);
                 src = src.substring(0, src.length - 1);
                 $('#image').attr('src', src);
-                const clientId = Clients.findOne()._id;
                 activeSceneId.set(el.getAttribute('data-id'));
                 evt.stopPropagation();
                 cursor.setAttribute('scale', '0.30 0.30 0.30');
             });
-            this.el.addEventListener('mouseleave', function(evt) {
-                console.log('mouseleave', evt);
+            this.el.addEventListener('mouseleave', function (evt) {
                 // Reset cursor size
                 const cursor = evt.srcElement;
                 cursor.emit('mouseleave-clickable');
                 cursor.setAttribute('scale', '0.30 0.30 0.30');
             });
-            this.el.addEventListener('mouseenter', function(evt) {
+            this.el.addEventListener('mouseenter', function (evt) {
                 const cursor = evt.srcElement;
                 const el = evt.detail.intersectedEl;
 
-                let src = el.getAttribute('material').src.substring(4);
+                // Apparently the mouseenter event gets triggered without a intersect element sometimes.
+                if (el === undefined) {
+                    return;
+                }
+
+                let src = el.getAttribute('data-src').substring(4);
                 src = src.substring(0, src.length - 1);
 
                 if ($('#image').attr('src') === src) {
@@ -148,7 +233,7 @@ Template.main.helpers({
     client() {
         return Clients.findOne({});
     },
-    activeImage: function() {
+    activeImage: function () {
         const scene = Scenes.findOne({
             _id: activeSceneId.get()
         });
@@ -165,12 +250,18 @@ Template.main.helpers({
     },
 
     // this == HyperlinkObject
-    getScene: function() {
+    getScene: function () {
         const sceneId = this.findOnClickEvents(Event.__types.HYPERLINK) !== undefined ? this.findOnClickEvents(Event.__types.HYPERLINK).data.navigateToSceneId : undefined;
         return Scenes.findOne({_id: sceneId});
     },
-    getPosition: function() {
+    getPosition: function () {
         return this.position.x + ' ' + this.position.y + ' ' + this.position.z;
+    },
+    getRotation: function () {
+        if (this.rotation === undefined) {
+            return 0 + ' ' + 0 + ' ' + 0;
+        }
+        return this.rotation.x + ' ' + this.rotation.y + ' ' + this.rotation.z;
     }
 });
 
@@ -192,7 +283,7 @@ Template.main.events({
         //var stop = parseInt(endByte) || file.size - 1;
 
         var reader = new FileReader();
-        reader.onload = function(evt) {
+        reader.onload = function (evt) {
             if (evt.target.readyState === FileReader.DONE) {
                 document.querySelector('a-sky').setAttribute('src', evt.target.result);
             }

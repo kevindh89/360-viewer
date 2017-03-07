@@ -11,8 +11,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: 'R0010198.JPG',
-                    previewFile: 'R0010198.JPG'
+                    file: '/360-photos/hall.JPG',
+                    previewFile: '/360-photos/hall.JPG'
                 }
             ]
         }),
@@ -22,8 +22,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: 'R0010237.JPG',
-                    previewFile: 'R0010237.JPG'
+                    file: '/360-photos/kitchen.JPG',
+                    previewFile: '/360-photos/kitchen.JPG'
                 }
             ]
         }),
@@ -33,8 +33,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: 'R0010471.JPG',
-                    previewFile: 'R0010471.JPG'
+                    file: '/360-photos/livingroom.JPG',
+                    previewFile: '/360-photos/livingroom.JPG'
                 }
             ]
         })

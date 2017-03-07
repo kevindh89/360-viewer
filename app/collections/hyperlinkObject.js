@@ -27,6 +27,22 @@ HyperlinkObjectSchema = new SimpleSchema({
     'position.z': {
         type: String
     },
+    rotation: {
+        type: Object,
+        optional: true
+    },
+    // Roll
+    'rotation.x': {
+        type: String
+    },
+    // Pitch
+    'rotation.y': {
+        type: String
+    },
+    // Yaw
+    'rotation.z': {
+        type: String
+    },
     onClickEvents: {
         type: [EventSchema]
     }

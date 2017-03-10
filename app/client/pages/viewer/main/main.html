@@ -1,98 +1,89 @@
 <template name="main">
-    <div class="portrait-text" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}">
-        <div class="row title-row">
-            <div class="col-xs-12 col-sm-12 title">
-                <h1>360º photo viewer</h1>
-            </div>
-        </div>
-        <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                    <h2>View 360 images in single or VR mode</h2>
-
-                    <p class="lead">
-                        <video autoplay="true" id="videoElement">
-
-                        </video>
-                        <em>Swipe to the left to learn how to use the app..</em>
-                        <br/>
-                        <img src="/images/swipe-gesture.png">
-                    </p>
-                </div>
-                <div class="swiper-slide">
-                    <h2>HOW TO: Single mode</h2>
-
-                    <p class="lead">
-                        <em>Try to rotate your smartphone to switch between viewing the 360 image and this introduction</em>
-                        <br/>
-                        <img src="/images/rotate-phone-icon.png" class="swipe-gesture">
-                    </p>
-                </div>
-                <div class="swiper-slide">
-                    <h2>HOW TO: VR mode</h2>
-
-                    <p class="lead">
-                        <em>
-                            Click <img src="/images/vr-icon.png" class="vr-icon"/> in the right bottom corner.
-                            <br/>
-                            Put your phone in VR glasses and you're ready to go!
-                        </em>
-                    </p>
-
-                    <img src="/images/boaz.png" class="boaz"/>
-                    <img src="/images/charlie.png" class="charlie"/>
-
-                    <div class="row no-vr-glasses-text">
-                        Don't you have any VR glasses? <a href="http://www.vensterworks.com/products"
-                                                          target="_blank">Order now!</a>
-                    </div>
-                </div>
-            </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-        </div>
-
-        <!--<div id="start-app-text" class="start-app-text">-->
-        <!--Start 360 viewer-->
-        <!--<br/>|<br/>v-->
+    <!--<div class="portrait-text" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}">-->
+        <!--<div class="row title-row">-->
+            <!--<div class="col-xs-12 col-sm-12 title">-->
+                <!--<h1>360º photo viewer</h1>-->
+            <!--</div>-->
         <!--</div>-->
-        <div id="start-app-icon" class="start-app-icon">
-            <img src="/images/logo-with-text.png" onclick="window.open('http://www.vensterworks.com', '_blank');"/>
-        </div>
-        <div id="vr-mode-text" class="start-vr-text hide">
-            VR mode
-            <br/>|<br/>v
-        </div>
-    </div>
-    <div class="portrait-overlay" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}"></div>
-    <div class="portrait-overlay-back" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}"></div>
+        <!--<div class="swiper-container">-->
+            <!--&lt;!&ndash; Additional required wrapper &ndash;&gt;-->
+            <!--<div class="swiper-wrapper">-->
+                <!--&lt;!&ndash; Slides &ndash;&gt;-->
+                <!--<div class="swiper-slide">-->
+                    <!--<h2>View 360 images in single or VR mode</h2>-->
+
+                    <!--<p class="lead">-->
+                        <!--<video autoplay="true" id="videoElement">-->
+
+                        <!--</video>-->
+                        <!--<em>Swipe to the left to learn how to use the app..</em>-->
+                        <!--<br/>-->
+                        <!--<img src="/images/swipe-gesture.png">-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="swiper-slide">-->
+                    <!--<h2>HOW TO: Single mode</h2>-->
+
+                    <!--<p class="lead">-->
+                        <!--<em>Try to rotate your smartphone to switch between viewing the 360 image and this introduction</em>-->
+                        <!--<br/>-->
+                        <!--<img src="/images/rotate-phone-icon.png" class="swipe-gesture">-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="swiper-slide">-->
+                    <!--<h2>HOW TO: VR mode</h2>-->
+
+                    <!--<p class="lead">-->
+                        <!--<em>-->
+                            <!--Click <img src="/images/vr-icon.png" class="vr-icon"/> in the right bottom corner.-->
+                            <!--<br/>-->
+                            <!--Put your phone in VR glasses and you're ready to go!-->
+                        <!--</em>-->
+                    <!--</p>-->
+
+                    <!--<img src="/images/boaz.png" class="boaz"/>-->
+                    <!--<img src="/images/charlie.png" class="charlie"/>-->
+
+                    <!--<div class="row no-vr-glasses-text">-->
+                        <!--Don't you have any VR glasses? <a href="http://www.vensterworks.com/products"-->
+                                                          <!--target="_blank">Order now!</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; If we need pagination &ndash;&gt;-->
+            <!--<div class="swiper-pagination"></div>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash;<div id="start-app-text" class="start-app-text">&ndash;&gt;-->
+        <!--&lt;!&ndash;Start 360 viewer&ndash;&gt;-->
+        <!--&lt;!&ndash;<br/>|<br/>v&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<div id="start-app-icon" class="start-app-icon">-->
+            <!--<img src="/images/logo-with-text.png" onclick="window.open('http://www.vensterworks.com', '_blank');"/>-->
+        <!--</div>-->
+        <!--<div id="vr-mode-text" class="start-vr-text hide">-->
+            <!--VR mode-->
+            <!--<br/>|<br/>v-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="portrait-overlay" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}"></div>-->
+    <!--<div class="portrait-overlay-back" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}"></div>-->
     <div class="action-container">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
-            <a-scene vr-mode-ui="enabled: true"
-                     inspector="url: https://aframe.io/releases/0.4.0/aframe-inspector.min.js">
-                <!--<a-box position="0 3.5 -2" rotation="30 30 0" color="skyblue"-->
-                       <!--event-set__enter="_event: mouseenter; material.color: yellowgreen; scale: 3 1 1"-->
-                       <!--event-set__leave="_event: mouseleave; material.color: skyblue; scale: 1 1 1">-->
-                    <!--<a-animation attribute="rotation" begin="click" dur="500" fill="backwards" to="30 30 360"></a-animation>-->
-                <!--</a-box>-->
-
+            <a-scene vr-mode-ui="enabled: true">
                 <a-assets>
                     <img id="photo" src="{{activeImage}}"/>
                 </a-assets>
                 <a-entity position="0 0 0">
                     {{#each hyperlinkObjects}}
-                        <a-entity class="scene hyperlink-object" mixin="image" collada-model="url(/models/pointer.dae)" scale="0.5 0.5 0.5"
+                        <a-entity class="scene hyperlink-object" collada-model="/models/pointer.dae" scale="0.5 0.5 0.5"
                                   rotation="{{getRotation}}" position="{{getPosition}}"
                                   data-src="{{skyImage getScene this}})" data-id="{{getScene._id}}"
-                                  event-set__enter="_event: mouseenter; material.color: yellowgreen;"
-                                  fill="both">
-                            <!--<a-animation easing="linear" attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite"></a-animation>-->
+                                  event-set__enter="_event: mouseenter; material.color: yellowgreen;">
                         </a-entity>
                     {{/each}}
                 </a-entity>
-                <a-entity id="hud" position="0 10 0" camera look-controls mouse-cursor>
+                <a-entity id="hud" position="0 10 0" far="10000000" camera look-controls mouse-cursor>
                     <a-entity id="cursor" cursor="fuse: true; timeout: 0" cursor-listener
                               position="0 0 -5" scale="0.30 0.30 0.30"
                               geometry="primitive: ring"

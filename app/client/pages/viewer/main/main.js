@@ -5,7 +5,9 @@ import './main.html';
 
 const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
 const activeSceneId = new ReactiveVar('test');
-let mySwiper;
+let vrMode = false;
+
+// let mySwiper;
 function updateLandscapeTrackers() {
     isLandscapeOriented.set(window.orientation === 90 || window.orientation === -90);
 
@@ -33,8 +35,8 @@ Template.main.onCreated(function mainOnCreated() {
         updateLandscapeTrackers();
 
         Meteor.setTimeout(() => {
-            mySwiper.update();
-            $('.swiper-slide').css('width', screen.width);
+            // mySwiper.update();
+            // $('.swiper-slide').css('width', screen.width);
         }, 100);
     }, false);
 
@@ -121,61 +123,60 @@ Template.main.onCreated(function mainOnCreated() {
     });
 });
 
-let vrMode = false;
-
-
 function hideHUD() {
-    $('#hud').fadeOut('fast', () => {
-        vrMode = true;
-    });
+    document.getElementById('cursor').setAttribute('visible', false);
 }
 
 function showHUD() {
-    $('#hud').fadeIn('fast', () => {
-        vrMode = false;
-    });
+    document.getElementById('cursor').setAttribute('visible', true);
 }
 
 Template.main.onRendered(function () {
-    updateLandscapeTrackers();
+    hideHUD();
 
-    mySwiper = new Swiper('.swiper-container', {
-        speed: 400,
-        spaceBetween: 100,
-        pagination: '.swiper-pagination',
-        paginationClickable: true
-    });
-
-    mySwiper.on('onSlideChangeStart', (event) => {
-        $('.highlighted-by-swiper').addClass('hide');
-        $('.highlighted-by-swiper').removeClass('highlighted-by-swiper');
-        if (event.activeIndex === 2) {
-            // highlight vr mode
-            $('#vr-mode-text').addClass('highlighted-by-swiper');
-            $('#vr-mode-text').removeClass('hide');
-        }
-    });
+    // mySwiper = new Swiper('.swiper-container', {
+    //     speed: 400,
+    //     spaceBetween: 100,
+    //     pagination: '.swiper-pagination',
+    //     paginationClickable: true
+    // });
+    //
+    // mySwiper.on('onSlideChangeStart', (event) => {
+    //     $('.highlighted-by-swiper').addClass('hide');
+    //     $('.highlighted-by-swiper').removeClass('highlighted-by-swiper');
+    //     if (event.activeIndex === 2) {
+    //         // highlight vr mode
+    //         $('#vr-mode-text').addClass('highlighted-by-swiper');
+    //         $('#vr-mode-text').removeClass('hide');
+    //     }
+    // });
 
     const scene = document.querySelector('a-scene');
     scene.addEventListener('enter-vr', (event) => {
-        hideHUD();
+        vrMode = true;
+        showHUD();
     });
     scene.addEventListener('exit-vr', (event) => {
-        mySwiper.update();
-        showHUD();
+        vrMode = false;
+        hideHUD();
     });
     scene.addEventListener('click', (event) => {
         if (vrMode === false) {
             return;
         }
-        if ($(event.target).hasClass('scene')) {
+        if ($(event.target).hasClass('hyperlink-object')) {
+            return;
         }
         scene.exitVR();
     });
 
-    const cursor = document.querySelector('#cursor');
-    cursor.addEventListener('click', (event) => {
-        console.log('click', event);
+    $(document).delegate('.hyperlink-object', 'click', (event) => {
+        if (event.target === undefined) return;
+        const el = event.target;
+        let src = el.getAttribute('data-src').substring(4);
+        src = src.substring(0, src.length - 1);
+        $('#image').attr('src', src);
+        activeSceneId.set(el.getAttribute('data-id'));
     });
 
     this.autorun(() => {
@@ -187,6 +188,7 @@ Template.main.onRendered(function () {
     AFRAME.registerComponent('cursor-listener', {
         init: function () {
             this.el.addEventListener('click', function (evt) {
+                console.log(evt);
                 const el = evt.detail.intersectedEl;
                 let src = el.getAttribute('data-src').substring(4);
                 src = src.substring(0, src.length - 1);

@@ -1,4 +1,15 @@
 Router.route('clientViewer', {
+    path: '/',
+    template: 'main',
+    waitOn: function() {
+        return [
+            Meteor.subscribe('clientForSlug', 'v3n'),
+            Meteor.subscribe('scenesForClient', 'v3n')
+        ];
+    }
+});
+
+Router.route('clientViewer', {
     path: '/:slug',
     template: 'main',
     waitOn: function() {

@@ -1,4 +1,4 @@
-Router.route('clientViewer', {
+Router.route('home', {
     path: '/',
     template: 'main',
     waitOn: function() {

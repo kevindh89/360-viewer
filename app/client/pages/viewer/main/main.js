@@ -6,6 +6,7 @@ import './main.html';
 const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
 const activeSceneId = new ReactiveVar('test');
 let vrMode = false;
+let hyperlinkAnimation = false;
 
 // let mySwiper;
 function updateLandscapeTrackers() {
@@ -256,6 +257,12 @@ Template.main.helpers({
     },
     getPosition: function () {
         return this.position.x + ' ' + this.position.y + ' ' + this.position.z;
+    },
+    getPositionStart: function () {
+        return this.position.x + ',' + this.position.y + ',' + this.position.z;
+    },
+    getPositionEnd: function () {
+        return this.position.x + ',' + (parseFloat(this.position.y)+0.15) + ',' + this.position.z;
     },
     getRotation: function () {
         if (this.rotation === undefined) {

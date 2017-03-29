@@ -6,9 +6,7 @@ import './main.html';
 const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
 const activeSceneId = new ReactiveVar('test');
 let vrMode = false;
-let hyperlinkAnimation = false;
 
-// let mySwiper;
 function updateLandscapeTrackers() {
     isLandscapeOriented.set(window.orientation === 90 || window.orientation === -90);
 
@@ -134,24 +132,8 @@ function showHUD() {
 Template.main.onRendered(function () {
     hideHUD();
 
-    // mySwiper = new Swiper('.swiper-container', {
-    //     speed: 400,
-    //     spaceBetween: 100,
-    //     pagination: '.swiper-pagination',
-    //     paginationClickable: true
-    // });
-    //
-    // mySwiper.on('onSlideChangeStart', (event) => {
-    //     $('.highlighted-by-swiper').addClass('hide');
-    //     $('.highlighted-by-swiper').removeClass('highlighted-by-swiper');
-    //     if (event.activeIndex === 2) {
-    //         // highlight vr mode
-    //         $('#vr-mode-text').addClass('highlighted-by-swiper');
-    //         $('#vr-mode-text').removeClass('hide');
-    //     }
-    // });
-
     const scene = document.querySelector('a-scene');
+
     scene.addEventListener('enter-vr', (event) => {
         vrMode = true;
         showHUD();
@@ -172,6 +154,7 @@ Template.main.onRendered(function () {
 
     $(document).delegate('.hyperlink-object', 'click', (event) => {
         if (event.target === undefined) return;
+
         const el = event.target;
         let src = el.getAttribute('data-src').substring(4);
         src = src.substring(0, src.length - 1);
@@ -269,35 +252,5 @@ Template.main.helpers({
             return 0 + ' ' + 0 + ' ' + 0;
         }
         return this.rotation.x + ' ' + this.rotation.y + ' ' + this.rotation.z;
-    }
-});
-
-Template.main.events({
-    'change #files'(event, instance) {
-        // increment the counter when button is clicked
-
-        //var startByte = event.target.getAttribute('data-startbyte');
-        //var endByte = event.target.getAttribute('data-endbyte');
-
-        var files = document.getElementById('files').files;
-        if (!files.length) {
-            alert('Please select a file!');
-            return;
-        }
-
-        var file = files[0];
-        //var start = parseInt(startByte) || 0;
-        //var stop = parseInt(endByte) || file.size - 1;
-
-        var reader = new FileReader();
-        reader.onload = function (evt) {
-            if (evt.target.readyState === FileReader.DONE) {
-                document.querySelector('a-sky').setAttribute('src', evt.target.result);
-            }
-        };
-
-        //var blob = file.slice(start, stop + 1);
-        //reader.readAsBinaryString(blob);
-        reader.readAsDataURL(file);
     }
 });

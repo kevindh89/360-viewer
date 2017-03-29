@@ -1,73 +1,4 @@
 <template name="main">
-    <!--<div class="portrait-text" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}">-->
-        <!--<div class="row title-row">-->
-            <!--<div class="col-xs-12 col-sm-12 title">-->
-                <!--<h1>360º photo viewer</h1>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="swiper-container">-->
-            <!--&lt;!&ndash; Additional required wrapper &ndash;&gt;-->
-            <!--<div class="swiper-wrapper">-->
-                <!--&lt;!&ndash; Slides &ndash;&gt;-->
-                <!--<div class="swiper-slide">-->
-                    <!--<h2>View 360 images in single or VR mode</h2>-->
-
-                    <!--<p class="lead">-->
-                        <!--<video autoplay="true" id="videoElement">-->
-
-                        <!--</video>-->
-                        <!--<em>Swipe to the left to learn how to use the app..</em>-->
-                        <!--<br/>-->
-                        <!--<img src="/images/swipe-gesture.png">-->
-                    <!--</p>-->
-                <!--</div>-->
-                <!--<div class="swiper-slide">-->
-                    <!--<h2>HOW TO: Single mode</h2>-->
-
-                    <!--<p class="lead">-->
-                        <!--<em>Try to rotate your smartphone to switch between viewing the 360 image and this introduction</em>-->
-                        <!--<br/>-->
-                        <!--<img src="/images/rotate-phone-icon.png" class="swipe-gesture">-->
-                    <!--</p>-->
-                <!--</div>-->
-                <!--<div class="swiper-slide">-->
-                    <!--<h2>HOW TO: VR mode</h2>-->
-
-                    <!--<p class="lead">-->
-                        <!--<em>-->
-                            <!--Click <img src="/images/vr-icon.png" class="vr-icon"/> in the right bottom corner.-->
-                            <!--<br/>-->
-                            <!--Put your phone in VR glasses and you're ready to go!-->
-                        <!--</em>-->
-                    <!--</p>-->
-
-                    <!--<img src="/images/boaz.png" class="boaz"/>-->
-                    <!--<img src="/images/charlie.png" class="charlie"/>-->
-
-                    <!--<div class="row no-vr-glasses-text">-->
-                        <!--Don't you have any VR glasses? <a href="http://www.vensterworks.com/products"-->
-                                                          <!--target="_blank">Order now!</a>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--&lt;!&ndash; If we need pagination &ndash;&gt;-->
-            <!--<div class="swiper-pagination"></div>-->
-        <!--</div>-->
-
-        <!--&lt;!&ndash;<div id="start-app-text" class="start-app-text">&ndash;&gt;-->
-        <!--&lt;!&ndash;Start 360 viewer&ndash;&gt;-->
-        <!--&lt;!&ndash;<br/>|<br/>v&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--<div id="start-app-icon" class="start-app-icon">-->
-            <!--<img src="/images/logo-with-text.png" onclick="window.open('http://www.vensterworks.com', '_blank');"/>-->
-        <!--</div>-->
-        <!--<div id="vr-mode-text" class="start-vr-text hide">-->
-            <!--VR mode-->
-            <!--<br/>|<br/>v-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="portrait-overlay" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}"></div>-->
-    <!--<div class="portrait-overlay-back" style="{{#if isPortraitOriented}}{{else}}display: none;{{/if}}"></div>-->
     <div class="action-container">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
             <a-scene vr-mode-ui="enabled: true">
@@ -89,6 +20,7 @@
                               position="0 0 -5" scale="0.30 0.30 0.30"
                               geometry="primitive: ring"
                               material="color: {{#if client.style.pointerColor}}{{client.style.pointerColor}}{{else}}#e9342d{{/if}}; shader: flat">
+                        <a-animation attribute="scale" from="0.30 0.30 0.30" to="0.40 0.40 0.40" dur="2000" direction="alternate" easing="linear" repeat="indefinite"></a-animation>
                         <a-animation begin="mouseover-clickable" end="mouseleave-clickable" easing="ease-in" attribute="scale"
                                      fill="forwards" to="0.15 0.15 0.15" dur="1000"></a-animation>
                     </a-entity>

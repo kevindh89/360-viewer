@@ -152,16 +152,6 @@ Template.main.onRendered(function () {
         scene.exitVR();
     });
 
-    $(document).delegate('.hyperlink-object', 'click', (event) => {
-        if (event.target === undefined) return;
-
-        const el = event.target;
-        let src = el.getAttribute('data-src').substring(4);
-        src = src.substring(0, src.length - 1);
-        $('#image').attr('src', src);
-        activeSceneId.set(el.getAttribute('data-id'));
-    });
-
     this.autorun(() => {
         if (!Clients.findOne()) {
             return;
@@ -171,13 +161,13 @@ Template.main.onRendered(function () {
     AFRAME.registerComponent('cursor-listener', {
         init: function () {
             this.el.addEventListener('click', function (evt) {
-                const el = evt.detail.intersectedEl;
-                let src = el.getAttribute('data-src').substring(4);
-                src = src.substring(0, src.length - 1);
-                $('#image').attr('src', src);
-                activeSceneId.set(el.getAttribute('data-id'));
+                // const el = evt.detail.intersectedEl;
+                // let src = el.getAttribute('data-src').substring(4);
+                // src = src.substring(0, src.length - 1);
+                // $('#image').attr('src', src);
+                // activeSceneId.set(el.getAttribute('data-id'));
                 evt.stopPropagation();
-                cursor.setAttribute('scale', '0.30 0.30 0.30');
+                // cursor.setAttribute('scale', '0.30 0.30 0.30');
             });
             this.el.addEventListener('mouseleave', function (evt) {
                 // Reset cursor size
@@ -190,7 +180,7 @@ Template.main.onRendered(function () {
                 const el = evt.detail.intersectedEl;
 
                 // Apparently the mouseenter event gets triggered without a intersect element sometimes.
-                if (el === undefined) {
+                if (el === undefined || el.getAttribute('data-src') === null) {
                     return;
                 }
 
@@ -205,6 +195,43 @@ Template.main.onRendered(function () {
             });
         }
     });
+
+    AFRAME.registerComponent('set-image', {
+        schema: {
+            on: {
+                type: 'string'
+            },
+            target: {
+                type: 'selector'
+            },
+            src: {
+                type: 'string'
+            },
+            dur: {
+                type: 'number',
+                default: 300
+            }
+        },
+        init: function() {
+            var data = this.data;
+            var el = this.el;
+            el.addEventListener('click', function() {
+                data.target.emit('set-image-fade');
+                _.each(document.querySelectorAll('.hyperlink-object'), obj => {
+                    obj.setAttribute('visible', false);
+                });
+                setTimeout(function() {
+                    data.target.setAttribute('material', 'src', data.src);
+                    activeSceneId.set(el.getAttribute('data-id'));
+                }, 1000);
+            });
+
+            window.addEventListener('animationbegin', (evt) => {
+                console.log('animationbegin', evt);
+            });
+        }
+    });
+
 });
 
 Template.main.helpers({

@@ -158,6 +158,30 @@ Template.main.onRendered(function () {
         }
     });
 
+    AFRAME.registerComponent('mouseenter-tracking', {
+        init: function () {
+            let locked = false;
+
+            this.el.addEventListener('mouseenter', function (evt) {
+                if (locked === true ) { return; }
+
+                const hyperlinkObject = evt.srcElement;
+                hyperlinkObject.setAttribute('collada-model', 'url(/models/pointer2.dae)');
+
+                locked = true;
+                setTimeout(function() { locked = false; }, 200);
+            });
+            this.el.addEventListener('mouseleave', function (evt) {
+                if (locked === true ) { return; }
+
+                const hyperlinkObject = evt.srcElement;
+                hyperlinkObject.setAttribute('collada-model', 'url(/models/pointer.dae)');
+                locked = true;
+                setTimeout(function() { locked = false; }, 200);
+            });
+        }
+    });
+
     AFRAME.registerComponent('cursor-listener', {
         init: function () {
             this.el.addEventListener('click', function (evt) {
@@ -224,10 +248,6 @@ Template.main.onRendered(function () {
                     data.target.setAttribute('material', 'src', data.src);
                     activeSceneId.set(el.getAttribute('data-id'));
                 }, 1000);
-            });
-
-            window.addEventListener('animationbegin', (evt) => {
-                console.log('animationbegin', evt);
             });
         }
     });

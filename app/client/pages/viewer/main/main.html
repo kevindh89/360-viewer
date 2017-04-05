@@ -1,18 +1,19 @@
 <template name="main">
-    <div class="hidden">
-        <script type="text/javascript">
-            <!--//--><![CDATA[//><!--
-            const images = [];
-            function preload(img) {
+    <script type="text/javascript">
+        <!--//--><![CDATA[//><!--
+        const images = [];
+        function preload() {
+            for (i = 0; i < preload.arguments.length; i++) {
                 images[i] = new Image();
-                images[i].src = img;
+                images[i].src = preload.arguments[i];
             }
-            {{#each hyperlinkObjects}}
-            preload("{{skyImage getScene this}}");
-            {{/each}}
-            //--><!]]>
-        </script>
-    </div>
+        }
+
+        {{#each hyperlinkObjects}}
+        preload("{{getImage getScene this}}");
+        {{/each}}
+        //--><!]]>
+    </script>
 
     <div class="action-container">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">

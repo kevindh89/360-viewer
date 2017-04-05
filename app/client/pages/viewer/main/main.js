@@ -276,6 +276,9 @@ Template.main.helpers({
             sceneId: activeSceneId.get()
         });
     },
+    getImage: (scene) => {
+        return (scene.findPropertiesOfType(Scene.__properties.SKY).file).replace(/(\r\n|\n|\r)/gm," ");
+    },
     skyImage: (scene) => {
         return 'src: url(' + scene.findPropertiesOfType(Scene.__properties.SKY).file + ')';
     },

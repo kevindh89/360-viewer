@@ -169,7 +169,7 @@ Template.main.onRendered(function () {
                 hyperlinkObject.setAttribute('collada-model', 'url(/models/pointer2.dae)');
 
                 locked = true;
-                setTimeout(function() { locked = false; }, 200);
+                setTimeout(function() { locked = false; }, 50);
             });
             this.el.addEventListener('mouseleave', function (evt) {
                 if (locked === true ) { return; }
@@ -177,7 +177,7 @@ Template.main.onRendered(function () {
                 const hyperlinkObject = evt.srcElement;
                 hyperlinkObject.setAttribute('collada-model', 'url(/models/pointer.dae)');
                 locked = true;
-                setTimeout(function() { locked = false; }, 200);
+                setTimeout(function() { locked = false; }, 50);
             });
         }
     });

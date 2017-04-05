@@ -1,4 +1,19 @@
 <template name="main">
+    <div class="hidden">
+        <script type="text/javascript">
+            <!--//--><![CDATA[//><!--
+            const images = [];
+            function preload(img) {
+                images[i] = new Image();
+                images[i].src = img;
+            }
+            {{#each hyperlinkObjects}}
+            preload("{{skyImage getScene this}}");
+            {{/each}}
+            //--><!]]>
+        </script>
+    </div>
+
     <div class="action-container">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
             <a-scene vr-mode-ui="enabled: true">

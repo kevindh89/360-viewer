@@ -3,3 +3,4 @@ app/node_modules/
 app/public/360-viewer/*
 app/public/360-viewer
 .DS_Store
+output/

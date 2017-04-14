@@ -8,6 +8,7 @@ TestData.register(
         new Scene({
             _id: 'test',
             clientId: 'test',
+            initialScene: true,
             properties: [
                 {
                     type: Scene.__properties.SKY,
@@ -37,6 +38,42 @@ TestData.register(
                     previewFile: '/360-photos/livingroom.JPG'
                 }
             ]
-        })
+        }),
+
+        // Delft
+        new Scene({
+            _id: 'delft1',
+            clientId: 'delft',
+            properties: [
+                {
+                    type: Scene.__properties.SKY,
+                    file: '/360-photos/delft/1.JPG',
+                    previewFile: '/360-photos/delft/1.JPG'
+                }
+            ]
+        }),
+        new Scene({
+            _id: 'delft2',
+            clientId: 'delft',
+            initialScene: true,
+            properties: [
+                {
+                    type: Scene.__properties.SKY,
+                    file: '/360-photos/delft/2.JPG',
+                    previewFile: '/360-photos/delft/2.JPG'
+                }
+            ]
+        }),
+        new Scene({
+            _id: 'delft3',
+            clientId: 'delft',
+            properties: [
+                {
+                    type: Scene.__properties.SKY,
+                    file: '/360-photos/delft/3.JPG',
+                    previewFile: '/360-photos/delft/3.JPG'
+                }
+            ]
+        }),
     ]
 );

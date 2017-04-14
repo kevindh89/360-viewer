@@ -92,6 +92,96 @@ TestData.register(
                     }
                 }
             ]
+        }),
+
+        // Delft
+        new HyperlinkObject({
+            _id: 'delft1',
+            sceneId: 'delft1',
+            position: {
+                x: 29,
+                y: 1,
+                z: 11
+            },
+            rotation: {
+                x: 0,
+                y: -235,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: Event.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'delft2'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'delft2',
+            sceneId: 'delft2',
+            position: {
+                x: 29,
+                y: 1,
+                z: 24
+            },
+            rotation: {
+                x: 0,
+                y: -255,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: Event.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'delft3'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'delft2_2',
+            sceneId: 'delft2',
+            position: {
+                x: -22,
+                y: 1,
+                z: -22
+            },
+            rotation: {
+                x: 0,
+                y: -80,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: Event.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'delft1'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'delft3',
+            sceneId: 'delft3',
+            position: {
+                x: 29,
+                y: 1,
+                z: 24
+            },
+            rotation: {
+                x: 0,
+                y: -255,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: Event.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'delft4'
+                    }
+                }
+            ]
         })
     ]
 );

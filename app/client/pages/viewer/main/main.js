@@ -1,10 +1,10 @@
 import {Template} from 'meteor/templating';
 import {ReactiveVar} from 'meteor/reactive-var';
 
-import './main.html';
+import 'main.html';
 
 const isLandscapeOriented = new ReactiveVar(window.orientation === 90);
-const activeSceneId = new ReactiveVar('test');
+const activeSceneId = new ReactiveVar('delft1');
 let vrMode = false;
 
 function updateLandscapeTrackers() {
@@ -21,7 +21,13 @@ function updateLandscapeTrackers() {
     }
 }
 
-Template.main.onCreated(function mainOnCreated() {
+Template.main.onCreated(function() {
+    const initialScene = Scenes.findOne({
+        clientId: this.data._id,
+        initialScene: true
+    });
+    activeSceneId.set(initialScene._id);
+
     // counter starts at 0
     this.counter = new ReactiveVar(0);
 
@@ -39,86 +45,88 @@ Template.main.onCreated(function mainOnCreated() {
         }, 100);
     }, false);
 
-    // window.addEventListener("keydown", (evt) => {
-    //     const hyperlinkObject = document.querySelector(".hyperlink-object");
-    //     if (evt.keyCode === 37) {
-    //         // move left
-    //         hyperlinkObject.setAttribute('position', {
-    //             x: hyperlinkObject.getAttribute('position').x - 1,
-    //             y: hyperlinkObject.getAttribute('position').y,
-    //             z: hyperlinkObject.getAttribute('position').z,
-    //         });
-    //     }
-    //
-    //     if (evt.keyCode === 38) {
-    //         // move forward
-    //         hyperlinkObject.setAttribute('position', {
-    //             x: hyperlinkObject.getAttribute('position').x,
-    //             y: hyperlinkObject.getAttribute('position').y,
-    //             z: hyperlinkObject.getAttribute('position').z - 1,
-    //         });
-    //     }
-    //
-    //     if (evt.keyCode === 39) {
-    //         // move right
-    //         hyperlinkObject.setAttribute('position', {
-    //             x: hyperlinkObject.getAttribute('position').x + 1,
-    //             y: hyperlinkObject.getAttribute('position').y,
-    //             z: hyperlinkObject.getAttribute('position').z,
-    //         });
-    //     }
-    //
-    //     if (evt.keyCode === 40) {
-    //         // move backward
-    //         hyperlinkObject.setAttribute('position', {
-    //             x: hyperlinkObject.getAttribute('position').x,
-    //             y: hyperlinkObject.getAttribute('position').y,
-    //             z: hyperlinkObject.getAttribute('position').z + 1,
-    //         });
-    //     }
-    //
-    //     if (evt.keyCode === 87) {
-    //         // move up
-    //         hyperlinkObject.setAttribute('position', {
-    //             x: hyperlinkObject.getAttribute('position').x,
-    //             y: hyperlinkObject.getAttribute('position').y + 1,
-    //             z: hyperlinkObject.getAttribute('position').z,
-    //         });
-    //     }
-    //
-    //     if (evt.keyCode === 83) {
-    //         // move down
-    //         hyperlinkObject.setAttribute('position', {
-    //             x: hyperlinkObject.getAttribute('position').x,
-    //             y: hyperlinkObject.getAttribute('position').y - 1,
-    //             z: hyperlinkObject.getAttribute('position').z,
-    //         });
-    //     }
-    //
-    //     if (evt.keyCode === 81) {
-    //         // rotate ccw
-    //         hyperlinkObject.setAttribute('rotation', {
-    //             x: hyperlinkObject.getAttribute('rotation').x,
-    //             y: hyperlinkObject.getAttribute('rotation').y + 5,
-    //             z: hyperlinkObject.getAttribute('rotation').z,
-    //         });
-    //     }
-    //
-    //     if (evt.keyCode === 69) {
-    //         // rotate cw
-    //         hyperlinkObject.setAttribute('rotation', {
-    //             x: hyperlinkObject.getAttribute('rotation').x,
-    //             y: hyperlinkObject.getAttribute('rotation').y - 5,
-    //             z: hyperlinkObject.getAttribute('rotation').z,
-    //         });
-    //     }
-    //
-    //     if (evt.keyCode === 80) {
-    //         // get current position and rotation
-    //         console.log('Position', hyperlinkObject.getAttribute('position'));
-    //         console.log('Rotation', hyperlinkObject.getAttribute('rotation'));
-    //     }
-    // });
+    window.addEventListener("keydown", (evt) => {
+        console.log(evt.keyCode);
+
+        const hyperlinkObject = document.querySelector(".hyperlink-object");
+        if (evt.keyCode === 37) {
+            // move left
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x - 1,
+                y: hyperlinkObject.getAttribute('position').y,
+                z: hyperlinkObject.getAttribute('position').z,
+            });
+        }
+
+        if (evt.keyCode === 38) {
+            // move forward
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x,
+                y: hyperlinkObject.getAttribute('position').y,
+                z: hyperlinkObject.getAttribute('position').z - 1,
+            });
+        }
+
+        if (evt.keyCode === 39) {
+            // move right
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x + 1,
+                y: hyperlinkObject.getAttribute('position').y,
+                z: hyperlinkObject.getAttribute('position').z,
+            });
+        }
+
+        if (evt.keyCode === 40) {
+            // move backward
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x,
+                y: hyperlinkObject.getAttribute('position').y,
+                z: hyperlinkObject.getAttribute('position').z + 1,
+            });
+        }
+
+        if (evt.keyCode === 87) {
+            // move up
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x,
+                y: hyperlinkObject.getAttribute('position').y + 1,
+                z: hyperlinkObject.getAttribute('position').z,
+            });
+        }
+
+        if (evt.keyCode === 83) {
+            // move down
+            hyperlinkObject.setAttribute('position', {
+                x: hyperlinkObject.getAttribute('position').x,
+                y: hyperlinkObject.getAttribute('position').y - 1,
+                z: hyperlinkObject.getAttribute('position').z,
+            });
+        }
+
+        if (evt.keyCode === 81) {
+            // rotate ccw
+            hyperlinkObject.setAttribute('rotation', {
+                x: hyperlinkObject.getAttribute('rotation').x,
+                y: hyperlinkObject.getAttribute('rotation').y + 5,
+                z: hyperlinkObject.getAttribute('rotation').z,
+            });
+        }
+
+        if (evt.keyCode === 69) {
+            // rotate cw
+            hyperlinkObject.setAttribute('rotation', {
+                x: hyperlinkObject.getAttribute('rotation').x,
+                y: hyperlinkObject.getAttribute('rotation').y - 5,
+                z: hyperlinkObject.getAttribute('rotation').z,
+            });
+        }
+
+        if (evt.keyCode === 80) {
+            // get current position and rotation
+            console.log('Position', hyperlinkObject.getAttribute('position'));
+            console.log('Rotation', hyperlinkObject.getAttribute('rotation'));
+        }
+    });
 });
 
 function hideHUD() {
@@ -265,6 +273,7 @@ Template.main.helpers({
         return Clients.findOne({});
     },
     activeImage: function () {
+        if (!activeSceneId.get()) { return; }
         const scene = Scenes.findOne({
             _id: activeSceneId.get()
         });
@@ -272,14 +281,17 @@ Template.main.helpers({
     },
 
     hyperlinkObjects: () => {
+        if (!activeSceneId.get()) { return; }
         return HyperlinkObjects.find({
             sceneId: activeSceneId.get()
         });
     },
     getImage: (scene) => {
+        if (!scene) { return; }
         return (scene.findPropertiesOfType(Scene.__properties.SKY).file).replace(/(\r\n|\n|\r)/gm," ");
     },
     skyImage: (scene) => {
+        if (!scene) { return; }
         return 'src: url(' + scene.findPropertiesOfType(Scene.__properties.SKY).file + ')';
     },
 

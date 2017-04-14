@@ -53,6 +53,10 @@ SceneSchema = new SimpleSchema({
     clientId: {
         type: String
     },
+    initialScene: {
+        type: Boolean,
+        optional: true
+    },
     properties: {
         type: [ScenePropertySchema]
     }

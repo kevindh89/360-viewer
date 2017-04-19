@@ -1,12 +1,12 @@
 /**
  * Created by kevindeheer on 25-12-16.
  */
-Template.manageTour.onCreated(function() {
+Template.manageTour.onCreated(() => {
     const template = Template.instance();
     const uploadForm = new UploadForm();
 
-    uploadForm.addUploadSuccessCallback((file) => {
-        toastr.success('File "' + file.name + '" successfully uploaded');
+    uploadForm.addUploadSuccessCallback(file => {
+        toastr.success(`File "${file.name}" successfully uploaded`);
         Meteor.call('addTourObject', template.data._id, file._id);
         $('#closeUpload').click();
     });
@@ -24,21 +24,23 @@ Template.manageTour.helpers({
         return Template.instance().uploadFormData;
     },
     getImage(tourImageId) {
-        return TourImages.findOne({_id: tourImageId}) !== undefined ? TourImages.findOne({_id: tourImageId}).link() : '';
+        return TourImages.findOne({ _id: tourImageId }) !== undefined
+            ? TourImages.findOne({ _id: tourImageId }).link()
+            : '';
     },
     tourObjectId() {
         return Template.instance().selectedTourObjectId;
-    }
+    },
 });
 
 Template.manageTour.events({
-    'click .delete-btn': function() {
-        Meteor.call('removeTourObject', Template.instance().data._id, this.id, function(error, result) {
+    'click .delete-btn': function deleteBtn() {
+        Meteor.call('removeTourObject', Template.instance().data._id, this.id, error => {
             if (error) {
                 toastr.error('Deleting tour object failed');
                 return;
             }
             toastr.success('Tour object deleted');
         });
-    }
+    },
 });

@@ -4,5 +4,5 @@ Template.listTours.helpers({
     },
     countTourObjects(tour) {
         return tour.tourObjects ? tour.tourObjects.length : 0;
-    }
+    },
 });

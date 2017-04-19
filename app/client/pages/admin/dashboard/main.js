@@ -1,5 +1,5 @@
 Template.mainDashboard.helpers({
-    username: () => {
+    username() {
         return Meteor.user().username;
-    }
+    },
 });

@@ -19,7 +19,7 @@ Template.tour.onCreated(function mainOnCreated() {
     // counter starts at 0
     this.counter = new ReactiveVar(0);
 
-    window.addEventListener("orientationchange", function() {
+    window.addEventListener('orientationchange', () => {
         // Announce the new orientation number
         // 90 = landscape
         // 0 = portrait
@@ -43,16 +43,16 @@ function showHUD() {
     });
 }
 
-Template.tour.onRendered(function() {
+Template.tour.onRendered(() => {
     updateLandscapeTrackers();
-    var mySwiper = new Swiper('.swiper-container', {
+    const mySwiper = new Swiper('.swiper-container', {
         speed: 400,
         spaceBetween: 100,
         pagination: '.swiper-pagination',
-        paginationClickable: true
+        paginationClickable: true,
     });
 
-    mySwiper.on('onSlideChangeStart', (event) => {
+    mySwiper.on('onSlideChangeStart', event => {
         $('.highlighted-by-swiper').addClass('hide');
         $('.highlighted-by-swiper').removeClass('highlighted-by-swiper');
         if (event.activeIndex === 2) {
@@ -63,18 +63,15 @@ Template.tour.onRendered(function() {
     });
 
     const scene = document.querySelector('a-scene');
-    scene.addEventListener('enter-vr', (event) => {
+    scene.addEventListener('enter-vr', () => {
         queue = [];
-        //_.each(GalleryObjects.find({}).fetch(), object => {
-        //    queue.push(object.image);
-        //});
         hideHUD();
     });
-    scene.addEventListener('exit-vr', (event) => {
+    scene.addEventListener('exit-vr', () => {
         mySwiper.update();
         showHUD();
     });
-    scene.addEventListener('dblclick', (event) => {
+    scene.addEventListener('dblclick', () => {
         if (vrMode === false) {
             return;
         }
@@ -83,16 +80,14 @@ Template.tour.onRendered(function() {
             queue.shift();
             return;
         }
-        //document.querySelector('a-sky').setAttribute('src', 'R0010471.JPG');
         scene.exitVR();
     });
 
-    $('#uploadBtn').click(function(event) {
+    $('#uploadBtn').click(() => {
         $('#files').click();
     });
 
-    $('#vrBtn').click(function(event) {
-        var scene = document.querySelector('a-scene');
+    $('#vrBtn').click(() => {
         enterVr();
     });
 });
@@ -108,6 +103,6 @@ Template.tour.helpers({
         return Clients.findOne({});
     },
     getImageLink(tourObject) {
-        return TourImages.findOne({_id: tourObject.file360Image}).link();
-    }
+        return TourImages.findOne({ _id: tourObject.file360Image }).link();
+    },
 });

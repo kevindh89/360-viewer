@@ -1,9 +1,9 @@
 InitAdminLayout = () => {
     $('div.admin-container-content').hide();
-    window.setTimeout(function() {
+    window.setTimeout(() => {
         // admin layout resize
         const width = $(document).width() - 280;
-        $("#content-container").css("width", width);
+        $('#content-container').css('width', width);
 
         // admin menu bar resize
         $('#admin-menu').css('height', $(document).height());
@@ -11,8 +11,8 @@ InitAdminLayout = () => {
     }, 200);
 };
 
-$(function() {
-    $(window).resize(function() {
+$(() => {
+    $(window).resize(() => {
         InitAdminLayout();
     }).resize();
 });

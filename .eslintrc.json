@@ -2,5 +2,14 @@
     "extends": "airbnb-base",
     "plugins": [
         "import"
-    ]
+    ],
+    "rules": {
+        "arrow-parens": ["error", "as-needed"],
+        "indent": ["error", 4],
+        "import/extensions": "off",
+        "import/no-unresolved": "off",
+        "no-undef": "off",
+        "no-underscore-dangle": "off",
+        "prefer-rest-params": "off"
+    }
 }

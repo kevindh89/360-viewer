@@ -1,8 +1,7 @@
 /**
  * Created by kevindeheer on 01-01-17.
  */
-Template.adjustPosition.onCreated(function() {
-    console.log(this.data.tourId);
+Template.adjustPosition.onCreated(function adjustPosition() {
     this.tour = Tours.findOne(this.data.tourId);
     this.tourObject = undefined;
 
@@ -14,7 +13,7 @@ Template.adjustPosition.onCreated(function() {
 });
 
 Template.adjustPosition.helpers({
-    getImage: function() {
-        return this.tourObject !== undefined ? TourImages.findOne({_id: this.tourObject.file360Image}).link() : '';
-    }
-})
+    getImage() {
+        return this.tourObject !== undefined ? TourImages.findOne({ _id: this.tourObject.file360Image }).link() : '';
+    },
+});

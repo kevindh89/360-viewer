@@ -1,5 +1,5 @@
-import {Template} from 'meteor/templating';
-import {ReactiveVar} from 'meteor/reactive-var';
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 import '../../../../imports/lib/listener/movementKeyListener.js';
 import '../../../../imports/lib/listener/clickListener.js';
@@ -14,10 +14,10 @@ import './main.html';
 const activeSceneId = new ReactiveVar('delft1');
 let vrMode = false;
 
-Template.main.onCreated(function() {
+Template.main.onCreated(function main() {
     const initialScene = Scenes.findOne({
         clientId: this.data._id,
-        initialScene: true
+        initialScene: true,
     });
     activeSceneId.set(initialScene._id);
 
@@ -29,8 +29,8 @@ Template.main.onCreated(function() {
         const sceneId = object.findOnClickEvents(Event.__types.HYPERLINK) !== undefined
             ? object.findOnClickEvents(Event.__types.HYPERLINK).data.navigateToSceneId
             : undefined;
-        const scene = Scenes.findOne({_id: sceneId});
-        const image = (scene.findPropertiesOfType(Scene.__properties.SKY).file).replace(/(\r\n|\n|\r)/gm," ");
+        const scene = Scenes.findOne({ _id: sceneId });
+        const image = (scene.findPropertiesOfType(Scene.__properties.SKY).file).replace(/(\r\n|\n|\r)/gm, ' ');
 
         const img = new Image();
         img.src = image;
@@ -38,9 +38,9 @@ Template.main.onCreated(function() {
     });
 });
 
-Template.main.onRendered(function () {
+Template.main.onRendered(() => {
     const movementListener = new MovementKeyListener(window, document);
-    movementListener.register(".hyperlink-object");
+    movementListener.register('.hyperlink-object');
 
     const scene = document.querySelector('a-scene');
     const vrModeListener = new VRModeListener(scene);
@@ -48,7 +48,7 @@ Template.main.onRendered(function () {
         vrMode = true;
         Blaze.insert(
             Blaze.renderWithData(Template.cursor, Clients.findOne()),
-            document.getElementById('hud')
+            document.getElementById('hud'),
         );
     });
     vrModeListener.onExit(() => {
@@ -65,7 +65,7 @@ Template.main.onRendered(function () {
         if ($(evt.target).hasClass('hyperlink-object')) {
             return;
         }
-        // this.scene.exitVR();
+        this.scene.exitVR();
     });
 
     $(document).delegate('.hyperlink-object', 'click-hyperlink', evt => {
@@ -80,37 +80,39 @@ Template.main.helpers({
     client() {
         return Clients.findOne({});
     },
-    activeImage: function () {
-        if (!activeSceneId.get()) { return; }
+    activeImage() {
+        if (!activeSceneId.get()) { return ''; }
         const scene = Scenes.findOne({
-            _id: activeSceneId.get()
+            _id: activeSceneId.get(),
         });
         return scene.findPropertiesOfType(Scene.__properties.SKY).file;
     },
 
     hyperlinkObjects: () => {
-        if (!activeSceneId.get()) { return; }
+        if (!activeSceneId.get()) { return ''; }
         return HyperlinkObjects.find({
-            sceneId: activeSceneId.get()
+            sceneId: activeSceneId.get(),
         });
     },
-    skyImage: (scene) => {
-        if (!scene) { return; }
-        return 'src: url(' + scene.findPropertiesOfType(Scene.__properties.SKY).file + ')';
+    skyImage: scene => {
+        if (!scene) { return ''; }
+        return `src: url(${scene.findPropertiesOfType(Scene.__properties.SKY).file})`;
     },
 
     // this == HyperlinkObject
-    getScene: function () {
-        const sceneId = this.findOnClickEvents(Event.__types.HYPERLINK) !== undefined ? this.findOnClickEvents(Event.__types.HYPERLINK).data.navigateToSceneId : undefined;
-        return Scenes.findOne({_id: sceneId});
+    getScene() {
+        const sceneId = this.findOnClickEvents(Event.__types.HYPERLINK) !== undefined
+            ? this.findOnClickEvents(Event.__types.HYPERLINK).data.navigateToSceneId
+            : undefined;
+        return Scenes.findOne({ _id: sceneId });
     },
-    getPosition: function () {
-        return this.position.x + ' ' + this.position.y + ' ' + this.position.z;
+    getPosition() {
+        return `${this.position.x} ${this.position.y} ${this.position.z}`;
     },
-    getRotation: function () {
+    getRotation() {
         if (this.rotation === undefined) {
-            return 0 + ' ' + 0 + ' ' + 0;
+            return `${0} ${0} ${0}`;
         }
-        return this.rotation.x + ' ' + this.rotation.y + ' ' + this.rotation.z;
-    }
+        return `${this.rotation.x} ${this.rotation.y} ${this.rotation.z}`;
+    },
 });

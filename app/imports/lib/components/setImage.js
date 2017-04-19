@@ -27,8 +27,7 @@ AFRAME.registerComponent('set-image', {
             });
             setTimeout(function() {
                 data.target.setAttribute('material', 'src', data.src);
-                // TODO: Find a neat solution to fix this variable that became unavailable after refactoring
-            }, 1000);
+            }, 500);
         });
     }
 });

@@ -66,7 +66,7 @@ Template.main.onRendered(function () {
         this.scene.exitVR();
     });
 
-    document.querySelector('.hyperlink-object').addEventListener('click-hyperlink', evt => {
+    $(document).delegate('.hyperlink-object', 'click-hyperlink', evt => {
         activeSceneId.set(evt.target.getAttribute('data-id'));
     });
 });

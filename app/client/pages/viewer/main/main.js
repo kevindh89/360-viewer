@@ -39,8 +39,6 @@ Template.main.onCreated(function() {
 });
 
 Template.main.onRendered(function () {
-    document.getElementById('cursor').setAttribute('visible', false);
-
     const movementListener = new MovementKeyListener(window, document);
     movementListener.register(".hyperlink-object");
 
@@ -48,11 +46,15 @@ Template.main.onRendered(function () {
     const vrModeListener = new VRModeListener(scene);
     vrModeListener.onEnter(() => {
         vrMode = true;
-        document.getElementById('cursor').setAttribute('visible', true);
+        Blaze.insert(
+            Blaze.renderWithData(Template.cursor, Clients.findOne()),
+            document.getElementById('hud')
+        );
     });
     vrModeListener.onExit(() => {
         vrMode = false;
-        document.getElementById('cursor').setAttribute('visible', false);
+        const cursor = document.getElementById('cursor');
+        cursor.parentNode.removeChild(cursor);
     });
 
     const clickListener = new ClickListener(scene);
@@ -63,7 +65,7 @@ Template.main.onRendered(function () {
         if ($(evt.target).hasClass('hyperlink-object')) {
             return;
         }
-        this.scene.exitVR();
+        // this.scene.exitVR();
     });
 
     $(document).delegate('.hyperlink-object', 'click-hyperlink', evt => {

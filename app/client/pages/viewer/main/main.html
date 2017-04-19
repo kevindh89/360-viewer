@@ -1,22 +1,4 @@
 <template name="main">
-    <script type="text/javascript">
-        <!--//-->
-        <![CDATA[//><!--
-        const images = [];
-        function preload() {
-            for (i = 0; i < preload.arguments.length; i++) {
-                images[i] = new Image();
-                images[i].src = preload.arguments[i];
-            }
-        }
-
-            {{#each hyperlinkObjects}}
-            preload("{{getImage getScene this}}");
-            {{/each}}
-        //--><!
-        ]]>
-    </script>
-
     <a-scene vr-mode-ui="enabled: true">
         <a-assets>
             <img id="photo" src="{{activeImage}}"/>
@@ -46,7 +28,7 @@
         </a-entity>
         <a-sky id="image" src="#photo" rotation="0 0 0">
             <a-animation attribute="material.color" dur="1000" from="#fff" to="#000" direction="alternate"
-                         begin="set-image-fade" repeat="1"></a-animation>
+                         begin="click-hyperlink" repeat="1"></a-animation>
         </a-sky>
     </a-scene>
 </template>

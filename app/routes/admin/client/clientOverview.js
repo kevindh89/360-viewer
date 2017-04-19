@@ -3,12 +3,12 @@ Router.route('clientOverview', {
     layoutTemplate: 'adminLayout',
     waitOn() {
         return [
-            Meteor.subscribe('clients')
+            Meteor.subscribe('clients'),
         ];
     },
     data() {
         return {
-            clients: Clients.find({})
+            clients: Clients.find({}),
         };
-    }
+    },
 });

@@ -4,12 +4,12 @@ Router.route('manageTour', {
     waitOn() {
         return [
             Meteor.subscribe('tour', this.params.id),
-            Meteor.subscribe('files.images.all')
+            Meteor.subscribe('files.images.all'),
         ];
     },
     data() {
         return Tours.findOne({
-            _id: this.params.id
+            _id: this.params.id,
         });
-    }
+    },
 });

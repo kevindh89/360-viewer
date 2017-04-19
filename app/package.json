@@ -2,7 +2,7 @@
   "name": "Vensterworks 360 webviewer",
   "description": "Viewer for 360 photos and images",
   "scripts": {
-    "lint": "node_modules/.bin/eslint server/ client/ imports/ collections/"
+    "lint": "node_modules/.bin/eslint server/ client/ imports/ collections/ routes/"
   },
   "pre-commit": [
     "lint"

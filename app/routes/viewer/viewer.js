@@ -1,12 +1,5 @@
-Router.route('home', {
-    path: '/',
-    template: 'main',
-    waitOn() {
-        return [
-            Meteor.subscribe('clientForSlug', 'v3n'),
-            Meteor.subscribe('scenesForClient', 'v3n')
-        ];
-    }
+Router.route('/', function homeRoute() {
+    this.redirect('/v3n');
 });
 
 Router.route('clientViewer', {

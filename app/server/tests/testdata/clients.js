@@ -7,12 +7,12 @@ TestData.register(
         new Client({
             _id: 'test',
             username: 'vensterworks',
-            slug: 'v3n'
+            slug: 'v3n',
         }),
         new Client({
             _id: 'delft',
             username: 'delft',
-            slug: 'delft'
-        })
-    ]
+            slug: 'delft',
+        }),
+    ],
 );

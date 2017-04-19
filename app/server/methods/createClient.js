@@ -1,10 +1,10 @@
 Meteor.methods({
-    createClient: function(username, slug) {
+    createClient(username, slug) {
         Clients.insert({
-            username: username,
-            slug: slug
+            username,
+            slug,
         });
 
-        return 'Successfully created client: "' + username + '"';
-    }
+        return `Successfully created client: "${username}"`;
+    },
 });

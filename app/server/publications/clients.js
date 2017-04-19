@@ -1,16 +1,10 @@
-Meteor.publish('clients', () => {
-    return Clients.find({});
-});
+Meteor.publish('clients', () => Clients.find({}));
 
-Meteor.publish('clientForSlug', (slug) => {
-    return Clients.find({slug: slug});
-});
+Meteor.publish('clientForSlug', slug => Clients.find({ slug }));
 
-Meteor.publish('clientForHost', (host) => {
-    return Clients.find({host: host});
-});
+Meteor.publish('clientForHost', host => Clients.find({ host }));
 
-Meteor.publish('clientForTour', (tourId) => {
-    const tour = Tours.findOne({_id: tourId});
-    return Clients.find({_id: tour.clientId});
+Meteor.publish('clientForTour', tourId => {
+    const tour = Tours.findOne({ _id: tourId });
+    return Clients.find({ _id: tour.clientId });
 });

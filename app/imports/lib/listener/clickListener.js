@@ -4,8 +4,6 @@ ClickListener = class ClickListener {
     }
 
     onClick(callback) {
-        this.scene.addEventListener('click', (event) => {
-            return callback(event);
-        });
+        this.scene.addEventListener('click', event => callback(event));
     }
 };

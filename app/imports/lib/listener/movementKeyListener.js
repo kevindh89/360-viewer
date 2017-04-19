@@ -5,7 +5,7 @@ MovementKeyListener = class MovementKeyListener {
     }
 
     register(selector) {
-        this.window.addEventListener("keydown", (evt) => {
+        this.window.addEventListener('keydown', evt => {
             const hyperlinkObject = this.document.querySelector(selector);
             if (evt.keyCode === 37) {
                 // move left
@@ -81,8 +81,8 @@ MovementKeyListener = class MovementKeyListener {
 
             if (evt.keyCode === 80) {
                 // get current position and rotation
-                console.log('Position', hyperlinkObject.getAttribute('position'));
-                console.log('Rotation', hyperlinkObject.getAttribute('rotation'));
+                // console.log('Position', hyperlinkObject.getAttribute('position'));
+                // console.log('Rotation', hyperlinkObject.getAttribute('rotation'));
             }
         });
     }

@@ -1,23 +1,23 @@
 AFRAME.registerComponent('mouseenter-tracking', {
-    init: function () {
+    init() {
         let locked = false;
 
-        this.el.addEventListener('mouseenter', function (evt) {
-            if (locked === true ) { return; }
+        this.el.addEventListener('mouseenter', evt => {
+            if (locked === true) { return; }
 
             const hyperlinkObject = evt.srcElement;
             hyperlinkObject.setAttribute('collada-model', 'url(/models/pointer2.dae)');
 
             locked = true;
-            setTimeout(function() { locked = false; }, 50);
+            setTimeout(() => { locked = false; }, 50);
         });
-        this.el.addEventListener('mouseleave', function (evt) {
-            if (locked === true ) { return; }
+        this.el.addEventListener('mouseleave', evt => {
+            if (locked === true) { return; }
 
             const hyperlinkObject = evt.srcElement;
             hyperlinkObject.setAttribute('collada-model', 'url(/models/pointer.dae)');
             locked = true;
-            setTimeout(function() { locked = false; }, 50);
+            setTimeout(() => { locked = false; }, 50);
         });
-    }
+    },
 });

@@ -1,6 +1,6 @@
 AFRAME.registerComponent('cursor-listener', {
-    init: function () {
-        this.el.addEventListener('click', function (evt) {
+    init() {
+        this.el.addEventListener('click', evt => {
             // const el = evt.detail.intersectedEl;
             // let src = el.getAttribute('data-src').substring(4);
             // src = src.substring(0, src.length - 1);
@@ -9,13 +9,13 @@ AFRAME.registerComponent('cursor-listener', {
             evt.stopPropagation();
             // cursor.setAttribute('scale', '0.30 0.30 0.30');
         });
-        this.el.addEventListener('mouseleave', function (evt) {
+        this.el.addEventListener('mouseleave', evt => {
             // Reset cursor size
             const cursor = evt.srcElement;
             cursor.emit('mouseleave-clickable');
             cursor.setAttribute('scale', '0.30 0.30 0.30');
         });
-        this.el.addEventListener('mouseenter', function (evt) {
+        this.el.addEventListener('mouseenter', evt => {
             const cursor = evt.srcElement;
             const el = evt.detail.intersectedEl;
 
@@ -33,5 +33,5 @@ AFRAME.registerComponent('cursor-listener', {
             }
             cursor.emit('mouseover-clickable');
         });
-    }
+    },
 });

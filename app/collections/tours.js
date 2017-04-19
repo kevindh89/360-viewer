@@ -1,7 +1,7 @@
 /**
  * Created by kevindeheer on 25-12-16.
  */
-Tour = function(doc) {
+Tour = function Tour(doc) {
     _.extend(this, doc);
 };
 
@@ -12,20 +12,18 @@ Tour = function(doc) {
 Tour.prototype = {
     constructor: Tour,
 
-    dummy: function() {
+    dummy() {
         // 'this' is the Tour object.
         return true;
-    }
+    },
 };
 
 /**
  * Initialize the collection.
  * The transform function converts all objects into instances of the "Tour" class.
  */
-Tours = new Mongo.Collection("tours", {
-    transform: doc => {
-        return new Tour(doc);
-    }
+Tours = new Mongo.Collection('tours', {
+    transform: doc => new Tour(doc),
 });
 
 /**
@@ -33,25 +31,25 @@ Tours = new Mongo.Collection("tours", {
  */
 TourObjectSchema = new SimpleSchema({
     id: {
-        type: String
+        type: String,
     },
     x: {
-        type: Number
+        type: Number,
     },
     y: {
-        type: Number
+        type: Number,
     },
     z: {
-        type: Number
+        type: Number,
     },
     file360Image: {
         type: String,
-        optional: true
+        optional: true,
     },
     previewImage: {
         type: String,
-        optional: true
-    }
+        optional: true,
+    },
 });
 
 /**
@@ -61,14 +59,14 @@ TourObjectSchema = new SimpleSchema({
  */
 TourSchema = new SimpleSchema({
     clientId: {
-        type: String
+        type: String,
     },
     name: {
-        type: String
+        type: String,
     },
     tourObjects: {
-        type: [TourObjectSchema]
-    }
+        type: [TourObjectSchema],
+    },
 });
 
 Tours.attachSchema(TourSchema);

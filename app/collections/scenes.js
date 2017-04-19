@@ -8,16 +8,12 @@ Scene = class Scene {
 
     static get __properties() {
         return {
-            SKY: 'sky'
+            SKY: 'sky',
         };
     }
 
     findPropertiesOfType(type) {
-        return _.findWhere(this.properties, { type: type });
-    }
-
-    dummy() {
-        return true;
+        return _.findWhere(this.properties, { type });
     }
 };
 
@@ -25,10 +21,8 @@ Scene = class Scene {
  * Initialize the collection.
  * The transform function converts all objects into instances of the "Scene" class.
  */
-Scenes = new Mongo.Collection("scenes", {
-    transform: doc => {
-        return new Scene(doc);
-    }
+Scenes = new Mongo.Collection('scenes', {
+    transform: doc => new Scene(doc),
 });
 
 /**
@@ -36,14 +30,14 @@ Scenes = new Mongo.Collection("scenes", {
  */
 ScenePropertySchema = new SimpleSchema({
     type: {
-        type: String // one of Scene.propertyTypes()
+        type: String, // one of Scene.propertyTypes()
     },
     file: {
-        type: String
+        type: String,
     },
     previewFile: {
-        type: String
-    }
+        type: String,
+    },
 });
 
 /**
@@ -51,15 +45,15 @@ ScenePropertySchema = new SimpleSchema({
  */
 SceneSchema = new SimpleSchema({
     clientId: {
-        type: String
+        type: String,
     },
     initialScene: {
         type: Boolean,
-        optional: true
+        optional: true,
     },
     properties: {
-        type: [ScenePropertySchema]
-    }
+        type: [ScenePropertySchema],
+    },
 });
 
 Scenes.attachSchema(SceneSchema);

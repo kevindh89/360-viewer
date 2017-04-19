@@ -6,23 +6,23 @@ Event = class Event {
     static get __types() {
         return {
             HYPERLINK: 'hyperlink',
-            ANIMATION: 'animation'
-        }
+            ANIMATION: 'animation',
+        };
     }
 };
 
 EventSchema = new SimpleSchema({
     type: {
-        type: String // one of Event.__types
+        type: String, // one of Event.__types
     },
     data: {
         type: Object,
-        blackbox: true
-    }
+        blackbox: true,
+    },
 });
 
 HyperlinkEventSchema = new SimpleSchema(EventSchema, {
     'data.navigateToSceneId': {
-        type: String
-    }
+        type: String,
+    },
 });

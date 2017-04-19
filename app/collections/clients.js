@@ -1,7 +1,7 @@
 /**
  * Created by kevindeheer on 27-08-16.
  */
-Client = function(doc) {
+Client = function Client(doc) {
     _.extend(this, doc);
 };
 
@@ -11,21 +11,14 @@ Client = function(doc) {
  */
 Client.prototype = {
     constructor: Client,
-
-    dummy: function() {
-        // 'this' is the Client object.
-        return true;
-    }
 };
 
 /**
  * Initialize the collection.
  * The transform function converts all objects into instances of the "Client" class.
  */
-Clients = new Mongo.Collection("clients", {
-    transform: doc => {
-        return new Client(doc);
-    }
+Clients = new Mongo.Collection('clients', {
+    transform: doc => new Client(doc),
 });
 
 /**
@@ -35,15 +28,15 @@ Clients = new Mongo.Collection("clients", {
  */
 ClientSchema = new SimpleSchema({
     username: {
-        type: String
+        type: String,
     },
     slug: {
-        type: String
+        type: String,
     },
     host: {
         type: String,
-        optional: true
-    }
+        optional: true,
+    },
 });
 
 Clients.attachSchema(ClientSchema);

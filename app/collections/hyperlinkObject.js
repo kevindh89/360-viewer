@@ -7,51 +7,49 @@ HyperlinkObject = class HyperlinkObject {
     }
 
     findOnClickEvents(type) {
-        return _.findWhere(this.onClickEvents, { type: type });
+        return _.findWhere(this.onClickEvents, { type });
     }
 };
 
 HyperlinkObjectSchema = new SimpleSchema({
     sceneId: {
-        type: String
+        type: String,
     },
     position: {
-        type: Object
+        type: Object,
     },
     'position.x': {
-        type: String
+        type: String,
     },
     'position.y': {
-        type: String
+        type: String,
     },
     'position.z': {
-        type: String
+        type: String,
     },
     rotation: {
         type: Object,
-        optional: true
+        optional: true,
     },
     // Roll
     'rotation.x': {
-        type: String
+        type: String,
     },
     // Pitch
     'rotation.y': {
-        type: String
+        type: String,
     },
     // Yaw
     'rotation.z': {
-        type: String
+        type: String,
     },
     onClickEvents: {
-        type: [EventSchema]
-    }
+        type: [EventSchema],
+    },
 });
 
 HyperlinkObjects = new Mongo.Collection('hyperlinkObjects', {
-    transform: doc => {
-        return new HyperlinkObject(doc);
-    }
+    transform: doc => new HyperlinkObject(doc),
 });
 
 HyperlinkObjects.attachSchema(HyperlinkObjectSchema);

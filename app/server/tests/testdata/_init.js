@@ -13,7 +13,7 @@ TestData = {
     register(collection, data) {
         TestData.data.push({
             collection,
-            data,
+            data
         });
     },
 
@@ -26,5 +26,5 @@ TestData = {
 
             testData.collection.remove({});
         });
-    },
+    }
 };

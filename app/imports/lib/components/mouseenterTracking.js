@@ -19,5 +19,5 @@ AFRAME.registerComponent('mouseenter-tracking', {
             locked = true;
             setTimeout(() => { locked = false; }, 50);
         });
-    },
+    }
 });

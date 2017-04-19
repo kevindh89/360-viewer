@@ -6,11 +6,11 @@ Template.adminMenu.helpers({
             }
         }
         return false;
-    },
+    }
 });
 
 Template.adminMenu.events({
     'click #logoutButton': () => {
         Accounts.logout();
-    },
+    }
 });

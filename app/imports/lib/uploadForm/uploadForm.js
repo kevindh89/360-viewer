@@ -13,7 +13,7 @@ UploadForm = class UploadForm {
             const upload = TourImages.insert({
                 file: event.currentTarget.files[0],
                 streams: 'dynamic',
-                chunkSize: 'dynamic',
+                chunkSize: 'dynamic'
             }, false);
 
             upload.on('start', () => {

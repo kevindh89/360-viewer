@@ -33,5 +33,5 @@ AFRAME.registerComponent('cursor-listener', {
             }
             cursor.emit('mouseover-clickable');
         });
-    },
+    }
 });

@@ -15,5 +15,5 @@ Template.adjustPosition.onCreated(function adjustPosition() {
 Template.adjustPosition.helpers({
     getImage() {
         return this.tourObject !== undefined ? TourImages.findOne({ _id: this.tourObject.file360Image }).link() : '';
-    },
+    }
 });

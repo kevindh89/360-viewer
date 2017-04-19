@@ -2,9 +2,9 @@ Meteor.methods({
     createClient(username, slug) {
         Clients.insert({
             username,
-            slug,
+            slug
         });
 
         return `Successfully created client: "${username}"`;
-    },
+    }
 });

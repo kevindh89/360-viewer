@@ -11,21 +11,21 @@ TestData.register(
             position: {
                 x: -15,
                 y: 2,
-                z: -22,
+                z: -22
             },
             rotation: {
                 x: 0,
                 y: -105,
-                z: 0,
+                z: 0
             },
             onClickEvents: [
                 {
                     type: Event.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'test2',
-                    },
-                },
-            ],
+                        navigateToSceneId: 'test2'
+                    }
+                }
+            ]
         }),
         new HyperlinkObject({
             _id: 'test1',
@@ -33,21 +33,21 @@ TestData.register(
             position: {
                 x: -27,
                 y: 2,
-                z: 12,
+                z: 12
             },
             rotation: {
                 x: 0,
                 y: -10,
-                z: 0,
+                z: 0
             },
             onClickEvents: [
                 {
                     type: Event.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'test3',
-                    },
-                },
-            ],
+                        navigateToSceneId: 'test3'
+                    }
+                }
+            ]
         }),
         new HyperlinkObject({
             _id: 'test2',
@@ -55,21 +55,21 @@ TestData.register(
             position: {
                 x: 22,
                 y: 1,
-                z: -11,
+                z: -11
             },
             rotation: {
                 x: 0,
                 y: -195,
-                z: 0,
+                z: 0
             },
             onClickEvents: [
                 {
                     type: Event.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'test',
-                    },
-                },
-            ],
+                        navigateToSceneId: 'test'
+                    }
+                }
+            ]
         }),
         new HyperlinkObject({
             _id: 'test3',
@@ -77,21 +77,21 @@ TestData.register(
             position: {
                 x: -11,
                 y: 1,
-                z: -28,
+                z: -28
             },
             rotation: {
                 x: 0,
                 y: -105,
-                z: 0,
+                z: 0
             },
             onClickEvents: [
                 {
                     type: Event.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'test',
-                    },
-                },
-            ],
+                        navigateToSceneId: 'test'
+                    }
+                }
+            ]
         }),
 
         // Delft
@@ -101,21 +101,21 @@ TestData.register(
             position: {
                 x: 29,
                 y: 1,
-                z: 11,
+                z: 11
             },
             rotation: {
                 x: 0,
                 y: -235,
-                z: 0,
+                z: 0
             },
             onClickEvents: [
                 {
                     type: Event.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'delft2',
-                    },
-                },
-            ],
+                        navigateToSceneId: 'delft2'
+                    }
+                }
+            ]
         }),
         new HyperlinkObject({
             _id: 'delft2',
@@ -123,21 +123,21 @@ TestData.register(
             position: {
                 x: 29,
                 y: 1,
-                z: 24,
+                z: 24
             },
             rotation: {
                 x: 0,
                 y: -255,
-                z: 0,
+                z: 0
             },
             onClickEvents: [
                 {
                     type: Event.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'delft3',
-                    },
-                },
-            ],
+                        navigateToSceneId: 'delft3'
+                    }
+                }
+            ]
         }),
         new HyperlinkObject({
             _id: 'delft2_2',
@@ -145,21 +145,21 @@ TestData.register(
             position: {
                 x: -22,
                 y: 1,
-                z: -22,
+                z: -22
             },
             rotation: {
                 x: 0,
                 y: -80,
-                z: 0,
+                z: 0
             },
             onClickEvents: [
                 {
                     type: Event.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'delft1',
-                    },
-                },
-            ],
+                        navigateToSceneId: 'delft1'
+                    }
+                }
+            ]
         }),
         new HyperlinkObject({
             _id: 'delft3',
@@ -167,21 +167,21 @@ TestData.register(
             position: {
                 x: 29,
                 y: 1,
-                z: 24,
+                z: 24
             },
             rotation: {
                 x: 0,
                 y: -255,
-                z: 0,
+                z: 0
             },
             onClickEvents: [
                 {
                     type: Event.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'delft4',
-                    },
-                },
-            ],
-        }),
-    ],
+                        navigateToSceneId: 'delft4'
+                    }
+                }
+            ]
+        })
+    ]
 );

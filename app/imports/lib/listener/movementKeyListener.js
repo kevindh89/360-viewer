@@ -12,7 +12,7 @@ MovementKeyListener = class MovementKeyListener {
                 hyperlinkObject.setAttribute('position', {
                     x: hyperlinkObject.getAttribute('position').x - 1,
                     y: hyperlinkObject.getAttribute('position').y,
-                    z: hyperlinkObject.getAttribute('position').z,
+                    z: hyperlinkObject.getAttribute('position').z
                 });
             }
 
@@ -21,7 +21,7 @@ MovementKeyListener = class MovementKeyListener {
                 hyperlinkObject.setAttribute('position', {
                     x: hyperlinkObject.getAttribute('position').x,
                     y: hyperlinkObject.getAttribute('position').y,
-                    z: hyperlinkObject.getAttribute('position').z - 1,
+                    z: hyperlinkObject.getAttribute('position').z - 1
                 });
             }
 
@@ -30,7 +30,7 @@ MovementKeyListener = class MovementKeyListener {
                 hyperlinkObject.setAttribute('position', {
                     x: hyperlinkObject.getAttribute('position').x + 1,
                     y: hyperlinkObject.getAttribute('position').y,
-                    z: hyperlinkObject.getAttribute('position').z,
+                    z: hyperlinkObject.getAttribute('position').z
                 });
             }
 
@@ -39,7 +39,7 @@ MovementKeyListener = class MovementKeyListener {
                 hyperlinkObject.setAttribute('position', {
                     x: hyperlinkObject.getAttribute('position').x,
                     y: hyperlinkObject.getAttribute('position').y,
-                    z: hyperlinkObject.getAttribute('position').z + 1,
+                    z: hyperlinkObject.getAttribute('position').z + 1
                 });
             }
 
@@ -48,7 +48,7 @@ MovementKeyListener = class MovementKeyListener {
                 hyperlinkObject.setAttribute('position', {
                     x: hyperlinkObject.getAttribute('position').x,
                     y: hyperlinkObject.getAttribute('position').y + 1,
-                    z: hyperlinkObject.getAttribute('position').z,
+                    z: hyperlinkObject.getAttribute('position').z
                 });
             }
 
@@ -57,7 +57,7 @@ MovementKeyListener = class MovementKeyListener {
                 hyperlinkObject.setAttribute('position', {
                     x: hyperlinkObject.getAttribute('position').x,
                     y: hyperlinkObject.getAttribute('position').y - 1,
-                    z: hyperlinkObject.getAttribute('position').z,
+                    z: hyperlinkObject.getAttribute('position').z
                 });
             }
 
@@ -66,7 +66,7 @@ MovementKeyListener = class MovementKeyListener {
                 hyperlinkObject.setAttribute('rotation', {
                     x: hyperlinkObject.getAttribute('rotation').x,
                     y: hyperlinkObject.getAttribute('rotation').y + 5,
-                    z: hyperlinkObject.getAttribute('rotation').z,
+                    z: hyperlinkObject.getAttribute('rotation').z
                 });
             }
 
@@ -75,7 +75,7 @@ MovementKeyListener = class MovementKeyListener {
                 hyperlinkObject.setAttribute('rotation', {
                     x: hyperlinkObject.getAttribute('rotation').x,
                     y: hyperlinkObject.getAttribute('rotation').y - 5,
-                    z: hyperlinkObject.getAttribute('rotation').z,
+                    z: hyperlinkObject.getAttribute('rotation').z
                 });
             }
 

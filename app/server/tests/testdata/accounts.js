@@ -7,7 +7,7 @@ TestData.register(Accounts,
             _id: 'admin',
             username: 'admin',
             password: 'admin',
-            email: 'admin@vensterworks.com',
-        },
-    ],
+            email: 'admin@vensterworks.com'
+        }
+    ]
 );

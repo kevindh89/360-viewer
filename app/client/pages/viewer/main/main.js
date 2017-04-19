@@ -17,7 +17,7 @@ let vrMode = false;
 Template.main.onCreated(function main() {
     const initialScene = Scenes.findOne({
         clientId: this.data._id,
-        initialScene: true,
+        initialScene: true
     });
     activeSceneId.set(initialScene._id);
 
@@ -48,7 +48,7 @@ Template.main.onRendered(() => {
         vrMode = true;
         Blaze.insert(
             Blaze.renderWithData(Template.cursor, Clients.findOne()),
-            document.getElementById('hud'),
+            document.getElementById('hud')
         );
     });
     vrModeListener.onExit(() => {
@@ -83,7 +83,7 @@ Template.main.helpers({
     activeImage() {
         if (!activeSceneId.get()) { return ''; }
         const scene = Scenes.findOne({
-            _id: activeSceneId.get(),
+            _id: activeSceneId.get()
         });
         return scene.findPropertiesOfType(Scene.__properties.SKY).file;
     },
@@ -91,7 +91,7 @@ Template.main.helpers({
     hyperlinkObjects: () => {
         if (!activeSceneId.get()) { return ''; }
         return HyperlinkObjects.find({
-            sceneId: activeSceneId.get(),
+            sceneId: activeSceneId.get()
         });
     },
     skyImage: scene => {
@@ -114,5 +114,5 @@ Template.main.helpers({
             return `${0} ${0} ${0}`;
         }
         return `${this.rotation.x} ${this.rotation.y} ${this.rotation.z}`;
-    },
+    }
 });

@@ -22,5 +22,5 @@ Template.login.events({
                 InitAdminLayout();
             });
         });
-    },
+    }
 });

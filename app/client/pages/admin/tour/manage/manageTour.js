@@ -30,7 +30,7 @@ Template.manageTour.helpers({
     },
     tourObjectId() {
         return Template.instance().selectedTourObjectId;
-    },
+    }
 });
 
 Template.manageTour.events({
@@ -42,5 +42,5 @@ Template.manageTour.events({
             }
             toastr.success('Tour object deleted');
         });
-    },
+    }
 });

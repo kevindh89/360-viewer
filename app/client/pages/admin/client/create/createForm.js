@@ -15,5 +15,5 @@ Template.createClientForm.events({
             return `Successfully created a client "${username}"`;
         });
         Router.go('mainDashboard');
-    },
+    }
 });

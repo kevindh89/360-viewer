@@ -4,9 +4,9 @@ Router.route('home', {
     waitOn() {
         return [
             Meteor.subscribe('clientForSlug', 'v3n'),
-            Meteor.subscribe('scenesForClient', 'v3n'),
+            Meteor.subscribe('scenesForClient', 'v3n')
         ];
-    },
+    }
 });
 
 Router.route('clientViewer', {
@@ -15,12 +15,12 @@ Router.route('clientViewer', {
     waitOn() {
         return [
             Meteor.subscribe('clientForSlug', this.params.slug),
-            Meteor.subscribe('scenesForClient', this.params.slug),
+            Meteor.subscribe('scenesForClient', this.params.slug)
         ];
     },
     data() {
         return Clients.findOne();
-    },
+    }
 });
 
 Router.route('tourViewer', {
@@ -30,10 +30,10 @@ Router.route('tourViewer', {
         return [
             Meteor.subscribe('clientForTour', this.params.id),
             Meteor.subscribe('tour', this.params.id),
-            Meteor.subscribe('files.images.all'),
+            Meteor.subscribe('files.images.all')
         ];
     },
     data() {
         return Tours.findOne(this.params.id);
-    },
+    }
 });

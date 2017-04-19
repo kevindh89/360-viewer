@@ -49,7 +49,7 @@ Template.tour.onRendered(() => {
         speed: 400,
         spaceBetween: 100,
         pagination: '.swiper-pagination',
-        paginationClickable: true,
+        paginationClickable: true
     });
 
     mySwiper.on('onSlideChangeStart', event => {
@@ -104,5 +104,5 @@ Template.tour.helpers({
     },
     getImageLink(tourObject) {
         return TourImages.findOne({ _id: tourObject.file360Image }).link();
-    },
+    }
 });

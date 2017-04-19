@@ -10,5 +10,5 @@ TourImages = new FilesCollection({
             return true;
         }
         return 'Please upload image, with size equal or less than 10MB';
-    },
+    }
 });

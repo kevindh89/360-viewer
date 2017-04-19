@@ -10,7 +10,7 @@ Client = function Client(doc) {
  * @type {{constructor: Function}}
  */
 Client.prototype = {
-    constructor: Client,
+    constructor: Client
 };
 
 /**
@@ -18,7 +18,7 @@ Client.prototype = {
  * The transform function converts all objects into instances of the "Client" class.
  */
 Clients = new Mongo.Collection('clients', {
-    transform: doc => new Client(doc),
+    transform: doc => new Client(doc)
 });
 
 /**
@@ -28,15 +28,15 @@ Clients = new Mongo.Collection('clients', {
  */
 ClientSchema = new SimpleSchema({
     username: {
-        type: String,
+        type: String
     },
     slug: {
-        type: String,
+        type: String
     },
     host: {
         type: String,
-        optional: true,
-    },
+        optional: true
+    }
 });
 
 Clients.attachSchema(ClientSchema);

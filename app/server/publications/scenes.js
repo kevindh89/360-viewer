@@ -12,7 +12,7 @@ Meteor.publish('scenesForHost', host => {
     }
 
     return Scenes.find({
-        clientId: client._id,
+        clientId: client._id
     });
 });
 
@@ -29,14 +29,14 @@ Meteor.publishComposite('scenesForClient', slug => ({
         }
 
         return Scenes.find({
-            clientId: client._id,
+            clientId: client._id
         });
     },
     children: [
         {
             find: scene => HyperlinkObjects.find({
-                sceneId: scene._id,
-            }),
-        },
-    ],
+                sceneId: scene._id
+            })
+        }
+    ]
 }));

@@ -5,6 +5,13 @@
     ],
     "rules": {
         "arrow-parens": ["error", "as-needed"],
+        "comma-dangle": ["error", {
+            "arrays": "never",
+            "objects": "never",
+            "imports": "never",
+            "exports": "never",
+            "functions": "never"
+        }],
         "indent": ["error", 4],
         "import/extensions": "off",
         "import/no-extraneous-dependencies": "off",

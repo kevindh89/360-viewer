@@ -1,18 +1,18 @@
 AFRAME.registerComponent('set-image', {
     schema: {
         on: {
-            type: 'string',
+            type: 'string'
         },
         target: {
-            type: 'selector',
+            type: 'selector'
         },
         src: {
-            type: 'string',
+            type: 'string'
         },
         dur: {
             type: 'number',
-            default: 300,
-        },
+            default: 300
+        }
     },
     init: function init() {
         const data = this.data;
@@ -29,5 +29,5 @@ AFRAME.registerComponent('set-image', {
                 data.target.setAttribute('material', 'src', data.src);
             }, 500);
         });
-    },
+    }
 });

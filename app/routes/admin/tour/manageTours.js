@@ -3,10 +3,10 @@ Router.route('listTours', {
     layoutTemplate: 'adminLayout',
     waitOn() {
         return [
-            Meteor.subscribe('tours'),
+            Meteor.subscribe('tours')
         ];
     },
     data() {
         return Tours.find({});
-    },
+    }
 });

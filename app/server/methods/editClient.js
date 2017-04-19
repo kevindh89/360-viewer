@@ -3,10 +3,10 @@ Meteor.methods({
         Clients.update({ _id: id }, {
             $set: {
                 username,
-                slug,
-            },
+                slug
+            }
         });
 
         return `Successfully edited client with id: "${id}"`;
-    },
+    }
 });

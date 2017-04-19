@@ -8,11 +8,11 @@ Template.uploadForm.onCreated(() => {
 Template.uploadForm.helpers({
     currentUpload() {
         return Template.instance().currentUpload.get();
-    },
+    }
 });
 
 Template.uploadForm.events({
     'change #fileInput': (event, template) => {
         template.data.uploadForm.handleChangeFileInput(event, template);
-    },
+    }
 });

@@ -3,12 +3,12 @@ Router.route('editClient', {
     layoutTemplate: 'adminLayout',
     waitOn() {
         return [
-            Meteor.subscribe('clients'),
+            Meteor.subscribe('clients')
         ];
     },
     data() {
         return Clients.findOne({
-            _id: this.params.id,
+            _id: this.params.id
         });
-    },
+    }
 });

@@ -15,5 +15,5 @@ Template.editClientForm.events({
             return 'Successfullly updated client';
         });
         Router.go('clientOverview');
-    },
+    }
 });

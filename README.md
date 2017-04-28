@@ -18,4 +18,4 @@ ESLint is a package to run checks over the codebase. In this project the ESLint 
 
 You can also manually run ESLint inspection with this command:
 
-``> app/node_modules/.bin/eslint app/client/ app/server/``
+> app/node_modules/.bin/eslint app/client/ app/server/

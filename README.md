@@ -14,7 +14,11 @@ The application is now available on: [link](http://localhost:3000)
 
 ### ESLint
 
-ESLint is a package to run checks over the codebase. In this project the ESLint inspection runs automatically at every git commit.
+ESLint is a JavaScript package to run checks over the codebase. In this project the ESLint inspection runs automatically at every git commit.
+
+I recommend to globally install ESLint:
+
+> npm install -g eslint
 
 You can also manually run ESLint inspection with this command:
 

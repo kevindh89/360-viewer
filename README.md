@@ -2,17 +2,17 @@
 
 ## Setup
 
-Install meteor:
+#### Install meteor
+For this project it's required to install meteor: [https://www.meteor.com/install](https://www.meteor.com/install)
 
-For this project it's required to install meteor: [link](https://www.meteor.com/install)
-
-Open your terminal and go to the folder app/ inside this project:
+#### Open your terminal and go to the folder app/ inside this project
 > cd app/
 
-Start a local server by running the meteor command:
+#### Start a local server
 > meteor
 
-The application is now available on: [link](http://localhost:3000)
+#### Check your setup
+The application is now available on: [http://localhost:3000](http://localhost:3000)
 
 ## Code quality
 
@@ -20,7 +20,7 @@ The application is now available on: [link](http://localhost:3000)
 
 ESLint is a JavaScript package to run checks over the codebase. In this project the ESLint inspection runs automatically at every git commit.
 
-I recommend to globally install ESLint:
+#### Globally install ESLint
 
 > npm install -g eslint
 

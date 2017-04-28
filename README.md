@@ -2,6 +2,10 @@
 
 ## Setup
 
+Install meteor:
+
+For this project it's required to install meteor: [link](https://www.meteor.com/install)
+
 Open your terminal and go to the folder app/ inside this project:
 > cd app/
 

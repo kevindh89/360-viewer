@@ -5,9 +5,9 @@ import '../../../../imports/lib/listener/movementKeyListener.js';
 import '../../../../imports/lib/listener/clickListener.js';
 import '../../../../imports/lib/listener/vrModeListener.js';
 
-import '../../../../imports/lib/components/mouseenterTracking.js';
-import '../../../../imports/lib/components/setImage.js';
-import '../../../../imports/lib/components/cursorListener.js';
+import '../../../../imports/lib/aframeComponents/mouseenterTracking.js';
+import '../../../../imports/lib/aframeComponents/setImage.js';
+import '../../../../imports/lib/aframeComponents/cursorListener.js';
 
 import './main.html';
 
@@ -26,8 +26,8 @@ Template.main.onCreated(function main() {
 
     const images = [];
     _.each(HyperlinkObjects.find({}).fetch(), object => {
-        const sceneId = object.findOnClickEvents(Event.__types.HYPERLINK) !== undefined
-            ? object.findOnClickEvents(Event.__types.HYPERLINK).data.navigateToSceneId
+        const sceneId = object.findOnClickEvents(ViewerEvent.__types.HYPERLINK) !== undefined
+            ? object.findOnClickEvents(ViewerEvent.__types.HYPERLINK).data.navigateToSceneId
             : undefined;
         const scene = Scenes.findOne({ _id: sceneId });
         const image = (scene.findPropertiesOfType(Scene.__properties.SKY).file).replace(/(\r\n|\n|\r)/gm, ' ');
@@ -101,8 +101,8 @@ Template.main.helpers({
 
     // this == HyperlinkObject
     getScene() {
-        const sceneId = this.findOnClickEvents(Event.__types.HYPERLINK) !== undefined
-            ? this.findOnClickEvents(Event.__types.HYPERLINK).data.navigateToSceneId
+        const sceneId = this.findOnClickEvents(ViewerEvent.__types.HYPERLINK) !== undefined
+            ? this.findOnClickEvents(ViewerEvent.__types.HYPERLINK).data.navigateToSceneId
             : undefined;
         return Scenes.findOne({ _id: sceneId });
     },

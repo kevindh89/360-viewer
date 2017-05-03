@@ -1,4 +1,4 @@
-Event = class Event {
+ViewerEvent = class ViewerEvent {
     constructor(doc) {
         _.extend(this, doc);
     }
@@ -13,7 +13,7 @@ Event = class Event {
 
 EventSchema = new SimpleSchema({
     type: {
-        type: String // one of Event.__types
+        type: String // one of ViewerEvent.__types
     },
     data: {
         type: Object,

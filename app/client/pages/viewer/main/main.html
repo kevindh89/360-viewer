@@ -1,6 +1,6 @@
 <template name="main">
     <a-scene vr-mode-ui="enabled: true"
-             inspector="url: https://cdn.rawgit.com/kevindh89/aframe-inspector/d3163c32/dist/aframe-inspector.js">
+             inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
         <a-assets>
             <img id="photo" src="{{activeImage}}"/>
         </a-assets>
@@ -11,10 +11,13 @@
                           data-src="{{skyImage getScene this}})" data-id="{{getScene._id}}"
                           event-set__enter="_event: mouseenter; material.color: yellowgreen; scale: 3 1 1"
                           set-image="on: click; target: #image; src: {{skyImage getScene this}}"
-                          mouseenter-tracking
+                          mouseenter-tracking="popover: 'test';"
                 >
                 </a-entity>
             {{/each}}
+        </a-entity>
+        <a-entity position="-2.5 1 0"
+                  text="anchor: left; width: 1.5; color: white; value: [LEFT ANCHOR] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
         </a-entity>
         <a-entity id="hud" position="0 10 0" far="10000000" camera look-controls mouse-cursor>
         </a-entity>

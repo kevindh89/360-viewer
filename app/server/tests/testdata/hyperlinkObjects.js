@@ -20,7 +20,7 @@ TestData.register(
             },
             onClickEvents: [
                 {
-                    type: Event.__types.HYPERLINK,
+                    type: ViewerEvent.__types.HYPERLINK,
                     data: {
                         navigateToSceneId: 'test2'
                     }
@@ -42,7 +42,7 @@ TestData.register(
             },
             onClickEvents: [
                 {
-                    type: Event.__types.HYPERLINK,
+                    type: ViewerEvent.__types.HYPERLINK,
                     data: {
                         navigateToSceneId: 'test3'
                     }
@@ -64,7 +64,7 @@ TestData.register(
             },
             onClickEvents: [
                 {
-                    type: Event.__types.HYPERLINK,
+                    type: ViewerEvent.__types.HYPERLINK,
                     data: {
                         navigateToSceneId: 'test'
                     }
@@ -86,7 +86,7 @@ TestData.register(
             },
             onClickEvents: [
                 {
-                    type: Event.__types.HYPERLINK,
+                    type: ViewerEvent.__types.HYPERLINK,
                     data: {
                         navigateToSceneId: 'test'
                     }
@@ -110,7 +110,7 @@ TestData.register(
             },
             onClickEvents: [
                 {
-                    type: Event.__types.HYPERLINK,
+                    type: ViewerEvent.__types.HYPERLINK,
                     data: {
                         navigateToSceneId: 'delft2'
                     }
@@ -132,7 +132,7 @@ TestData.register(
             },
             onClickEvents: [
                 {
-                    type: Event.__types.HYPERLINK,
+                    type: ViewerEvent.__types.HYPERLINK,
                     data: {
                         navigateToSceneId: 'delft3'
                     }
@@ -154,7 +154,7 @@ TestData.register(
             },
             onClickEvents: [
                 {
-                    type: Event.__types.HYPERLINK,
+                    type: ViewerEvent.__types.HYPERLINK,
                     data: {
                         navigateToSceneId: 'delft1'
                     }
@@ -176,7 +176,7 @@ TestData.register(
             },
             onClickEvents: [
                 {
-                    type: Event.__types.HYPERLINK,
+                    type: ViewerEvent.__types.HYPERLINK,
                     data: {
                         navigateToSceneId: 'delft4'
                     }

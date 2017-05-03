@@ -6,7 +6,7 @@ TestData.register(
     Scenes,
     [
         new Scene({
-            _id: 'test',
+            _id: 'hall',
             clientId: 'test',
             initialScene: true,
             properties: [
@@ -18,7 +18,7 @@ TestData.register(
             ]
         }),
         new Scene({
-            _id: 'test2',
+            _id: 'kitchen',
             clientId: 'test',
             properties: [
                 {
@@ -29,7 +29,7 @@ TestData.register(
             ]
         }),
         new Scene({
-            _id: 'test3',
+            _id: 'livingroom',
             clientId: 'test',
             properties: [
                 {

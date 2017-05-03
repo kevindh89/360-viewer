@@ -7,7 +7,7 @@ TestData.register(
     [
         new HyperlinkObject({
             _id: 'test',
-            sceneId: 'test',
+            sceneId: 'hall',
             position: {
                 x: -15,
                 y: 2,
@@ -18,18 +18,31 @@ TestData.register(
                 y: -105,
                 z: 0
             },
+            label: {
+                text: 'DE KEUKEN',
+                position: {
+                    x: -10.5,
+                    y: 5,
+                    z: -22
+                },
+                rotation: {
+                    x: 0,
+                    y: 0,
+                    z: 0
+                }
+            },
             onClickEvents: [
                 {
                     type: ViewerEvent.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'test2'
+                        navigateToSceneId: 'kitchen'
                     }
                 }
             ]
         }),
         new HyperlinkObject({
             _id: 'test1',
-            sceneId: 'test',
+            sceneId: 'hall',
             position: {
                 x: -27,
                 y: 2,
@@ -40,18 +53,31 @@ TestData.register(
                 y: -10,
                 z: 0
             },
+            label: {
+                text: 'DE WOONKAMER',
+                position: {
+                    x: -27,
+                    y: 5,
+                    z: 9
+                },
+                rotation: {
+                    x: 0,
+                    y: 105,
+                    z: 0
+                }
+            },
             onClickEvents: [
                 {
                     type: ViewerEvent.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'test3'
+                        navigateToSceneId: 'livingroom'
                     }
                 }
             ]
         }),
         new HyperlinkObject({
             _id: 'test2',
-            sceneId: 'test2',
+            sceneId: 'kitchen',
             position: {
                 x: 22,
                 y: 1,
@@ -66,14 +92,14 @@ TestData.register(
                 {
                     type: ViewerEvent.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'test'
+                        navigateToSceneId: 'hall'
                     }
                 }
             ]
         }),
         new HyperlinkObject({
             _id: 'test3',
-            sceneId: 'test3',
+            sceneId: 'livingroom',
             position: {
                 x: -11,
                 y: 1,
@@ -88,7 +114,7 @@ TestData.register(
                 {
                     type: ViewerEvent.__types.HYPERLINK,
                     data: {
-                        navigateToSceneId: 'test'
+                        navigateToSceneId: 'hall'
                     }
                 }
             ]

@@ -1,7 +1,9 @@
 <template name="hyperlinkObject">
-    <a-entity position="-8.03 6.3 -23.15" visible="true" scale="20 20 20"
-              text="anchor:left;width:1.5;color:white;value:DE KEUKEN;zOffset:0" rotation="0 0 0">
-    </a-entity>
+    {{#if isDefined this.label}}
+        <a-entity position="{{getLabelPosition}}" visible="true" scale="20 20 20"
+                  text="anchor:left;width:1.5;color:white;value:{{this.label.text}};zOffset:0" rotation="{{getLabelRotation}}">
+        </a-entity>
+    {{/if}}
     <a-entity class="scene hyperlink-object" collada-model="/models/pointer.dae" scale="0.5 0.5 0.5"
               rotation="{{getRotation}}" position="{{getPosition}}" material="opacity: 1"
               data-src="{{skyImage getScene this}})" data-id="{{getScene._id}}"

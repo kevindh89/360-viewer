@@ -12,11 +12,11 @@
 
 ### Development
 
-Development environments live on local environments only by running ``meteor`` locally.
+Development environments live on local environments only. They can be booted by running ``meteor``.
 
 ### Acceptance
 
-The acceptance environment is used to test new features.
+The acceptance environment is used to test new features. All new features should be tested in Acceptance before they get released to Production.
 
 http://360-acc.vensterworks.com
 

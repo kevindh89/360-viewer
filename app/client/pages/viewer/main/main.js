@@ -26,10 +26,11 @@ Template.main.onCreated(function main() {
     this.counter = new ReactiveVar(0);
 
     const images = [];
-    _.each(HyperlinkObjects.find({}).fetch(), object => {
-        const sceneId = object.findOnClickEvents(ViewerEvent.__types.HYPERLINK) !== undefined
-            ? object.findOnClickEvents(ViewerEvent.__types.HYPERLINK).data.navigateToSceneId
+    _.each(HyperlinkObjects.find({}).fetch(), hyperlinkObject => {
+        const sceneId = hyperlinkObject.findOnClickEvents(ViewerEvent.__types.HYPERLINK) !== undefined
+            ? hyperlinkObject.findOnClickEvents(ViewerEvent.__types.HYPERLINK).data.navigateToSceneId
             : undefined;
+        if (!sceneId) return;
         const scene = Scenes.findOne({ _id: sceneId });
         const image = (scene.findPropertiesOfType(Scene.__properties.SKY).file).replace(/(\r\n|\n|\r)/gm, ' ');
 

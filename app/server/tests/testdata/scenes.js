@@ -74,6 +74,28 @@ TestData.register(
                     previewFile: '/360-photos/delft/3.JPG'
                 }
             ]
+        }),
+        new Scene({
+            _id: 'delft4',
+            clientId: 'delft',
+            properties: [
+                {
+                    type: Scene.__properties.SKY,
+                    file: '/360-photos/delft/4.JPG',
+                    previewFile: '/360-photos/delft/4.JPG'
+                }
+            ]
+        }),
+        new Scene({
+            _id: 'delft12',
+            clientId: 'delft',
+            properties: [
+                {
+                    type: Scene.__properties.SKY,
+                    file: '/360-photos/delft/12.JPG',
+                    previewFile: '/360-photos/delft/12.JPG'
+                }
+            ]
         })
     ]
 );

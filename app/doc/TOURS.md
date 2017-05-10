@@ -1,6 +1,6 @@
 # Tour setup documentation
 
-All objects have a unique id that refers to a single instantion of the object called: "_id".
+All objects have a unique id that refers to a single instantion stored under "_id".
 
 ## Shared schemas
 
@@ -20,36 +20,50 @@ All objects have a unique id that refers to a single instantion of the object ca
 | y | String | false | 
 | z | String | false |
 
+### ViewerEvent
+
+| Field | Type | Optional |
+| ----- | ---- | -------- |
+| type | String (ViewerEvent type) | false | 
+| data | Object | false |
+
+#### ViewerEvent type
+
+| hyperlink | Defines it's a transition event to another scene or resource |
+| animation | Defines it's an animation event |
+
 ## Client
 
 A client is the uppermost object that defines the owner of all underlying objects.
 
 User login, payment and subscriptions are all directly related to a single client.
 
+### Schema
+
+*TBD*
 
 ## Scene
 
-A scene defines the static environment characteristics of the virtual realm.
-
-By using HyperlinkObjects, a user can transfer from one Scene to another.
+A scene defines static characteristics of the virtual realm.
 
 ### Schema
 
 | Field | Type | Optional |
 | ----- | ---- | -------- |
-| clientId | String (Client:_id) | false |
+| clientId | String *(Client._id)*  | false |
 | initialScene | Boolean | true |
-| properties | [Scene property] | false |
+| properties | Array *(zero or more Scene properties)* | false |
 
-### Scene property schema
+#### Scene property schema
 
 | Field | Type | Optional |
 | ----- | ---- | -------- |
-| type | String | false |
+| type | String (Scene property type) | false |
 | file | String | false |
 | previewFile | String | false |
 
-Scene poperty __type__ can contain:
+#### Scene property types
+
 | sky | Defines the skybox image (i.e. "360-photos/hall.jpg") |
 
 
@@ -61,8 +75,8 @@ A hyperlink object defines an object in the scene that triggers transition to an
 
 | Field | Type | Optional |
 | ----- | ---- | -------- |
-| sceneId | String (Scene:_id) | false |
+| sceneId | String (Scene._id) | false |
 | position | Object (Position) | false|
 | rotation | Object (Rotation) | true |
 | label | Object | true | 
-| onClickEvents | [Event] | false |
+| onClickEvents | Array (zero or more ViewerEvents) | false |

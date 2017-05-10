@@ -29,7 +29,7 @@ All objects have a unique id that refers to a single instantion stored under "_i
 
 #### ViewerEvent type
 
-| | |
+| Value | |
 |-|-|
 | hyperlink | Defines it's a transition event to another scene or resource |
 | animation | Defines it's an animation event |
@@ -66,7 +66,7 @@ A scene defines static characteristics of the virtual realm.
 
 #### Scene property types
 
-| | |
+| Value | |
 |-|-|
 | sky | Defines the skybox image (i.e. "360-photos/hall.jpg") |
 

@@ -30,7 +30,7 @@ Scenes = new Mongo.Collection('scenes', {
  */
 ScenePropertySchema = new SimpleSchema({
     type: {
-        type: String // one of Scene.propertyTypes()
+        type: String // one of Scene._properties()
     },
     file: {
         type: String

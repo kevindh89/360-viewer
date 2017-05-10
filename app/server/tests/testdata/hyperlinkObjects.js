@@ -88,6 +88,14 @@ TestData.register(
                 y: -195,
                 z: 0
             },
+            label: {
+                text: 'DE GANG',
+                position: {
+                    x: 22,
+                    y: 4,
+                    z: -8
+                }
+            },
             onClickEvents: [
                 {
                     type: ViewerEvent.__types.HYPERLINK,

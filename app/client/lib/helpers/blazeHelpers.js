@@ -1,5 +1,3 @@
 import { Template } from 'meteor/templating';
 
-Template.registerHelper('isDefined', value => {
-    return value !== undefined;
-});
+Template.registerHelper('isDefined', value => value !== undefined);

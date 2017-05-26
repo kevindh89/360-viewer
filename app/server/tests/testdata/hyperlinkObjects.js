@@ -19,7 +19,7 @@ TestData.register(
                 z: 0
             },
             label: {
-                text: 'DE KEUKEN',
+                text: 'THE KITCHEN',
                 position: {
                     x: -10.5,
                     y: 5,
@@ -54,7 +54,7 @@ TestData.register(
                 z: 0
             },
             label: {
-                text: 'DE WOONKAMER',
+                text: 'THE LIVINGROOM',
                 position: {
                     x: -27,
                     y: 5,
@@ -89,7 +89,7 @@ TestData.register(
                 z: 0
             },
             label: {
-                text: 'DE GANG',
+                text: 'THE HALL',
                 position: {
                     x: 22,
                     y: 4,
@@ -124,7 +124,7 @@ TestData.register(
                 z: 0
             },
             label: {
-                text: 'DE GANG',
+                text: 'THE HALL',
                 position: {
                     x: -6.50,
                     y: 4,

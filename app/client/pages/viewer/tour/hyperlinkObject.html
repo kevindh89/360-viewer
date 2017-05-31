@@ -4,6 +4,7 @@
                   text="anchor:left;width:1.5;color:white;value:{{this.label.text}};zOffset:0" rotation="{{getLabelRotation}}">
         </a-entity>
     {{/if}}
+
     <a-entity class="scene hyperlink-object" collada-model="/models/pointer.dae" scale="0.5 0.5 0.5"
               rotation="{{getRotation}}" position="{{getPosition}}" material="opacity: 1"
               data-src="{{skyImage getScene this}})" data-id="{{getScene._id}}"
@@ -11,5 +12,6 @@
               set-image="on: click; target: #image; src: {{skyImage getScene this}}"
               mouseenter-tracking="popover: 'test';"
     >
+        <a-box scale="6 6 6" position="-2.5 0.35 -15.2" opacity="0"></a-box>
     </a-entity>
 </template>

@@ -12,6 +12,8 @@ import '../../../../imports/lib/aframeComponents/cursorListener.js';
 import './main.html';
 import '../tour/hyperlinkObject.js';
 
+require('aframe-animation-component');
+
 const activeSceneId = new ReactiveVar('delft1');
 let vrMode = false;
 
@@ -70,8 +72,17 @@ Template.main.onRendered(() => {
         this.scene.exitVR();
     });
 
+    // TODO: the fade effect wears off after one animation. That has to be fixed (https://github.com/ngokevin/kframe/issues/58)
+    document.getElementById('black-plane').addEventListener('animation__fade-in-complete', evt => {
+        activeSceneId.set(evt.target.getAttribute('data-transition-to-scene-id'));
+    });
+    document.getElementById('black-plane').addEventListener('animation__fade-out-complete', () => {
+        document.getElementById('black-plane').setAttribute('position', { x: 0, y: 0, z: 1 });
+    });
     $(document).delegate('.hyperlink-object', 'click-hyperlink', evt => {
-        activeSceneId.set(evt.target.getAttribute('data-id'));
+        document.getElementById('black-plane').setAttribute('position', { x: 0, y: 0, z: -1 });
+        document.getElementById('black-plane').setAttribute('data-transition-to-scene-id', evt.target.getAttribute('data-id'));
+        document.getElementById('black-plane').emit('black-plane-fade');
     });
 });
 

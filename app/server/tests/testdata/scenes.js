@@ -13,7 +13,8 @@ TestData.register(
                 {
                     type: Scene.__properties.SKY,
                     file: '/360-photos/hall.JPG',
-                    previewFile: '/360-photos/hall.JPG'
+                    previewFile: '/360-photos/hall.JPG',
+                    rotation: 90
                 }
             ]
         }),

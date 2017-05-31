@@ -31,14 +31,23 @@ Scenes = new Mongo.Collection('scenes', {
 ScenePropertySchema = new SimpleSchema({
     type: {
         type: String // one of Scene._properties()
-    },
+    }
+});
+
+/**
+ * @type {SimpleSchema}
+ */
+SkyPropertySchema = new SimpleSchema([ScenePropertySchema, {
     file: {
         type: String
     },
     previewFile: {
         type: String
+    },
+    rotation: {
+        type: Number
     }
-});
+}]);
 
 /**
  * @type {SimpleSchema}
@@ -52,7 +61,12 @@ SceneSchema = new SimpleSchema({
         optional: true
     },
     properties: {
-        type: [ScenePropertySchema]
+        /**
+         * one of:
+         *  - SkyPropertySchema
+         */
+        type: [Object],
+        blackbox: true
     }
 });
 

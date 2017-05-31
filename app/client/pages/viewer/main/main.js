@@ -100,6 +100,15 @@ Template.main.helpers({
         });
         return scene.findPropertiesOfType(Scene.__properties.SKY).file;
     },
+    sceneRotation() {
+        if (!activeSceneId.get()) { return '0 0 0'; }
+        const scene = Scenes.findOne({
+            _id: activeSceneId.get()
+        });
+        return scene.findPropertiesOfType(Scene.__properties.SKY).rotation ?
+            `0 ${scene.findPropertiesOfType(Scene.__properties.SKY).rotation} 0` :
+            '0 0 0';
+    },
 
     hyperlinkObjects: () => {
         if (!activeSceneId.get()) { return ''; }

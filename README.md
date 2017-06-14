@@ -6,10 +6,10 @@
 For this project it's required to install meteor: [https://www.meteor.com/install](https://www.meteor.com/install)
 
 #### Open your terminal and go to the folder app/ inside this project
-> cd app/
+``cd app/``
 
 #### Start a local server
-> meteor
+``meteor``
 
 #### Check your setup
 The application is now available on: [http://localhost:3000](http://localhost:3000)
@@ -28,7 +28,7 @@ In the near future we would like to automate running the unit tests at every com
 
 Tests can be ran with this command:
 
-> meteor test --driver-package=practicalmeteor:mocha --port 4000
+``meteor test --driver-package=practicalmeteor:mocha --port 4000``
 
 Test results will be available on [http://localhost:4000](http://localhost:4000).
 
@@ -39,8 +39,8 @@ ESLint is a JavaScript package to run checks over the codebase. In this project 
 
 ### Globally install ESLint
 
-> npm install -g eslint
+``npm install -g eslint``
 
 You can also manually run ESLint inspection with this command:
 
-> app/node_modules/.bin/eslint app/client/ app/server/
+``app/node_modules/.bin/eslint app/client/ app/server/``

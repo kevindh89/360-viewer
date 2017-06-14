@@ -8,6 +8,7 @@ import '../../../../lib/listener/vrModeListener.js';
 import '../../../../lib/aframeComponents/mouseenterTracking.js';
 import '../../../../lib/aframeComponents/setImage.js';
 import '../../../../lib/aframeComponents/cursorListener.js';
+import '../../../../lib/aframeComponents/modelOpacity.js';
 
 let vrMode = false;
 

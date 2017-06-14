@@ -9,21 +9,21 @@ TestData.register(
             _id: 'test',
             sceneId: 'hall',
             position: {
-                x: -18.5,
-                y: 2,
-                z: 14.05
+                x: -21,
+                y: 2.5,
+                z: 7
             },
             rotation: {
                 x: 0,
-                y: -18.5,
+                y: 10,
                 z: 0
             },
             label: {
                 text: 'THE KITCHEN',
                 position: {
-                    x: -19,
-                    y: 5,
-                    z: 10.3
+                    x: 2,
+                    y: 4,
+                    z: 8
                 },
                 rotation: {
                     x: 0,
@@ -44,25 +44,25 @@ TestData.register(
             _id: 'test1',
             sceneId: 'hall',
             position: {
-                x: 12.3,
-                y: 2,
-                z: 28
+                x: 5,
+                y: 3,
+                z: 30
             },
             rotation: {
                 x: 0,
-                y: 75,
+                y: 100,
                 z: 0
             },
             label: {
                 text: 'THE LIVINGROOM',
                 position: {
                     x: 10.3,
-                    y: 5.5,
+                    y: 5,
                     z: 28.8
                 },
                 rotation: {
                     x: 0,
-                    y: 180,
+                    y: 190,
                     z: 0
                 }
             },

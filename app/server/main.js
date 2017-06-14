@@ -13,7 +13,6 @@ Meteor.startup(() => {
     TestData.clearDatabase();
 
     _.each(TestData.data, testData => {
-        // console.log('init test data');
         _.each(testData.data, document => {
             // console.log('insert', JSON.stringify(document));
             if (testData.collection === Accounts) {

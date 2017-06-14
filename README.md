@@ -14,21 +14,7 @@ For this project it's required to install meteor: [https://www.meteor.com/instal
 #### Check your setup
 The application is now available on: [http://localhost:3000](http://localhost:3000)
 
-## Code quality
-
-### ESLint
-
-ESLint is a JavaScript package to run checks over the codebase. In this project the ESLint inspection runs automatically at every git commit.
-
-#### Globally install ESLint
-
-> npm install -g eslint
-
-You can also manually run ESLint inspection with this command:
-
-> app/node_modules/.bin/eslint app/client/ app/server/
-
-### Unit tests
+## Testing
 
 In attempt to keep the project as stable as possible, unit tests should be created/updated when changes to the codebase are made.
 
@@ -45,3 +31,16 @@ Tests can be ran with this command:
 > meteor test --driver-package=practicalmeteor:mocha --port 4000
 
 Test results will be available on [http://localhost:4000](http://localhost:4000).
+
+
+## ESLint (code quality)
+
+ESLint is a JavaScript package to run checks over the codebase. In this project the ESLint inspection runs automatically at every git commit.
+
+### Globally install ESLint
+
+> npm install -g eslint
+
+You can also manually run ESLint inspection with this command:
+
+> app/node_modules/.bin/eslint app/client/ app/server/

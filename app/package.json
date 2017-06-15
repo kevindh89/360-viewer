@@ -19,6 +19,7 @@
     "eslint-plugin-react": "^6.10.3"
   },
   "dependencies": {
-    "aframe-animation-component": "^3.2.5"
+    "aframe-animation-component": "^3.2.5",
+    "babel-runtime": "^6.23.0"
   }
 }

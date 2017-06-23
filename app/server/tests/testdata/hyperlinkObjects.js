@@ -19,17 +19,7 @@ TestData.register(
                 z: 0
             },
             label: {
-                text: 'THE KITCHEN',
-                position: {
-                    x: 2,
-                    y: 4,
-                    z: 8
-                },
-                rotation: {
-                    x: 0,
-                    y: 90,
-                    z: 0
-                }
+                text: 'THE KITCHEN'
             },
             onClickEvents: [
                 {
@@ -46,7 +36,7 @@ TestData.register(
             position: {
                 x: 5,
                 y: 3,
-                z: 30
+                z: 28
             },
             rotation: {
                 x: 0,
@@ -54,17 +44,7 @@ TestData.register(
                 z: 0
             },
             label: {
-                text: 'THE LIVINGROOM',
-                position: {
-                    x: 10.3,
-                    y: 5,
-                    z: 28.8
-                },
-                rotation: {
-                    x: 0,
-                    y: 190,
-                    z: 0
-                }
+                text: 'THE LIVINGROOM'
             },
             onClickEvents: [
                 {
@@ -79,27 +59,17 @@ TestData.register(
             _id: 'test2',
             sceneId: 'kitchen',
             position: {
-                x: 22,
-                y: 1,
-                z: -11
+                x: 25,
+                y: 0,
+                z: -4.5
             },
             rotation: {
                 x: 0,
-                y: -195,
+                y: 186,
                 z: 0
             },
             label: {
-                text: 'THE HALL',
-                position: {
-                    x: 22,
-                    y: 4,
-                    z: -6
-                },
-                rotation: {
-                    x: 0,
-                    y: -90,
-                    z: 0
-                }
+                text: 'THE HALL'
             },
             onClickEvents: [
                 {
@@ -114,27 +84,17 @@ TestData.register(
             _id: 'test3',
             sceneId: 'livingroom',
             position: {
-                x: -11,
-                y: 1,
-                z: -28
+                x: -4,
+                y: 0,
+                z: -30.5
             },
             rotation: {
                 x: 0,
-                y: -105,
+                y: -85,
                 z: 0
             },
             label: {
-                text: 'THE HALL',
-                position: {
-                    x: -6.50,
-                    y: 4,
-                    z: -28
-                },
-                rotation: {
-                    x: 0,
-                    y: 10,
-                    z: 0
-                }
+                text: 'THE HALL'
             },
             onClickEvents: [
                 {
@@ -151,13 +111,13 @@ TestData.register(
             _id: 'delft1',
             sceneId: 'delft1',
             position: {
-                x: 29,
+                x: 5,
                 y: 1,
-                z: 11
+                z: 28
             },
             rotation: {
                 x: 0,
-                y: -235,
+                y: 100,
                 z: 0
             },
             onClickEvents: [
@@ -173,13 +133,13 @@ TestData.register(
             _id: 'delft2',
             sceneId: 'delft2',
             position: {
-                x: 29,
+                x: 21,
                 y: 1,
                 z: 24
             },
             rotation: {
                 x: 0,
-                y: -255,
+                y: 125,
                 z: 0
             },
             onClickEvents: [
@@ -195,13 +155,13 @@ TestData.register(
             _id: 'delft2_2',
             sceneId: 'delft2',
             position: {
-                x: -22,
+                x: -15.5,
                 y: 1,
-                z: -22
+                z: -27
             },
             rotation: {
                 x: 0,
-                y: -80,
+                y: -55.5,
                 z: 0
             },
             onClickEvents: [
@@ -217,13 +177,13 @@ TestData.register(
             _id: 'delft3_1',
             sceneId: 'delft3',
             position: {
-                x: -22,
+                x: -14.5,
                 y: 1,
-                z: -22
+                z: -25
             },
             rotation: {
                 x: 0,
-                y: -80,
+                y: -56.5,
                 z: 0
             },
             onClickEvents: [
@@ -239,13 +199,13 @@ TestData.register(
             _id: 'delft3_2',
             sceneId: 'delft3',
             position: {
-                x: 20,
+                x: 21.5,
                 y: 1,
-                z: -23
+                z: -15
             },
             rotation: {
                 x: 0,
-                y: -170,
+                y: -145,
                 z: 0
             },
             onClickEvents: [
@@ -261,13 +221,13 @@ TestData.register(
             _id: 'delft4_1',
             sceneId: 'delft4',
             position: {
-                x: -27,
+                x: -21,
                 y: 1,
-                z: -20
+                z: -24
             },
             rotation: {
                 x: 0,
-                y: -70,
+                y: -45,
                 z: 0
             },
             onClickEvents: [
@@ -283,13 +243,13 @@ TestData.register(
             _id: 'delft4_2',
             sceneId: 'delft4',
             position: {
-                x: 22,
+                x: 19,
                 y: 1,
-                z: 13.5
+                z: 19.5
             },
             rotation: {
                 x: 0,
-                y: 105,
+                y: 130,
                 z: 0
             },
             onClickEvents: [
@@ -305,13 +265,13 @@ TestData.register(
             _id: 'delft12_1',
             sceneId: 'delft12',
             position: {
-                x: -6,
+                x: -11,
                 y: 1,
-                z: 32.5
+                z: 24.5
             },
             rotation: {
                 x: 0,
-                y: 45,
+                y: 65,
                 z: 0
             },
             onClickEvents: [

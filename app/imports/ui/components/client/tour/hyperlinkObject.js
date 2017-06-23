@@ -13,7 +13,7 @@ Template.hyperlinkObject.helpers({
     },
     getLabelPosition() {
         if (this.label === undefined || this.label.position === undefined) {
-            return `${this.position.x} ${this.position.y} ${this.position.z}`;
+            return this.getDefaultLabelPosition();
         }
         return `${this.label.position.x} ${this.label.position.y} ${this.label.position.z}`;
     },
@@ -25,7 +25,7 @@ Template.hyperlinkObject.helpers({
     },
     getLabelRotation() {
         if (this.label === undefined || this.label.rotation === undefined) {
-            return `${0} ${0} ${0}`;
+            return this.getDefaultLabelRotation();
         }
         return `${this.label.rotation.x} ${this.label.rotation.y} ${this.label.rotation.z}`;
     },

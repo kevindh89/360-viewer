@@ -49,7 +49,8 @@ TestData.register(
                 {
                     type: Scene.__properties.SKY,
                     file: '/360-photos/delft/1.JPG',
-                    previewFile: '/360-photos/delft/1.JPG'
+                    previewFile: '/360-photos/delft/1.JPG',
+                    rotation: -45
                 }
             ]
         }),

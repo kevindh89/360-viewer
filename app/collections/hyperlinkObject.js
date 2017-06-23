@@ -9,6 +9,22 @@ HyperlinkObject = class HyperlinkObject {
     findOnClickEvents(type) {
         return _.findWhere(this.onClickEvents, { type });
     }
+
+    getDefaultLabelPosition() {
+        if (!this.label) {
+            return '0 2 0';
+        }
+
+        const x = 0;
+        const y = 2;
+        const z = Math.round(this.label.text.length / 2) * 0.5;
+
+        return `${x} ${y} ${z}`;
+    }
+
+    getDefaultLabelRotation() {
+        return '0 90 0';
+    }
 };
 
 HyperlinkObjectSchema = new SimpleSchema({

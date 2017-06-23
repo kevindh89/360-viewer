@@ -13,7 +13,7 @@
                   model-opacity="0.5">
         </a-entity>
         {{#if isDefined this.label}}
-            <a-entity position="{{getLabelPosition}}" visible="true" scale="40 40 40"
+            <a-entity class="marker-label" position="{{getLabelPosition}}" scale="15 15 15" visible="false"
                       text="anchor:left;width:1.5;color:white;value:{{this.label.text}};zOffset:0" rotation="{{getLabelRotation}}">
             </a-entity>
         {{/if}}

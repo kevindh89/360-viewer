@@ -19,6 +19,7 @@
         "max-len": ["error", 150],
         "no-undef": "off",
         "no-underscore-dangle": "off",
-        "prefer-rest-params": "off"
+        "prefer-rest-params": "off",
+        "class-methods-use-this": "off"
     }
 }

@@ -6,6 +6,6 @@ import '../../../imports/ui/components/client/tour/hyperlinkObject.js';
 
 require('aframe-animation-component');
 
-Template.main.onCreated(Main.onCreated);
-Template.main.onRendered(Main.onRendered);
-Template.main.helpers(Main.helpers);
+Template.main.onCreated(MainTemplate.onCreated);
+Template.main.onRendered(MainTemplate.onRendered);
+Template.main.helpers(MainTemplate.helpers);

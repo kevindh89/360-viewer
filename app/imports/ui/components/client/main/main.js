@@ -12,7 +12,7 @@ import '../../../../lib/aframeComponents/modelOpacity.js';
 
 let vrMode = false;
 
-export default Main = {
+export default MainTemplate = {
     onCreated: function onCreated() {
         Template.instance().activeSceneId = new ReactiveVar('delft1');
         const initialScene = Scenes.findOne({

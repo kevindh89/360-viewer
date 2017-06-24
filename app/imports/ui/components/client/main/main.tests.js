@@ -7,7 +7,7 @@ import '../../../../../collections/scenes.js';
 import '../../../aframe-test-helper.js';
 import './main.js';
 
-describe('Main:helpers:activeImage', function () {
+describe('MainTemplate:helpers:activeImage', function () {
     beforeEach(() => {
         stubs.create('Scenes_findOne', Scenes, 'findOne')
             .returns({
@@ -22,7 +22,7 @@ describe('Main:helpers:activeImage', function () {
         stubs.create('instance', Template, 'instance')
             .returns({ activeSceneId: { get: () => '' } });
 
-        const result = Main.helpers.activeImage();
+        const result = MainTemplate.helpers.activeImage();
 
         expect(result).equals('');
     });
@@ -31,7 +31,7 @@ describe('Main:helpers:activeImage', function () {
         stubs.create('instance', Template, 'instance')
             .returns({ activeSceneId: { get: () => 1 } });
 
-        const result = Main.helpers.activeImage();
+        const result = MainTemplate.helpers.activeImage();
 
         expect(result).equals('testfile.jpg');
         expect(stubs.Scenes_findOne).to.have.been.calledWith({

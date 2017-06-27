@@ -3,8 +3,8 @@
 import 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
-import '../../../../../collections/scenes.js';
-import '../../../aframe-test-helper.js';
+import '../../../../collections/scenes.js';
+import '../../aframe-test-helper.js';
 import './main.js';
 
 describe('MainTemplate:helpers:activeImage', function () {

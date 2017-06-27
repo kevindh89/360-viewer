@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating';
 
-import '../../../imports/ui/components/client/main/main.html';
-import '../../../imports/ui/components/client/main/main.js';
-import '../../../imports/ui/components/client/tour/hyperlinkObject.js';
+import '../../../imports/client/pages/main/main.html';
+import '../../../imports/client/pages/main/main.js';
+import '../../../imports/client/components/tour/hyperlinkObject.js';
 
 require('aframe-animation-component');
 

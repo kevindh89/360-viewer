@@ -13,10 +13,7 @@ export default HyperlinkObjectTemplate = {
             return `${this.position.x} ${this.position.y} ${this.position.z}`;
         },
         getLabelPosition() {
-            if (this.label === undefined || this.label.position === undefined) {
-                return this.getDefaultLabelPosition();
-            }
-            return `${this.label.position.x} ${this.label.position.y} ${this.label.position.z}`;
+            return `${this.getLabelPosition().x} ${this.getLabelPosition().y} ${this.getLabelPosition().z}`;
         },
         getRotation() {
             if (this.rotation === undefined) {
@@ -25,10 +22,7 @@ export default HyperlinkObjectTemplate = {
             return `${this.rotation.x} ${this.rotation.y} ${this.rotation.z}`;
         },
         getLabelRotation() {
-            if (this.label === undefined || this.label.rotation === undefined) {
-                return this.getDefaultLabelRotation();
-            }
-            return `${this.label.rotation.x} ${this.label.rotation.y} ${this.label.rotation.z}`;
+            return `${this.getLabelRotation().x} ${this.getLabelRotation().y} ${this.getLabelRotation().z}`;
         },
         skyImage: scene => {
             if (!scene) { return ''; }

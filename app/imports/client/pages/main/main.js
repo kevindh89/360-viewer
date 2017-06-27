@@ -1,14 +1,14 @@
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
-import '../../../../lib/listener/movementKeyListener.js';
-import '../../../../lib/listener/clickListener.js';
-import '../../../../lib/listener/vrModeListener.js';
+import '../../../lib/listener/movementKeyListener.js';
+import '../../../lib/listener/clickListener.js';
+import '../../../lib/listener/vrModeListener.js';
 
-import '../../../../lib/aframeComponents/mouseenterTracking.js';
-import '../../../../lib/aframeComponents/setImage.js';
-import '../../../../lib/aframeComponents/cursorListener.js';
-import '../../../../lib/aframeComponents/modelOpacity.js';
+import '../../../lib/aframeComponents/mouseenterTracking.js';
+import '../../../lib/aframeComponents/setImage.js';
+import '../../../lib/aframeComponents/cursorListener.js';
+import '../../../lib/aframeComponents/modelOpacity.js';
 
 let vrMode = false;
 

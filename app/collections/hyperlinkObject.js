@@ -10,20 +10,28 @@ HyperlinkObject = class HyperlinkObject {
         return _.findWhere(this.onClickEvents, { type });
     }
 
-    getDefaultLabelPosition() {
+    getLabelPosition() {
         if (!this.label) {
             return '0 2 0';
         }
 
-        const x = 0;
-        const y = 2;
-        const z = Math.round(this.label.text.length / 2) * 0.5;
+        if (!this.label.position) {
+            const x = 0;
+            const y = 2;
+            const z = Math.round(this.label.text.length / 2) * 0.5;
 
-        return `${x} ${y} ${z}`;
+            return `${x} ${y} ${z}`;
+        }
+
+        return this.label.position;
     }
 
-    getDefaultLabelRotation() {
-        return '0 90 0';
+    getLabelRotation() {
+        if (!this.label || !this.label.rotation) {
+            return '0 90 0';
+        }
+
+        return this.label.rotation;
     }
 };
 

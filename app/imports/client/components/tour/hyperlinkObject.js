@@ -2,11 +2,8 @@ import './hyperlinkObject.html';
 
 export default HyperlinkObjectTemplate = {
     hyperlinkObjectHelpers: {
-        getScene(hyperlinkObject) {
-            const sceneId = hyperlinkObject.findOnClickEvents(ViewerEvent.__types.HYPERLINK) !== undefined
-                ? hyperlinkObject.findOnClickEvents(ViewerEvent.__types.HYPERLINK).data.navigateToSceneId
-                : undefined;
-            return Scenes.findOne({ _id: sceneId });
+        getDestinationScene(hyperlinkObject) {
+            return Scenes.findOne({ _id: hyperlinkObject.getDestinationSceneId() });
         },
         getPosition(hyperlinkObject) {
             return `${hyperlinkObject.position.x} ${hyperlinkObject.position.y} ${hyperlinkObject.position.z}`;
@@ -26,7 +23,9 @@ export default HyperlinkObjectTemplate = {
     },
     helpers: {
         skyImage: scene => {
-            if (!scene) { return ''; }
+            if (!scene) {
+                return '';
+            }
             return `src: url(${scene.findPropertiesOfType(Scene.__properties.SKY).file})`;
         }
     }

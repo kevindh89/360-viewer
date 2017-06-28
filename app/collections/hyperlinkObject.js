@@ -10,6 +10,13 @@ HyperlinkObject = class HyperlinkObject {
         return _.findWhere(this.onClickEvents, { type });
     }
 
+    getDestinationSceneId() {
+        if (this.findOnClickEvents(ViewerEvent.__types.HYPERLINK) !== undefined) {
+            return this.findOnClickEvents(ViewerEvent.__types.HYPERLINK).data.navigateToSceneId;
+        }
+        return undefined;
+    }
+
     getLabelPosition() {
         if (this.label && this.label.position) {
             return this.label.position;

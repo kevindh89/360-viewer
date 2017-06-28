@@ -1,6 +1,3 @@
-/**
- * Created by kevindeheer on 27-08-16.
- */
 Scene = class Scene {
     constructor(doc) {
         _.extend(this, doc);

@@ -1,6 +1,3 @@
-/**
- * Created by kevindeheer on 29-12-16.
- */
 TourImages = new FilesCollection({
     collectionName: 'tourImages',
     allowClientCode: false, // Disallow remove files from Client

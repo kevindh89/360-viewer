@@ -53,7 +53,7 @@ TourObjectSchema = new SimpleSchema({
 });
 
 /**
- * The schema defines the structure of the objects within the collection.
+ * The schemas defines the structure of the objects within the collection.
  *
  * @type {SimpleSchema}
  */

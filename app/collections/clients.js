@@ -1,6 +1,3 @@
-/**
- * Created by kevindeheer on 27-08-16.
- */
 Client = function Client(doc) {
     _.extend(this, doc);
 };
@@ -22,7 +19,7 @@ Clients = new Mongo.Collection('clients', {
 });
 
 /**
- * The schema defines the structure of the objects within the collection.
+ * The schemas defines the structure of the objects within the collection.
  *
  * @type {SimpleSchema}
  */

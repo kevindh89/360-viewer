@@ -11,24 +11,36 @@ HyperlinkObject = class HyperlinkObject {
     }
 
     getLabelPosition() {
-        if (!this.label) {
-            return '0 2 0';
+        if (this.label && this.label.position) {
+            return this.label.position;
         }
 
-        if (!this.label.position) {
-            const x = 0;
-            const y = 2;
-            const z = Math.round(this.label.text.length / 2) * 0.5;
+        const defaultX = 0;
+        const defaultY = 2;
+        const defaultZ = 0;
 
-            return `${x} ${y} ${z}`;
+        if (this.label && !this.label.position) {
+            return {
+                x: defaultX,
+                y: defaultY,
+                z: Math.round(this.label.text.length / 2) * 0.5 // centers the text above the marker
+            };
         }
 
-        return this.label.position;
+        return {
+            x: defaultX,
+            y: defaultY,
+            z: defaultZ
+        };
     }
 
     getLabelRotation() {
         if (!this.label || !this.label.rotation) {
-            return '0 90 0';
+            return {
+                x: 0,
+                y: 90,
+                z: 0
+            };
         }
 
         return this.label.rotation;

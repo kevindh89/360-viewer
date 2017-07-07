@@ -1,16 +1,16 @@
 <template name="hyperlinkObject">
-
+<!--              set-image="on: click; target: #image; src: {{skyImage getDestinationScene this}}"-->
     <a-entity class="scene hyperlink-object"
               rotation="{{getRotation}}" position="{{getPosition}}"
               data-src="{{skyImage getDestinationScene this}})" data-id="{{getDestinationScene._id}}"
-              event-set__enter="_event: mouseenter; modal-opacity: 1; scale: 3 1 1"
-              set-image="on: click; target: #image; src: {{skyImage getDestinationScene this}}"
-              mouseenter-tracking="popover: 'test';"
+              mouseenter-tracking=""
               style="cursor: pointer !important;"
+              change-scene="scene: kitchen;"
     >
         <a-entity class="marker-model" obj-model="obj: url(/models/pointer-marker.obj); mtl: url(/markers/pointer-marker.mtl)"
                   scale="0.3 0.3 0.3"
                   model-opacity="0.5">
+            <a-animation atribute="model-opacity" dur="1000" to="0" begin="hyperlink-object-fade-out"></a-animation>
         </a-entity>
         {{#if isDefined this.label}}
             <a-entity class="marker-label" position="{{getLabelPosition}}" scale="15 15 15" visible="false"

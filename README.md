@@ -44,3 +44,15 @@ ESLint is a JavaScript package to run checks over the codebase. In this project 
 You can also manually run ESLint inspection with this command:
 
 ``app/node_modules/.bin/eslint app/client/ app/server/``
+
+## Directory structure
+
+├─ app                  # contains all application code
+├── client
+├── collections
+├── doc
+├── imports
+├── node_modules
+├── public
+├── routes
+├── server

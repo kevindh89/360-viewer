@@ -9,14 +9,12 @@
                 {{> hyperlinkObject}}
             {{/each}}
         </a-entity>
-        <a-entity id="hud" position="0 10 0" far="10000000" camera look-controls mouse-cursor>
-            <a-plane id="black-plane" color="#000" width="20" height="20" position="0 0 1" material="opacity: 0"
-                animation__fade-in="startEvents: black-plane-fade; to: 1; dur: 1000; property: material.opacity;"
-                animation__fade-out="startEvents: animation__fade-in-complete; to: 0; dur: 1000; property: material.opacity;"
-            >
-            </a-plane>
-        </a-entity>
+        <a-entity id="hud" position="0 10 0" far="10000000" camera look-controls mouse-cursor></a-entity>
         <a-sky id="image" src="#photo" rotation="{{sceneRotation}}">
+            <a-animation attribute="material.color" dur="1000" from="#fff" to="#000"
+                         begin="set-image-fade"></a-animation>
+            <a-animation attribute="material.color" dur="1000" from="#fff" to="#000"
+                         begin="set-image-fade"></a-animation>
         </a-sky>
     </a-scene>
 </template>

@@ -7,6 +7,7 @@ import '../../../lib/listener/vrModeListener.js';
 
 import '../../../lib/aframeComponents/mouseenterTracking.js';
 import '../../../lib/aframeComponents/setImage.js';
+import '../../../lib/aframeComponents/changeScene.js';
 import '../../../lib/aframeComponents/cursorListener.js';
 import '../../../lib/aframeComponents/modelOpacity.js';
 
@@ -40,7 +41,6 @@ export default MainTemplate = {
     },
 
     onRendered: () => {
-        const template = Template.instance();
         const movementListener = new MovementKeyListener(window, document);
         movementListener.register('.hyperlink-object');
 
@@ -71,17 +71,18 @@ export default MainTemplate = {
         });
 
         // TODO: the fade effect wears off after one animation. That has to be fixed (https://github.com/ngokevin/kframe/issues/58)
-        document.getElementById('black-plane').addEventListener('animation__fade-in-complete', evt => {
-            template.activeSceneId.set(evt.target.getAttribute('data-transition-to-scene-id'));
-        });
-        document.getElementById('black-plane').addEventListener('animation__fade-out-complete', () => {
-            document.getElementById('black-plane').setAttribute('position', { x: 0, y: 0, z: 1 });
-        });
-        $(document).delegate('.hyperlink-object', 'click-hyperlink', evt => {
-            document.getElementById('black-plane').setAttribute('position', { x: 0, y: 0, z: -1 });
-            document.getElementById('black-plane').setAttribute('data-transition-to-scene-id', evt.target.getAttribute('data-id'));
-            document.getElementById('black-plane').emit('black-plane-fade');
-        });
+        // document.getElementById('black-plane').addEventListener('animation__fade-in-complete', evt => {
+        //     template.activeSceneId.set(evt.target.getAttribute('data-transition-to-scene-id'));
+        // });
+        // document.getElementById('black-plane').addEventListener('animation__fade-out-complete', () => {
+        //     document.getElementById('black-plane').setAttribute('position', { x: 0, y: 0, z: 1 });
+        // });
+        // $(document).delegate('.hyperlink-object', 'click-hyperlink', evt => {
+        //     document.querySelector('.marker-model').emit('hyperlink-object-fade-out');
+        //     document.getElementById('black-plane').setAttribute('position', { x: 0, y: 0, z: -1 });
+        //     document.getElementById('black-plane').setAttribute('data-transition-to-scene-id', evt.target.getAttribute('data-id'));
+        //     document.getElementById('black-plane').emit('black-plane-fade');
+        // });
     },
 
     helpers: {

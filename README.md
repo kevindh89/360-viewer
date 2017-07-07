@@ -46,13 +46,32 @@ You can also manually run ESLint inspection with this command:
 ``app/node_modules/.bin/eslint app/client/ app/server/``
 
 ## Directory structure
+
+All code within the ``app/client`` folder is only loaded client side, all code within ``app/server`` only server side and all code outside these folders is loaded in both.
     
-    ├ app                  # contains all application code
-    ├─ client
-    ├─ collections
-    ├─ doc
-    ├─ imports
-    ├─ node_modules
-    ├─ public
-    ├─ routes
-    ├─ server
+    ├ app                   # contains all application code
+    ├── client               
+    ├──── components        # thin layer where template components get binded to Meteor templating
+    ├──── layout            # base layout templates
+    ├──── lib               # template helpers and other supportive code (the lib folder gets loaded before everything else)
+    ├──── pages             # thin layer where page template get binded to Meteor templating
+    ├── collections         # database layer
+    ├──── lib               # helper classes that are used in models
+    ├──── models            # database entity models
+    ├──── schemas           # database schema definition
+    ├── doc
+    ├── imports             # application code in here, doesn't gets autoloaded
+    ├──── client            # client side templates code
+    ├────── components      # client side components
+    ├────── pages           # client side pages
+    ├──── lib
+    ├────── aframeComponents # client side components that hook into the A-frame component system
+    ├────── listener        # client side listeners
+    ├────── uploadForm      # upload form component for admin panel
+    ├── node_modules        # npm installs package dependencies in here
+    ├── public              # web assets (models, images etc.)
+    ├── routes              # routing definitions
+    ├── server              # server side code
+    ├──── methods           # server methods that can be called from the client side
+    ├──── publications      # publish database data to the client side with publications to which the client side can subscribe
+    ├──── tests             # for now this holds code that fills the database with mock data

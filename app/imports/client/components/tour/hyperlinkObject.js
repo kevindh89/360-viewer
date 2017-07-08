@@ -1,7 +1,7 @@
 import './hyperlinkObject.html';
 
 export default HyperlinkObjectTemplate = {
-    hyperlinkObjectHelpers: {
+    hyperlinkObject_helpers: {
         getDestinationScene(hyperlinkObject) {
             return Scenes.findOne({ _id: hyperlinkObject.getDestinationSceneId() });
         },
@@ -19,14 +19,6 @@ export default HyperlinkObjectTemplate = {
         },
         getLabelRotation(hyperlinkObject) {
             return `${hyperlinkObject.getLabelRotation().x} ${hyperlinkObject.getLabelRotation().y} ${hyperlinkObject.getLabelRotation().z}`;
-        }
-    },
-    helpers: {
-        skyImage: scene => {
-            if (!scene) {
-                return '';
-            }
-            return `src: url(${scene.findPropertiesOfType(Scene.__properties.SKY).file})`;
         }
     }
 };

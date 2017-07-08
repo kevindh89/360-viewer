@@ -8,4 +8,9 @@ require('aframe-animation-component');
 
 Template.main.onCreated(MainTemplate.onCreated);
 Template.main.onRendered(MainTemplate.onRendered);
-Template.main.helpers(MainTemplate.helpers);
+Template.main.helpers(
+    _.extend(
+        MeteorContextInjector.wrap(MainTemplate.hyperlinkObject_helpers, HyperlinkObject),
+        MainTemplate.helpers
+    )
+);

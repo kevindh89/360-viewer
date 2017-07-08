@@ -1,8 +1,11 @@
 <template name="main">
-    <a-scene vr-mode-ui="enabled: true"
+    <a-scene id="scene" vr-mode-ui="enabled: true"
              inspector="url: https://aframe.io/releases/0.4.0/aframe-inspector.min.js">
         <a-assets>
             <img id="photo" src="{{activeImage}}"/>
+            {{#each hyperlinkObjects}}
+                <img src="{{getDestinationSceneSkyImage this}}" />
+            {{/each}}
         </a-assets>
         <a-entity position="0 0 0">
             {{#each hyperlinkObjects}}
@@ -10,11 +13,11 @@
             {{/each}}
         </a-entity>
         <a-entity id="hud" position="0 10 0" far="10000000" camera look-controls mouse-cursor></a-entity>
-        <a-sky id="image" src="#photo" rotation="{{sceneRotation}}">
-            <a-animation attribute="material.color" dur="1000" from="#fff" to="#000"
-                         begin="set-image-fade"></a-animation>
-            <a-animation attribute="material.color" dur="1000" from="#fff" to="#000"
-                         begin="set-image-fade"></a-animation>
+        <a-sky id="image" src="{{activeImage}}" rotation="{{sceneRotation}}">
+            <a-animation id="fade-out-animation" attribute="material.color" dur="750" from="#fff" to="#000"
+                         begin="set-image-fade-out"></a-animation>
+            <a-animation attribute="material.color" dur="750" from="#000" to="#fff"
+                         begin="set-image-fade-in"></a-animation>
         </a-sky>
     </a-scene>
 </template>

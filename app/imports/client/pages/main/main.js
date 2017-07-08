@@ -40,7 +40,8 @@ export default MainTemplate = {
         });
     },
 
-    onRendered: () => {
+    onRendered: function onRendered() {
+        const template = Template.instance();
         const movementListener = new MovementKeyListener(window, document);
         movementListener.register('.hyperlink-object');
 
@@ -70,19 +71,9 @@ export default MainTemplate = {
             this.scene.exitVR();
         });
 
-        // TODO: the fade effect wears off after one animation. That has to be fixed (https://github.com/ngokevin/kframe/issues/58)
-        // document.getElementById('black-plane').addEventListener('animation__fade-in-complete', evt => {
-        //     template.activeSceneId.set(evt.target.getAttribute('data-transition-to-scene-id'));
-        // });
-        // document.getElementById('black-plane').addEventListener('animation__fade-out-complete', () => {
-        //     document.getElementById('black-plane').setAttribute('position', { x: 0, y: 0, z: 1 });
-        // });
-        // $(document).delegate('.hyperlink-object', 'click-hyperlink', evt => {
-        //     document.querySelector('.marker-model').emit('hyperlink-object-fade-out');
-        //     document.getElementById('black-plane').setAttribute('position', { x: 0, y: 0, z: -1 });
-        //     document.getElementById('black-plane').setAttribute('data-transition-to-scene-id', evt.target.getAttribute('data-id'));
-        //     document.getElementById('black-plane').emit('black-plane-fade');
-        // });
+        document.getElementById('scene').addEventListener('change-scene', evt => {
+            template.activeSceneId.set(evt.detail.destinationId);
+        });
     },
 
     helpers: {
@@ -116,6 +107,16 @@ export default MainTemplate = {
             return HyperlinkObjects.find({
                 sceneId: Template.instance().activeSceneId.get()
             });
+        }
+    },
+
+    hyperlinkObject_helpers: {
+        getDestinationSceneSkyImage(hyperlinkObject) {
+            const scene = Scenes.findOne({ _id: hyperlinkObject.getDestinationSceneId() });
+            if (!scene) {
+                return '';
+            }
+            return scene.findPropertiesOfType(Scene.__properties.SKY).file;
         }
     }
 };

@@ -1,22 +1,20 @@
 <template name="hyperlinkObject">
-<!--              set-image="on: click; target: #image; src: {{skyImage getDestinationScene this}}"-->
     <a-entity class="scene hyperlink-object"
-              rotation="{{getRotation}}" position="{{getPosition}}"
-              mouseenter-tracking=""
-              style="cursor: pointer !important;"
-              change-scene="scene: {{getDestinationScene._id}};"
-    >
-        <a-entity class="marker-model" obj-model="obj: url(/models/pointer-marker.obj); mtl: url(/models/pointer-marker.mtl)"
-                  scale="0.3 0.3 0.3"
-                  model-opacity="0.5">
+              rotation="{{getRotation}}" position="{{getPosition}}" style="cursor: pointer !important;"
+              change-scene-on-click="scene: {{getDestinationScene._id}};" mouseover-effect-hyperlink-object>
+
+        <a-entity class="marker-model" scale="0.3 0.3 0.3" model-opacity="0.5"
+                  obj-model="obj: url(/models/pointer-marker.obj); mtl: url(/models/pointer-marker.mtl)">
             <a-animation atribute="model-opacity" dur="1000" to="0" begin="hyperlink-object-fade-out"></a-animation>
         </a-entity>
+
         {{#if isDefined this.label}}
             <a-entity class="marker-label" position="{{getLabelPosition}}" scale="15 15 15" visible="false"
-                      shader="flat"
-                      text="font:exo2bold;anchor:left;width:1.5;color:white;value:{{this.label.text}};zOffset:0" rotation="{{getLabelRotation}}">
+                      rotation="{{getLabelRotation}}" shader="flat"
+                      text="font:exo2bold;anchor:left;width:1.5;color:white;value:{{this.label.text}};zOffset:0">
             </a-entity>
         {{/if}}
+
         <a-box scale="6 6 6" position="0 0 0" opacity="0"></a-box>
     </a-entity>
 </template>

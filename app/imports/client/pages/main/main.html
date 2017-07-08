@@ -14,19 +14,16 @@
         </a-entity>
         <a-entity id="hud" position="0 10 0" far="10000000" camera look-controls mouse-cursor></a-entity>
         <a-sky id="image" src="{{activeImage}}" rotation="{{sceneRotation}}">
-            <a-animation id="fade-out-animation" attribute="material.color" dur="750" from="#fff" to="#000"
-                         begin="set-image-fade-out"></a-animation>
-            <a-animation attribute="material.color" dur="750" from="#000" to="#fff"
-                         begin="set-image-fade-in"></a-animation>
+            <a-animation attribute="material.color" dur="750" from="#fff" to="#000" begin="fade-sky-to-black"></a-animation>
+            <a-animation attribute="material.color" dur="750" from="#000" to="#fff" begin="fade-sky-to-image"></a-animation>
         </a-sky>
     </a-scene>
 </template>
 
 <template name="cursor">
-    <a-entity id="cursor" cursor="fuse: true; timeout: 0" cursor-listener
+    <a-entity id="cursor" cursor="fuse: true; timeout: 0" vr-cursor-animations
               position="0 0 -5" scale="0.30 0.30 0.30" geometry="primitive: ring"
-              material="color: {{#if
-                      style.pointerColor}}{{style.pointerColor}}{{else}}#e9342d{{/if}}; shader: flat">
+              material="color: {{#if style.pointerColor}}{{style.pointerColor}}{{else}}#e9342d{{/if}}; shader: flat">
         <a-animation attribute="scale" from="0.30 0.30 0.30" to="0.40 0.40 0.40" dur="2000"
                      direction="alternate" easing="linear" repeat="indefinite"></a-animation>
         <a-animation begin="mouseover-clickable" end="mouseleave-clickable" easing="ease-in"

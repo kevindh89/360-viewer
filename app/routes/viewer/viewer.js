@@ -15,18 +15,3 @@ Router.route('clientViewer', {
         return Clients.findOne();
     }
 });
-
-Router.route('tourViewer', {
-    path: '/tour/:id',
-    template: 'tour',
-    waitOn() {
-        return [
-            Meteor.subscribe('clientForTour', this.params.id),
-            Meteor.subscribe('tour', this.params.id),
-            Meteor.subscribe('files.images.all')
-        ];
-    },
-    data() {
-        return Tours.findOne(this.params.id);
-    }
-});

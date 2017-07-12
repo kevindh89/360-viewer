@@ -1,39 +1,8 @@
-Client = function Client(doc) {
-    _.extend(this, doc);
-};
+import './models/clients.js';
+import './schemas/clients.js';
 
-/**
- * Functions for instances of the Client class can be defined here.
- * @type {{constructor: Function}}
- */
-Client.prototype = {
-    constructor: Client
-};
-
-/**
- * Initialize the collection.
- * The transform function converts all objects into instances of the "Client" class.
- */
 Clients = new Mongo.Collection('clients', {
     transform: doc => new Client(doc)
-});
-
-/**
- * The schemas defines the structure of the objects within the collection.
- *
- * @type {SimpleSchema}
- */
-ClientSchema = new SimpleSchema({
-    username: {
-        type: String
-    },
-    slug: {
-        type: String
-    },
-    host: {
-        type: String,
-        optional: true
-    }
 });
 
 Clients.attachSchema(ClientSchema);

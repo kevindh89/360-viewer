@@ -18,6 +18,13 @@
             <a-animation attribute="material.color" dur="750" from="#000" to="#fff" begin="fade-sky-to-image"></a-animation>
         </a-sky>
     </a-scene>
+
+    {{#if isDefined logo}}
+        <a href="{{logo.href}}">
+            <img src="{{logo.file}}" class="client-logo" />
+        </a>
+    {{/if}}
+
     <div id="footer">
         made by <a href="https://www.vensterworks.com" target="_blank">Vensterworks</a>
     </div>

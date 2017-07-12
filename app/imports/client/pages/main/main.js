@@ -1,6 +1,8 @@
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
+import './main.styl';
+
 import '../../../lib/listener/sceneClickListener.js';
 import '../../../lib/listener/vrModeListener.js';
 

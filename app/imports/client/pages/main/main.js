@@ -43,7 +43,7 @@ export default MainTemplate = {
             if (vrMode === false) {
                 return;
             }
-            if ($(evt.target).hasClass('hyperlink-object')) {
+            if (evt.constructor.name === 'CustomEvent') {
                 return;
             }
             this.scene.exitVR();

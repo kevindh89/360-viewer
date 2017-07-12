@@ -5,6 +5,16 @@
 #### Install meteor
 For this project it's required to install meteor: [https://www.meteor.com/install](https://www.meteor.com/install)
 
+#### Pull 360-images to your local machine to develop with
+
+**MacOSX/Liux:**
+
+``sh 360-images-download.sh``
+
+**Windows:**
+
+``"360-images-download.bat" to be fixed``
+
 #### Open your terminal and go to the folder app/ inside this project
 ``cd app/``
 

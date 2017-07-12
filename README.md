@@ -7,11 +7,11 @@ For this project it's required to install meteor: [https://www.meteor.com/instal
 
 #### Pull 360-images to your local machine to develop with
 
-**MacOSX/Liux:**
+MacOSX/Linux:
 
 ``sh 360-images-download.sh``
 
-**Windows:**
+Windows:
 
 ``"360-images-download.bat" to be fixed``
 

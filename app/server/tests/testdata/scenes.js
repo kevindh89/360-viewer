@@ -117,7 +117,12 @@ TestData.register(
                 {
                     type: Scene.__properties.SKY,
                     file: '/360-viewer/bezuidenhoutseweg.JPG',
-                    previewFile: '/360-viewer/bezuidenhoutseweg.JPG'
+                    previewFile: '/360-viewer/bezuidenhoutseweg.JPG',
+                    rotation: {
+                        x: 0,
+                        y: 0,
+                        z: -3.5
+                    }
                 }
             ]
         }),
@@ -150,7 +155,12 @@ TestData.register(
                 {
                     type: Scene.__properties.SKY,
                     file: '/360-viewer/kantine.JPG',
-                    previewFile: '/360-viewer/kantine.JPG'
+                    previewFile: '/360-viewer/kantine.JPG',
+                    rotation: {
+                        x: -4.3,
+                        y: 0,
+                        z: -0.7
+                    }
                 }
             ]
         }),
@@ -183,7 +193,12 @@ TestData.register(
                 {
                     type: Scene.__properties.SKY,
                     file: '/360-viewer/kleedkamer.JPG',
-                    previewFile: '/360-viewer/kleedkamer.JPG'
+                    previewFile: '/360-viewer/kleedkamer.JPG',
+                    rotation: {
+                        x: -3.5,
+                        y: 0,
+                        z: -4.5
+                    }
                 }
             ]
         }),
@@ -194,7 +209,12 @@ TestData.register(
                 {
                     type: Scene.__properties.SKY,
                     file: '/360-viewer/kunstgrasveld.JPG',
-                    previewFile: '/360-viewer/kunstgrasveld.JPG'
+                    previewFile: '/360-viewer/kunstgrasveld.JPG',
+                    rotation: {
+                        x: -0.7,
+                        y: 0,
+                        z: -1.7
+                    }
                 }
             ]
         }),
@@ -205,7 +225,12 @@ TestData.register(
                 {
                     type: Scene.__properties.SKY,
                     file: '/360-viewer/achterveld.JPG',
-                    previewFile: '/360-viewer/achterveld.JPG'
+                    previewFile: '/360-viewer/achterveld.JPG',
+                    rotation: {
+                        x: -3.5,
+                        y: 0,
+                        z: -3.3
+                    }
                 }
             ]
         })

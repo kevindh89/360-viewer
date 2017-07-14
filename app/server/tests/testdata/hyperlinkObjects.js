@@ -377,9 +377,9 @@ TestData.register(
             _id: 'gkv-kantine-keuken',
             sceneId: 'gkv-kantine',
             position: {
-                x: -31,
+                x: -33,
                 y: 2,
-                z: 12
+                z: 13
             },
             rotation: {
                 x: 0,
@@ -401,7 +401,7 @@ TestData.register(
             position: {
                 x: 4,
                 y: -7,
-                z: 22
+                z: 24
             },
             rotation: {
                 x: 0,
@@ -487,13 +487,13 @@ TestData.register(
             _id: 'gkv-kunstgrasveld-achterveld',
             sceneId: 'gkv-kunstgrasveld',
             position: {
-                x: 23,
+                x: 30,
                 y: 0,
-                z: 0
+                z: -2.4
             },
             rotation: {
                 x: 0,
-                y: 180,
+                y: 185,
                 z: 0
             },
             onClickEvents: [
@@ -509,7 +509,7 @@ TestData.register(
             _id: 'gkv-kunstgrasveld-voorveld',
             sceneId: 'gkv-kunstgrasveld',
             position: {
-                x: -23,
+                x: -28,
                 y: 1,
                 z: 0
             },
@@ -531,13 +531,13 @@ TestData.register(
             _id: 'gkv-achterveld-kunstgrasveld',
             sceneId: 'gkv-achterveld',
             position: {
-                x: -23,
+                x: -29,
                 y: 1,
-                z: 0
+                z: -2.5
             },
             rotation: {
                 x: 0,
-                y: 0,
+                y: -7,
                 z: 0
             },
             onClickEvents: [
@@ -553,9 +553,9 @@ TestData.register(
             _id: 'gkv-keuken-kantine',
             sceneId: 'gkv-keuken',
             position: {
-                x: 34,
-                y: 0,
-                z: 0
+                x: 23.5,
+                y: -1.7,
+                z: 2.8
             },
             rotation: {
                 x: 0,

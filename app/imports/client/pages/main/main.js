@@ -73,9 +73,11 @@ export default MainTemplate = {
             const scene = Scenes.findOne({
                 _id: Template.instance().activeSceneId.get()
             });
-            return scene.findPropertiesOfType(Scene.__properties.SKY).rotation ?
-                `0 ${scene.findPropertiesOfType(Scene.__properties.SKY).rotation} 0` :
-                '0 0 0';
+            const sceneRotation = scene.findPropertiesOfType(Scene.__properties.SKY).rotation;
+            if (!sceneRotation) {
+                return '0 0 0';
+            }
+            return `${sceneRotation.x} ${sceneRotation.y} ${sceneRotation.z}`;
         },
         hyperlinkObjects: () => {
             if (!Template.instance().activeSceneId.get()) {

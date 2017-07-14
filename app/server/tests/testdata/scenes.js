@@ -14,7 +14,11 @@ TestData.register(
                     type: Scene.__properties.SKY,
                     file: '/360-photos/hall.JPG',
                     previewFile: '/360-photos/hall.JPG',
-                    rotation: 90
+                    rotation: {
+                        x: 0,
+                        y: 90,
+                        z: 0
+                    }
                 }
             ]
         }),
@@ -50,7 +54,11 @@ TestData.register(
                     type: Scene.__properties.SKY,
                     file: '/360-photos/delft/1.JPG',
                     previewFile: '/360-photos/delft/1.JPG',
-                    rotation: -45
+                    rotation: {
+                        x: 0,
+                        y: -45,
+                        z: 0
+                    }
                 }
             ]
         }),

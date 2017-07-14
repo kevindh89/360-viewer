@@ -575,13 +575,13 @@ TestData.register(
             _id: 'gkv-kleedkamer-voorveld',
             sceneId: 'gkv-kleedkamer',
             position: {
-                x: 34,
-                y: 0,
-                z: 0
+                x: 7.5,
+                y: 0.5,
+                z: 2.8
             },
             rotation: {
                 x: 0,
-                y: 180,
+                y: 152,
                 z: 0
             },
             onClickEvents: [

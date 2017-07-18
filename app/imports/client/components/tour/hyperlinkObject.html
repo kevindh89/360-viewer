@@ -4,10 +4,13 @@
               change-scene-on-click="scene: {{getDestinationScene._id}};" mouseover-effect-hyperlink-object>
 
         <a-entity class="marker-model" scale="0.3 0.3 0.3" model-opacity="0.5"
-                  obj-model="obj: url(/models/pointer-marker.obj); mtl: url(/models/pointer-marker.mtl)">
+                  obj-model="obj: url(/models/gkvlogo.obj); mtl: url(/models/gkvlogo.mtl)">
             <a-animation atribute="model-opacity" dur="1000" to="0" begin="hyperlink-object-fade-out"></a-animation>
         </a-entity>
 
+       <a-entity visible="" scale="0.1 0.3 0.1" particle-system="color: #FFE0E0,#FFFFFF; maxAge:2; type:3"></a-entity>
+        
+        
         {{#if isDefined this.label}}
             <a-entity class="marker-label" position="{{getLabelPosition}}" scale="15 15 15" visible="false"
                       rotation="{{getLabelRotation}}" shader="flat"

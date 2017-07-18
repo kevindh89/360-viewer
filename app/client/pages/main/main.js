@@ -5,7 +5,6 @@ import '../../../imports/client/pages/main/main.js';
 import '../../../imports/client/components/tour/hyperlinkObject.js';
 
 require('aframe-animation-component');
-require('aframe-particle-system-component');
 
 Template.main.onCreated(MainTemplate.onCreated);
 Template.main.onRendered(MainTemplate.onRendered);

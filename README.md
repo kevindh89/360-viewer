@@ -19,10 +19,19 @@ Windows:
 ``cd app/``
 
 #### Start a local server
-``meteor``
+``meteor --settings ../settings/dev.json.dist``
 
 #### Check your setup
 The application is now available on: [http://localhost:3000](http://localhost:3000)
+
+##### Meteor settings
+
+There is a dist version of the settings file located in ``settings/dev.json.dist``. 
+
+Duplicate this file to ``settings/dev.json`` to use local configurations so it won't be committed to the Git repo.
+
+When you add new settings please add them both to the ``dev.json.dist`` and ``prod.json.dist`` file.
+
 
 ## Testing
 
@@ -85,3 +94,12 @@ All code within the ``app/client`` folder is only loaded client side, all code w
     ├──── methods           # server methods that can be called from the client side
     ├──── publications      # publish database data to the client side with publications to which the client side can subscribe
     ├──── tests             # for now this holds code that fills the database with mock data
+    
+## Logging
+
+We implemented both logging for both client and server side exceptions.
+
+When something triggers an exception and logging is enabled in the Meteor settings (like in ``settings/prod.json.dist``), then the exception will be send to Loggly.
+
+[Loggly](http://www.loggly.com) is a log management platform which supports alerts and makes it easy to search through logs.
+

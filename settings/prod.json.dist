@@ -1,0 +1,11 @@
+{
+    "public": {
+        "logglyEnabled": true
+    },
+    "private": {
+        "loggly": {
+            "token": "324fb5cf-0e61-42dd-aac7-01b5bb0be92e",
+            "tag": "360-viewer"
+        }
+    }
+}

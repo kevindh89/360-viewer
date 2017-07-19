@@ -330,6 +330,50 @@ TestData.register(
             ]
         }),
         new HyperlinkObject({
+            _id: 'gkv-entree-bezuidenhoutseweg',
+            sceneId: 'gkv-entree',
+            position: {
+                x: -8.5,
+                y: 3,
+                z: 20
+            },
+            rotation: {
+                x: 0,
+                y: 90,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-bezuidenhoutseweg'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-terras-entree',
+            sceneId: 'gkv-terras',
+            position: {
+                x: 1.5,
+                y: 3,
+                z: 20
+            },
+            rotation: {
+                x: 0,
+                y: 75,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-entree'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
             _id: 'gkv-terras-kantine',
             sceneId: 'gkv-terras',
             position: {

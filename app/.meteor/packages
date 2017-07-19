@@ -32,3 +32,4 @@ practicalmeteor:mocha
 practicalmeteor:chai
 practicalmeteor:sinon
 dynamic-import
+ostrio:logger

@@ -282,6 +282,360 @@ TestData.register(
                     }
                 }
             ]
+        }),
+
+        // GKV
+        new HyperlinkObject({
+            _id: 'gkv-bezuidenhoutseweg-entree',
+            sceneId: 'gkv-bezuidenhoutseweg',
+            position: {
+                x: 2,
+                y: 1,
+                z: -29
+            },
+            rotation: {
+                x: 0,
+                y: -100,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-entree'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-entree-terras',
+            sceneId: 'gkv-entree',
+            position: {
+                x: 26,
+                y: 1,
+                z: -18
+            },
+            rotation: {
+                x: 0,
+                y: -140,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-terras'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-entree-bezuidenhoutseweg',
+            sceneId: 'gkv-entree',
+            position: {
+                x: -8.5,
+                y: 3,
+                z: 20
+            },
+            rotation: {
+                x: 0,
+                y: 90,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-bezuidenhoutseweg'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-terras-entree',
+            sceneId: 'gkv-terras',
+            position: {
+                x: 1.5,
+                y: 3,
+                z: 20
+            },
+            rotation: {
+                x: 0,
+                y: 75,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-entree'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-terras-kantine',
+            sceneId: 'gkv-terras',
+            position: {
+                x: 0,
+                y: 3,
+                z: -26
+            },
+            rotation: {
+                x: 0,
+                y: -90,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-kantine'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-terras-voorveld',
+            sceneId: 'gkv-terras',
+            position: {
+                x: 30,
+                y: 2,
+                z: -19
+            },
+            rotation: {
+                x: 0,
+                y: -146,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-voorveld'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-kantine-keuken',
+            sceneId: 'gkv-kantine',
+            position: {
+                x: -33,
+                y: 2,
+                z: 13
+            },
+            rotation: {
+                x: 0,
+                y: 25,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-keuken'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-kantine-terras',
+            sceneId: 'gkv-kantine',
+            position: {
+                x: 4,
+                y: -7,
+                z: 24
+            },
+            rotation: {
+                x: 0,
+                y: 90,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-terras'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-voorveld-terras',
+            sceneId: 'gkv-voorveld',
+            position: {
+                x: -21,
+                y: 3,
+                z: 17.5
+            },
+            rotation: {
+                x: 0,
+                y: 45,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-terras'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-voorveld-kleedkamer',
+            sceneId: 'gkv-voorveld',
+            position: {
+                x: -22,
+                y: 1.5,
+                z: -21.5
+            },
+            rotation: {
+                x: 0,
+                y: -45,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-kleedkamer'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-voorveld-kunstgrasveld',
+            sceneId: 'gkv-voorveld',
+            position: {
+                x: 34,
+                y: 0,
+                z: 0
+            },
+            rotation: {
+                x: 0,
+                y: 180,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-kunstgrasveld'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-kunstgrasveld-achterveld',
+            sceneId: 'gkv-kunstgrasveld',
+            position: {
+                x: 30,
+                y: 0,
+                z: -2.4
+            },
+            rotation: {
+                x: 0,
+                y: 185,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-achterveld'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-kunstgrasveld-voorveld',
+            sceneId: 'gkv-kunstgrasveld',
+            position: {
+                x: -28,
+                y: 1,
+                z: 0
+            },
+            rotation: {
+                x: 0,
+                y: 0,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-voorveld'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-achterveld-kunstgrasveld',
+            sceneId: 'gkv-achterveld',
+            position: {
+                x: -29,
+                y: 1,
+                z: -2.5
+            },
+            rotation: {
+                x: 0,
+                y: -7,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-kunstgrasveld'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-keuken-kantine',
+            sceneId: 'gkv-keuken',
+            position: {
+                x: 23.5,
+                y: -1.7,
+                z: 2.8
+            },
+            rotation: {
+                x: 0,
+                y: 180,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-kantine'
+                    }
+                }
+            ]
+        }),
+        new HyperlinkObject({
+            _id: 'gkv-kleedkamer-voorveld',
+            sceneId: 'gkv-kleedkamer',
+            position: {
+                x: 7.5,
+                y: 0.5,
+                z: 2.8
+            },
+            rotation: {
+                x: 0,
+                y: 152,
+                z: 0
+            },
+            onClickEvents: [
+                {
+                    type: ViewerEvent.__types.HYPERLINK,
+                    data: {
+                        navigateToSceneId: 'gkv-voorveld'
+                    }
+                }
+            ]
         })
     ]
 );

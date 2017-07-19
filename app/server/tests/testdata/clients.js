@@ -14,6 +14,15 @@ TestData.register(
             _id: 'delft',
             username: 'delft',
             slug: 'delft'
+        }),
+        new Client({
+            _id: 'gkv',
+            username: 'gkv',
+            slug: 'gkv',
+            logo: {
+                file: '/images/gkv-logo.png',
+                href: 'https://www.gkvdenhaag.nl'
+            }
         })
     ]
 );

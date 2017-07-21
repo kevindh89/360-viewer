@@ -21,6 +21,7 @@
         "no-underscore-dangle": "off",
         "prefer-rest-params": "off",
         "class-methods-use-this": "off",
-        "func-names": "off"
+        "func-names": "off",
+        "no-param-reassign": "off"
     }
 }

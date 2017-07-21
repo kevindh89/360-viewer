@@ -28,7 +28,7 @@ Meteor.startup(() => {
         });
     });
 
-    if (Meteor.settings.private.loggly !== undefined) {
+    if (Meteor.settings.private !== undefined && Meteor.settings.private.loggly !== undefined) {
         const log = new Logger();
 
         const emitter = (level, message, data) => {

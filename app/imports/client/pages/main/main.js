@@ -3,57 +3,61 @@ import { Template } from 'meteor/templating';
 
 import './main.styl';
 
-import '../../../lib/listener/sceneClickListener.js';
-import '../../../lib/listener/vrModeListener.js';
-
 import '../../../lib/aframeComponents/mouseoverEffectHyperlinkObject.js';
 import '../../../lib/aframeComponents/changeSceneOnClick.js';
 import '../../../lib/aframeComponents/vrCursorAnimations.js';
 import '../../../lib/aframeComponents/modelOpacity.js';
 
-let vrMode = false;
-
 export default MainTemplate = {
     onCreated: function onCreated() {
-        Template.instance().activeSceneId = new ReactiveVar('delft1');
+        const template = Template.instance();
         const initialScene = Scenes.findOne({
             clientId: this.data._id,
             initialScene: true
         });
-        Template.instance().activeSceneId.set(initialScene._id);
+
+        template.activeSceneId = new ReactiveVar(initialScene._id);
+        template.viewer = {
+            vrMode: false
+        };
     },
 
     onRendered: function onRendered() {
         const template = Template.instance();
         const scene = document.querySelector('a-scene');
-        const vrModeListener = new VRModeListener(scene);
-        vrModeListener.onEnter(() => {
-            vrMode = true;
-            Blaze.insert(
-                Blaze.renderWithData(Template.cursor, Clients.findOne()),
-                document.getElementById('hud')
-            );
-        });
-        vrModeListener.onExit(() => {
-            vrMode = false;
-            const cursor = document.getElementById('cursor');
-            cursor.parentNode.removeChild(cursor);
-        });
 
-        const clickListener = new SceneClickListener(scene);
-        clickListener.onClick(function (evt) {
-            if (vrMode === false) {
-                return;
-            }
-            if (evt.constructor.name === 'CustomEvent') {
-                return;
-            }
-            this.scene.exitVR();
-        });
+        scene.addEventListener('enter-vr', () => MainTemplate.onEnterVr(template));
+        scene.addEventListener('exit-vr', () => MainTemplate.onExitVr(template));
+        scene.addEventListener('click', evt => MainTemplate.onClick(evt, template));
+        scene.addEventListener('change-scene', evt => MainTemplate.onChangeScene(evt, template, scene));
+    },
 
-        document.getElementById('scene').addEventListener('change-scene', evt => {
-            template.activeSceneId.set(evt.detail.destinationId);
-        });
+    onEnterVr(template) {
+        template.viewer.vrMode = true;
+        Blaze.insert(
+            Blaze.renderWithData(Template.cursor, Clients.findOne()),
+            document.getElementById('hud')
+        );
+    },
+
+    onExitVr(template) {
+        template.viewer.vrMode = false;
+        const cursor = document.getElementById('cursor');
+        cursor.parentNode.removeChild(cursor);
+    },
+
+    onClick(evt, template, scene) {
+        if (template.viewer.vrMode === false) {
+            return;
+        }
+        if (evt.constructor.name === 'CustomEvent') {
+            return;
+        }
+        scene.exitVR();
+    },
+
+    onChangeScene(evt, template) {
+        template.activeSceneId.set(evt.detail.destinationId);
     },
 
     helpers: {

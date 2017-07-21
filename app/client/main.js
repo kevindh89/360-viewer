@@ -1,7 +1,7 @@
 import { Logger } from 'meteor/ostrio:logger';
 
 Meteor.startup(() => {
-    if (Meteor.settings.public.logglyEnabled === true) {
+    if (Meteor.settings.public !== undefined && Meteor.settings.public.logglyEnabled === true) {
         const log = new Logger();
 
         log.add('LogglyAdapter', () => {}, () => {}, false, false);

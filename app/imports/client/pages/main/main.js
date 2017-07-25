@@ -30,6 +30,9 @@ export default MainTemplate = {
         scene.addEventListener('exit-vr', () => MainTemplate.onExitVr(template));
         scene.addEventListener('click', evt => MainTemplate.onClick(evt, template));
         scene.addEventListener('change-scene', evt => MainTemplate.onChangeScene(evt, template, scene));
+
+        const vrModeUiEnabled = Meteor.Device.isDesktop() !== true ? 'true' : 'false';
+        scene.setAttribute('vr-mode-ui', `enabled: ${vrModeUiEnabled}`);
     },
 
     onEnterVr(template) {

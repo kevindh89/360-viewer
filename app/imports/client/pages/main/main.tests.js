@@ -40,6 +40,42 @@ describe('MainTemplate:onCreated', () => {
     });
 });
 
+describe('MainTemplate:onRendered', () => {
+    let template;
+
+    beforeEach(() => {
+        template = {};
+        stubs.create('template', Template, 'instance')
+            .returns(template);
+        stubs.create('scene', Scenes, 'findOne')
+            .returns({
+                _id: 'scene1'
+            });
+        stubs.create('sceneDomElement', document, 'querySelector')
+            .withArgs('a-scene')
+            .returns({
+                setAttribute: spies.create('setAttribute'),
+                addEventListener: spies.create('addEventListener')
+            });
+    });
+
+    it('hides the VR mode UI for desktop devices', () => {
+        stubs.create('device', Meteor.Device, 'isDesktop')
+            .returns(true);
+        MainTemplate.onRendered();
+
+        expect(spies.setAttribute).to.have.been.calledWith('vr-mode-ui', 'enabled: false');
+    });
+
+    it('shows the VR mode UI for non-desktop devices', () => {
+        stubs.create('device', Meteor.Device, 'isDesktop')
+            .returns(false);
+        MainTemplate.onRendered();
+
+        expect(spies.setAttribute).to.have.been.calledWith('vr-mode-ui', 'enabled: true');
+    });
+});
+
 describe('MainTemplate:onEnterVr', () => {
     let template;
 

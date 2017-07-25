@@ -33,3 +33,4 @@ practicalmeteor:chai
 practicalmeteor:sinon
 dynamic-import
 ostrio:logger
+mystor:device-detection

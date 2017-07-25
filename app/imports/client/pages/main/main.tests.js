@@ -44,14 +44,20 @@ describe('MainTemplate:onEnterVr', () => {
     let template;
 
     before(() => {
+        Template.cursor = { template: 'cursor.html' };
         stubs.create('client', Clients, 'findOne')
             .returns({ _id: 'client' });
         stubs.create('hud', document, 'getElementById')
             .returns('<div id="hud"></div>');
-        stubs.create('blazeRender', Blaze, 'renderWithData')
+        stubs.create('blazeRenderWithData', Blaze, 'renderWithData')
             .returns('<div id="cursor"></div>');
-        stubs.create('blazeInsert', Blaze, 'insert');
-        Template.cursor = { template: 'cursor.html' };
+        $ = stubs.create('$', window, '$');
+        $.withArgs('#scene').returns({
+            hide: spies.create('sceneHide')
+        });
+        $.withArgs('#vrModeInstructions').returns({
+            show: spies.create('vrModeInstructionsShow')
+        });
     });
 
     beforeEach(() => {
@@ -68,17 +74,21 @@ describe('MainTemplate:onEnterVr', () => {
         expect(template.viewer.vrMode).equals(true);
     });
 
-    it('enables the VR cursor on screen', () => {
+    it('adds the VR cursor on screen', () => {
         MainTemplate.onEnterVr(template);
 
-        expect(stubs.blazeRender).to.have.been.calledWith(
+        expect(stubs.blazeRenderWithData).to.have.been.calledWith(
             { template: 'cursor.html' },
-            { _id: 'client' }
-        );
-        expect(stubs.blazeInsert).to.have.been.calledWith(
-            '<div id="cursor"></div>',
+            { _id: 'client' },
             '<div id="hud"></div>'
         );
+    });
+
+    it('shows an instruction popup about VR mode', () => {
+        MainTemplate.onEnterVr(template);
+
+        expect(spies.sceneHide).to.have.been.called;
+        expect(spies.vrModeInstructionsShow).to.have.been.called;
     });
 
     after(() => {
@@ -100,6 +110,13 @@ describe('MainTemplate:onExitVr', () => {
             .returns({
                 parentNode
             });
+        $ = stubs.create('$', window, '$');
+        $.withArgs('#scene').returns({
+            show: spies.create('sceneShow')
+        });
+        $.withArgs('#vrModeInstructions').returns({
+            hide: spies.create('vrModeInstructionsHide')
+        });
     });
 
     beforeEach(() => {
@@ -116,11 +133,18 @@ describe('MainTemplate:onExitVr', () => {
         expect(template.viewer.vrMode).equals(false);
     });
 
-    it('disables the VR cursor on screen', () => {
+    it('removes the VR cursor from screen', () => {
         MainTemplate.onExitVr(template);
 
         expect(stubs.cursorElement).to.have.been.calledWith('cursor');
         expect(spies.removeChild).to.have.been.called;
+    });
+
+    it('removes VR mode instructions and enables the 3D scene', () => {
+        MainTemplate.onExitVr(template);
+
+        expect(spies.sceneShow).to.have.been.called;
+        expect(spies.vrModeInstructionsHide).to.have.been.called;
     });
 
     after(() => {

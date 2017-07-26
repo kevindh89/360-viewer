@@ -2,6 +2,8 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 
 import './main.styl';
+import '../../components/tour/hyperlinkObject.js';
+import '../../components/tour/textObject.js';
 
 import '../../../lib/aframeComponents/mouseoverEffectHyperlinkObject.js';
 import '../../../lib/aframeComponents/changeSceneOnClick.js';
@@ -86,11 +88,13 @@ export default MainTemplate = {
             }
             return `${sceneRotation.x} ${sceneRotation.y} ${sceneRotation.z}`;
         },
-        hyperlinkObjects: () => {
-            if (!Template.instance().activeSceneId.get()) {
-                return '';
-            }
+        hyperlinkObjects() {
             return HyperlinkObjects.find({
+                sceneId: Template.instance().activeSceneId.get()
+            });
+        },
+        textObjects() {
+            return TextObjects.find({
                 sceneId: Template.instance().activeSceneId.get()
             });
         }

@@ -19,6 +19,11 @@ Meteor.publishComposite('scenesForClient', slug => ({
             find: scene => HyperlinkObjects.find({
                 sceneId: scene._id
             })
+        },
+        {
+            find: scene => TextObjects.find({
+                sceneId: scene._id
+            })
         }
     ]
 }));

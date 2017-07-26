@@ -254,9 +254,14 @@ describe('MainTemplate:helpers:activeImage', () => {
             .returns({
                 _id: 1,
                 findPropertiesOfType: () => ({
-                    file: 'testfile.jpg'
+                    file: '/testfile.jpg'
                 })
             });
+        Meteor.settings = {
+            public: {
+                fileServer: 'http://files.vensterworks.com'
+            }
+        };
     });
 
     it('returns an empty string when no scene is active', () => {
@@ -274,7 +279,7 @@ describe('MainTemplate:helpers:activeImage', () => {
 
         const result = MainTemplate.helpers.activeImage();
 
-        expect(result).equals('testfile.jpg');
+        expect(result).equals('http://files.vensterworks.com/testfile.jpg');
         expect(stubs.Scenes_findOne).to.have.been.calledWith({
             _id: 1
         });

@@ -1,6 +1,6 @@
 <template name="textObject">
     <a-entity class="text-object" rotation="{{getRotation}}" position="{{getPosition}}"
-              scale="10 10 10"
-              text="font: exo2bold; align: center; width: 1.5; color: white; value: {{this.text}}; zOffset: 0;">
+              scale="{{this.getFontSize}}"
+              text="font: {{this.getFontFamily}}; align: center; width: 1.5; color: {{this.getFontColor}}; value: {{this.text}}; zOffset: 0;">
     </a-entity>
 </template>

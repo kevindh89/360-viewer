@@ -38,16 +38,23 @@ TextObjectSchema = new SimpleSchema({
         optional: true
     },
     'font.size': {
-        type: Number
+        type: Number,
+        optional: true
     },
     'font.family': {
-        type: String
+        type: String,
+        optional: true
+    },
+    'font.color': {
+        type: String,
+        optional: true
     },
     background: {
         type: Object,
         optional: true
     },
     'background.color': {
-        type: String
+        type: String,
+        optional: true
     }
 });

@@ -14,7 +14,12 @@ TestData.register(
                 y: 0,
                 z: 0
             },
-            text: 'Welkom bij GKV.\nKlik op de gele pijlen om op virtueel bezoek bij ons te gaan!'
+            text: 'Welkom bij GKV.\nKlik op de gele pijlen om op virtueel bezoek bij ons te gaan!',
+            font: {
+                family: 'exo2semibold',
+                size: 10,
+                color: 'gold'
+            }
         })
     ]
 );

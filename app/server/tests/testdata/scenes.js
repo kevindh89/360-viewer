@@ -12,8 +12,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/hall.JPG',
-                    previewFile: '/360-viewer/hall.JPG',
+                    file: '/360-photos/vensterworks/hall.JPG',
+                    previewFile: '/360-photos/vensterworks/hall.JPG',
                     rotation: {
                         x: 0,
                         y: 90,
@@ -28,8 +28,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/kitchen.JPG',
-                    previewFile: '/360-viewer/kitchen.JPG'
+                    file: '/360-photos/vensterworks/kitchen.JPG',
+                    previewFile: '/360-photos/vensterworks/kitchen.JPG'
                 }
             ]
         }),
@@ -39,8 +39,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/livingroom.JPG',
-                    previewFile: '/360-viewer/livingroom.JPG'
+                    file: '/360-photos/vensterworks/livingroom.JPG',
+                    previewFile: '/360-photos/vensterworks/livingroom.JPG'
                 }
             ]
         }),
@@ -52,8 +52,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/1.JPG',
-                    previewFile: '/360-viewer/1.JPG',
+                    file: '/360-photos/delft/1.JPG',
+                    previewFile: '/360-photos/delft/1.JPG',
                     rotation: {
                         x: 0,
                         y: -45,
@@ -69,8 +69,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/2.JPG',
-                    previewFile: '/360-viewer/2.JPG'
+                    file: '/360-photos/delft/2.JPG',
+                    previewFile: '/360-photos/delft/2.JPG'
                 }
             ]
         }),
@@ -80,8 +80,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/3.JPG',
-                    previewFile: '/360-viewer/3.JPG'
+                    file: '/360-photos/delft/3.JPG',
+                    previewFile: '/360-photos/delft/3.JPG'
                 }
             ]
         }),
@@ -91,8 +91,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/4.JPG',
-                    previewFile: '/360-viewer/4.JPG'
+                    file: '/360-photos/delft/4.JPG',
+                    previewFile: '/360-photos/delft/4.JPG'
                 }
             ]
         }),
@@ -102,8 +102,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/12.JPG',
-                    previewFile: '/360-viewer/12.JPG'
+                    file: '/360-photos/delft/12.JPG',
+                    previewFile: '/360-photos/delft/12.JPG'
                 }
             ]
         }),
@@ -116,8 +116,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/bezuidenhoutseweg.JPG',
-                    previewFile: '/360-viewer/bezuidenhoutseweg.JPG',
+                    file: '/360-photos/gkv/bezuidenhoutseweg.JPG',
+                    previewFile: '/360-photos/gkv/bezuidenhoutseweg.JPG',
                     rotation: {
                         x: 0,
                         y: 0,
@@ -132,8 +132,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/entree.JPG',
-                    previewFile: '/360-viewer/entree.JPG'
+                    file: '/360-photos/gkv/entree.JPG',
+                    previewFile: '/360-photos/gkv/entree.JPG'
                 }
             ]
         }),
@@ -143,8 +143,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/terras.JPG',
-                    previewFile: '/360-viewer/terras.JPG'
+                    file: '/360-photos/gkv/terras.JPG',
+                    previewFile: '/360-photos/gkv/terras.JPG'
                 }
             ]
         }),
@@ -154,8 +154,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/kantine.JPG',
-                    previewFile: '/360-viewer/kantine.JPG',
+                    file: '/360-photos/gkv/kantine.JPG',
+                    previewFile: '/360-photos/gkv/kantine.JPG',
                     rotation: {
                         x: -4.3,
                         y: 0,
@@ -170,8 +170,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/keuken.JPG',
-                    previewFile: '/360-viewer/keuken.JPG'
+                    file: '/360-photos/gkv/keuken.JPG',
+                    previewFile: '/360-photos/gkv/keuken.JPG'
                 }
             ]
         }),
@@ -181,8 +181,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/voorveld.JPG',
-                    previewFile: '/360-viewer/voorveld.JPG'
+                    file: '/360-photos/gkv/voorveld.JPG',
+                    previewFile: '/360-photos/gkv/voorveld.JPG'
                 }
             ]
         }),
@@ -192,8 +192,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/kleedkamer.JPG',
-                    previewFile: '/360-viewer/kleedkamer.JPG',
+                    file: '/360-photos/gkv/kleedkamer.JPG',
+                    previewFile: '/360-photos/gkv/kleedkamer.JPG',
                     rotation: {
                         x: -3.5,
                         y: 0,
@@ -208,8 +208,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/kunstgrasveld.JPG',
-                    previewFile: '/360-viewer/kunstgrasveld.JPG',
+                    file: '/360-photos/gkv/kunstgrasveld.JPG',
+                    previewFile: '/360-photos/gkv/kunstgrasveld.JPG',
                     rotation: {
                         x: -0.7,
                         y: 0,
@@ -224,8 +224,8 @@ TestData.register(
             properties: [
                 {
                     type: Scene.__properties.SKY,
-                    file: '/360-viewer/achterveld.JPG',
-                    previewFile: '/360-viewer/achterveld.JPG',
+                    file: '/360-photos/gkv/achterveld.JPG',
+                    previewFile: '/360-photos/gkv/achterveld.JPG',
                     rotation: {
                         x: -3.5,
                         y: 0,

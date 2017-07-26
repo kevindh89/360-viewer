@@ -71,7 +71,10 @@ export default MainTemplate = {
             const scene = Scenes.findOne({
                 _id: Template.instance().activeSceneId.get()
             });
-            return scene.findPropertiesOfType(Scene.__properties.SKY).file;
+            const fileServer = Meteor.settings.public !== undefined && Meteor.settings.public.fileServer !== undefined ?
+                Meteor.settings.public.fileServer :
+                '';
+            return `${fileServer}${scene.findPropertiesOfType(Scene.__properties.SKY).file}`;
         },
         sceneRotation() {
             if (!Template.instance().activeSceneId.get()) {
@@ -102,7 +105,10 @@ export default MainTemplate = {
             if (!scene) {
                 return '';
             }
-            return scene.findPropertiesOfType(Scene.__properties.SKY).file;
+            const fileServer = Meteor.settings.public !== undefined && Meteor.settings.public.fileServer !== undefined ?
+                Meteor.settings.public.fileServer :
+                '';
+            return `${fileServer}${scene.findPropertiesOfType(Scene.__properties.SKY).file}`;
         }
     }
 };

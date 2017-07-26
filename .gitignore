@@ -3,5 +3,6 @@
 app/node_modules/
 app/public/360-viewer/*
 app/public/360-viewer
+app/public/360-photos
 output/
 settings/dev.json

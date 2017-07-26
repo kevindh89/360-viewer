@@ -1,6 +1,9 @@
 <template name="textObject">
-    <a-entity class="text-object" rotation="{{getRotation}}" position="{{getPosition}}"
-              scale="{{this.getFontSize}}"
-              text="font: {{this.getFontFamily}}; align: center; width: 1.5; color: {{this.getFontColor}}; value: {{this.text}}; zOffset: 0;">
+    <a-entity rotation="{{getRotation}}" position="{{getPosition}}"
+              class="text-object" geometry="primitive: plane; height: {{this.getBackgroundHeight}}; width: {{this.getBackgroundWidth}};"
+              material="color: {{this.getBackgroundColor}}; opacity: {{this.getBackgroundOpacity}};">
+        <a-entity scale="{{this.getTextScale}}"
+                  text="font: {{this.getFontFamily}}; align: center; color: {{this.getFontColor}}; value: {{this.text}};">
+        </a-entity>
     </a-entity>
 </template>

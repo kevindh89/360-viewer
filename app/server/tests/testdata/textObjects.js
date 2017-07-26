@@ -17,8 +17,13 @@ TestData.register(
             text: 'Welkom bij GKV.\nKlik op de gele pijlen om op virtueel bezoek bij ons te gaan!',
             font: {
                 family: 'exo2semibold',
-                size: 10,
                 color: 'gold'
+            },
+            background: {
+                color: 'black',
+                height: 3,
+                width: 15,
+                opacity: 0.5
             }
         })
     ]

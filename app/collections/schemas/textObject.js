@@ -56,5 +56,20 @@ TextObjectSchema = new SimpleSchema({
     'background.color': {
         type: String,
         optional: true
+    },
+    'background.height': {
+        type: Number,
+        decimal: true,
+        optional: true
+    },
+    'background.width': {
+        type: Number,
+        decimal: true,
+        optional: true
+    },
+    'background.opacity': {
+        type: Number,
+        decimal: true,
+        optional: true
     }
 });

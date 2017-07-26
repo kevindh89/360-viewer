@@ -165,26 +165,22 @@ describe('MainTemplate:onClick', () => {
                 vrMode: false
             }
         };
-        event = {
-            constructor: {
-                name: 'MouseClickEvent'
-            }
-        };
+        stubs.create('isExitVrModeScreenClick', MainTemplate, 'isExitVrModeScreenClick')
+            .returns(true);
         spies.create('exitVR', scene, 'exitVR');
     });
 
     it('does nothing when VR mode is false', () => {
         template.viewer.vrMode = false;
-        event.constructor.name = 'MouseClickEvent';
 
         MainTemplate.onClick(event, template, scene);
 
         expect(spies.exitVR).to.not.have.been.called;
     });
 
-    it('does nothing when a custom 360 viewer event, like at switching scenes, is triggered', () => {
+    it('does nothing when onClick was triggered by click on which VR mode shouldn\'t be exited', () => {
         template.viewer.vrMode = true;
-        event.constructor.name = 'CustomEvent';
+        stubs.isExitVrModeScreenClick.returns(false);
 
         MainTemplate.onClick(event, template, scene);
 
@@ -193,7 +189,6 @@ describe('MainTemplate:onClick', () => {
 
     it('exits VR mode', () => {
         template.viewer.vrMode = true;
-        event.constructor.name = 'MouseClickEvent';
 
         MainTemplate.onClick(event, template, scene);
 

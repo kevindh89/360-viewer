@@ -52,10 +52,16 @@ export default MainTemplate = {
         if (template.viewer.vrMode === false) {
             return;
         }
-        if (evt.constructor.name === 'CustomEvent') {
+        if (!this.isExitVrModeScreenClick(evt)) {
             return;
         }
         scene.exitVR();
+    },
+
+    isExitVrModeScreenClick(evt) {
+        // prevent exiting vr mode when the click event is a CustomEvent (click to do something in the VR world)
+        // or when the click event is triggered at entering VR mode.
+        return evt.constructor.name !== 'CustomEvent' && (evt.target.className).indexOf('a-enter-vr-button') <= -1;
     },
 
     onChangeScene(evt, template) {

@@ -22,6 +22,9 @@ TestData.register(
             logo: {
                 file: '/images/gkv-logo.png',
                 href: 'https://www.gkvdenhaag.nl'
+            },
+            tripodStamp: {
+                image: '/images/gkv-tripod-stamp.png'
             }
         })
     ]

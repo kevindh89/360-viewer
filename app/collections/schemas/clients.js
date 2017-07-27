@@ -19,5 +19,13 @@ ClientSchema = new SimpleSchema({
     'logo.href': {
         type: String,
         optional: true
+    },
+    tripodStamp: {
+        type: Object,
+        optional: true
+    },
+    'tripodStamp.image': {
+        type: String,
+        optional: true
     }
 });

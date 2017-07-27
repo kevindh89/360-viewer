@@ -85,7 +85,6 @@ All code within the ``app/client`` folder is only loaded client side, all code w
     ├────── pages           # client side pages
     ├──── lib
     ├────── aframeComponents # client side components that hook into the A-frame component system
-    ├────── listener        # client side listeners
     ├────── uploadForm      # upload form component for admin panel
     ├── node_modules        # npm installs package dependencies in here
     ├── public              # web assets (models, images etc.)

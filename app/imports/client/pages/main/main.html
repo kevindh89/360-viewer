@@ -11,12 +11,15 @@
                 {{> hyperlinkObject}}
             {{/each}}
         </a-entity>
-        <a-entity id="hud" position="0 10 0" far="10000000" camera look-controls mouse-cursor></a-entity>
+        <a-entity id="hud" position="0 10 0" far="10000000" camera look-controls mouse-cursor>
+        </a-entity>
         <a-sky id="image" src="{{activeImage}}" rotation="{{sceneRotation}}">
             <a-animation attribute="material.color" dur="750" from="#fff" to="#000" begin="fade-sky-to-black"></a-animation>
             <a-animation attribute="material.color" dur="750" from="#000" to="#fff" begin="fade-sky-to-image"></a-animation>
         </a-sky>
     </a-scene>
+
+    {{> vrModeInstructions}}
 
     {{#if isDefined logo}}
         <a href="{{logo.href}}">

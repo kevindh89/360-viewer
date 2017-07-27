@@ -7,6 +7,7 @@ import '../../../lib/aframeComponents/mouseoverEffectHyperlinkObject.js';
 import '../../../lib/aframeComponents/changeSceneOnClick.js';
 import '../../../lib/aframeComponents/vrCursorAnimations.js';
 import '../../../lib/aframeComponents/modelOpacity.js';
+import '../../components/tour/vrModeInstructions.js';
 
 export default MainTemplate = {
     onCreated: function onCreated() {
@@ -28,7 +29,7 @@ export default MainTemplate = {
 
         scene.addEventListener('enter-vr', () => MainTemplate.onEnterVr(template));
         scene.addEventListener('exit-vr', () => MainTemplate.onExitVr(template));
-        scene.addEventListener('click', evt => MainTemplate.onClick(evt, template));
+        scene.addEventListener('click', evt => MainTemplate.onClick(evt, template, scene));
         scene.addEventListener('change-scene', evt => MainTemplate.onChangeScene(evt, template, scene));
 
         const vrModeUiEnabled = Meteor.Device.isDesktop() !== true ? 'true' : 'false';
@@ -37,26 +38,33 @@ export default MainTemplate = {
 
     onEnterVr(template) {
         template.viewer.vrMode = true;
-        Blaze.insert(
-            Blaze.renderWithData(Template.cursor, Clients.findOne()),
-            document.getElementById('hud')
-        );
+        Blaze.renderWithData(Template.cursor, Clients.findOne(), document.getElementById('hud'));
+        $('#scene').hide();
+        $('#vrModeInstructions').show();
     },
 
     onExitVr(template) {
         template.viewer.vrMode = false;
         const cursor = document.getElementById('cursor');
         cursor.parentNode.removeChild(cursor);
+        $('#scene').show();
+        $('#vrModeInstructions').hide();
     },
 
     onClick(evt, template, scene) {
         if (template.viewer.vrMode === false) {
             return;
         }
-        if (evt.constructor.name === 'CustomEvent') {
+        if (!this.isExitVrModeScreenClick(evt)) {
             return;
         }
         scene.exitVR();
+    },
+
+    isExitVrModeScreenClick(evt) {
+        // prevent exiting vr mode when the click event is a CustomEvent (click to do something in the VR world)
+        // or when the click event is triggered at entering VR mode.
+        return evt.constructor.name !== 'CustomEvent' && (evt.target.className).indexOf('a-enter-vr-button') <= -1;
     },
 
     onChangeScene(evt, template) {

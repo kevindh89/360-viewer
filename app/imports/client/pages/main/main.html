@@ -10,6 +10,10 @@
             {{#each hyperlinkObjects}}
                 {{> hyperlinkObject}}
             {{/each}}
+
+            {{#each textObjects}}
+                {{> textObject}}
+            {{/each}}
         </a-entity>
         <a-entity id="hud" position="0 10 0" far="10000000" camera look-controls mouse-cursor>
         </a-entity>

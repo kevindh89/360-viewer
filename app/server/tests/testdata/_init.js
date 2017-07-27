@@ -2,7 +2,7 @@
  * TestData is used for testing and development purposes.
  * To add a collection to the TestData you'll need to:
  *  - use the TestData.register function
- *  - import the file with testdata in app/server/main.js
+ *  - add the testdata file to the imports in app/server/main.js
  *
  * @type {{data: Array, register: ((collection, data)), clearDatabase: (())}}
  */

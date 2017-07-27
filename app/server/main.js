@@ -9,6 +9,7 @@ import './tests/testdata/clients.js';
 import './tests/testdata/scenes.js';
 import './tests/testdata/accounts.js';
 import './tests/testdata/hyperlinkObjects.js';
+import './tests/testdata/textObjects.js';
 
 require('winston-loggly-bulk');
 

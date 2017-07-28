@@ -10,11 +10,13 @@
             {{#each hyperlinkObjects}}
                 {{> hyperlinkObject}}
             {{/each}}
-
             {{#each textObjects}}
                 {{> textObject}}
             {{/each}}
         </a-entity>
+        {{#if isDefined this.tripodStamp}}
+            {{> tripodStamp}}
+        {{/if}}
         <a-entity id="hud" position="0 10 0" far="10000000" camera look-controls mouse-cursor>
         </a-entity>
         <a-sky id="image" src="{{activeImage}}" rotation="{{sceneRotation}}">
@@ -35,6 +37,11 @@
     <div id="footer">
         made by <a href="https://www.vensterworks.com" target="_blank">Vensterworks</a>
     </div>
+</template>
+
+<template name="tripodStamp">
+    <a-circle src="/images/gkv-tripod-stamp.png" width="150" height="150" data-keep-visible-during-scene-transition="true"
+        rotation="-90 0 0" position="0 7 0"></a-circle>
 </template>
 
 <template name="cursor">

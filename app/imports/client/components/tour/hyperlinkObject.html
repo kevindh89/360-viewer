@@ -1,20 +1,33 @@
 <template name="hyperlinkObject">
+        <a-mixin id="pulse" attribute="material.opacity" to="0.3" fill="both" delay="5000" dur="1000" direction="alternate-reverse" repeat="indefinite"></a-mixin>
+        <a-mixin id="scaler" attribute="scale" fill="both" delay="5000" dur="1000" direction= "alternate-reverse" easing ="ease-in-out-circ" repeat="indefinite"> </a-mixin>
+        <a-mixin id="textFX" attribute="position" to="0 0.02 0" dur="2000" direction="alternate-reverse" easing="linear" delay="0" repeat="indefinite"></a-mixin>
     <a-entity class="scene hyperlink-object"
-              rotation="{{getRotation}}" position="{{getPosition}}" style="cursor: pointer !important;"
+              rotation="{{getRotation}}" position="{{getPosition}}" style="cursor: pointer !important;" scale="0.8 0.8 0.8"
               change-scene-on-click="scene: {{getDestinationScene._id}};" mouseover-effect-hyperlink-object>
 
-        <a-entity class="marker-model" scale="0.3 0.3 0.3" model-opacity="0.5"
-                  obj-model="obj: url(/models/gkv-pointer-marker.obj); mtl: url(/models/gkv-pointer-marker.mtl)">
-            <a-animation atribute="model-opacity" dur="1000" to="0" begin="hyperlink-object-fade-out"></a-animation>
-        </a-entity>
+             
+        
+              <a-entity class="marker-model" rotation="0 87 0" scale="0.15 0.3 0.15"
+                  obj-model="obj: url(/models/markerV2_arrow.obj)" material="color: yellow">
+                   <a-animation mixin="scaler" from="0.15 0.15 0.15" to= "0.16 0.3 0.16" ></a-animation>
+              </a-entity>
 
-        {{#if isDefined this.label}}
-            <a-entity class="marker-label" position="{{getLabelPosition}}" scale="15 15 15" visible="false"
-                      rotation="{{getLabelRotation}}" shader="flat"
+              <a-entity class="marker-model" rotation="0 87 0" position="-0.4 0 1.05" scale="0.15 0.15 0.15"
+                  obj-model="obj: url(/models/markerV2_base.obj)" material="color: silver">
+                   <a-animation mixin="pulse"></a-animation>
+                   <a-animation mixin="scaler" from="0.15 0.15 0.15" to= "0.16 0.15 0.16"></a-animation>
+              </a-entity>
+
+            <a-entity class="marker-label" position="{{getLabelPosition}}" scale="15 15 15" 
+                      rotation="{{getLabelRotation}}" >
+                <a-entity shader="flat"
                       text="font:exo2bold;anchor:left;width:1.5;color:white;value:{{this.label.text}};zOffset:0">
-            </a-entity>
-        {{/if}}
-
+                        <a-animation mixin="textFX"></a-animation>
+                </a-entity>
+        </a-entity>
+           
+    
         <a-box scale="6 6 6" position="0 0 0" opacity="0"></a-box>
     </a-entity>
 </template>

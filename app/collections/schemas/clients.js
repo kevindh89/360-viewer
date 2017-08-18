@@ -27,5 +27,9 @@ ClientSchema = new SimpleSchema({
     'tripodStamp.image': {
         type: String,
         optional: true
+    },
+    customCss: {
+        type: String,
+        optional: true
     }
 });

@@ -1,4 +1,10 @@
 <template name="main">
+    {{#if isDefined customCss}}
+        <style type="text/css">
+            {{customCss}}
+        </style>
+    {{/if}}
+
     <a-scene id="scene" inspector="url: https://aframe.io/releases/0.4.0/aframe-inspector.min.js">
         <a-assets>
             <img id="photo" src="{{activeImage}}"/>

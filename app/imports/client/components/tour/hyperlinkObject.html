@@ -1,33 +1,77 @@
 <template name="hyperlinkObject">
-        <a-mixin id="pulse" attribute="material.opacity" to="0.3" fill="both" delay="5000" dur="1000" direction="alternate-reverse" repeat="indefinite"></a-mixin>
-        <a-mixin id="scaler" attribute="scale" fill="both" delay="5000" dur="1000" direction= "alternate-reverse" easing ="ease-in-out-circ" repeat="indefinite"> </a-mixin>
-        <a-mixin id="textFX" attribute="position" to="0 0.02 0" dur="2000" direction="alternate-reverse" easing="linear" delay="0" repeat="indefinite"></a-mixin>
-    <a-entity class="scene hyperlink-object"
-              rotation="{{getRotation}}" position="{{getPosition}}" style="cursor: pointer !important;" scale="0.8 0.8 0.8"
-              change-scene-on-click="scene: {{getDestinationScene._id}};" mouseover-effect-hyperlink-object>
-
-             
-        
-              <a-entity class="marker-model" rotation="0 87 0" scale="0.15 0.3 0.15"
-                  obj-model="obj: url(/models/markerV2_arrow.obj)" material="color: yellow">
-                   <a-animation mixin="scaler" from="0.15 0.15 0.15" to= "0.16 0.3 0.16" ></a-animation>
-              </a-entity>
-
-              <a-entity class="marker-model" rotation="0 87 0" position="-0.4 0 1.05" scale="0.15 0.15 0.15"
-                  obj-model="obj: url(/models/markerV2_base.obj)" material="color: silver">
-                   <a-animation mixin="pulse"></a-animation>
-                   <a-animation mixin="scaler" from="0.15 0.15 0.15" to= "0.16 0.15 0.16"></a-animation>
-              </a-entity>
-
-            <a-entity class="marker-label" position="{{getLabelPosition}}" scale="15 15 15" 
-                      rotation="{{getLabelRotation}}" >
-                <a-entity shader="flat"
-                      text="font:exo2bold;anchor:left;width:1.5;color:white;value:{{this.label.text}};zOffset:0">
-                        <a-animation mixin="textFX"></a-animation>
-                </a-entity>
-        </a-entity>
-           
+    <a-mixin id="scaler" 
+             attribute="scale" 
+             fill="both" 
+             delay="4000" 
+             dur="1000" 
+             direction= "alternate-reverse" 
+             easing ="ease-in-out-circ" 
+             repeat="indefinite"> </a-mixin>
     
-        <a-box scale="6 6 6" position="0 0 0" opacity="0"></a-box>
+    <a-entity class="scene hyperlink-object"
+              rotation="{{getRotation}}" 
+              position="{{getPosition}}" 
+              style="cursor: pointer !important;" 
+              scale="0.8 0.8 0.8"
+              change-scene-on-click="scene: {{getDestinationScene._id}};">
+
+<!--marker model-->        
+              <a-entity class="marker-model" 
+                        rotation="0 87 0"
+                        scale="0.03 0.01 0.03" 
+                        obj-model="obj: url(/models/v3/pijlDicht.obj)" material="color: rgba(255, 255, 0, 0.69); metalness: 0.4 roughness:0.3">
+                        
+                        <a-animation mixin="scaler"
+                                     from="0.03 0.01 0.03"
+                                     to= "0.035 0.01 0.035">
+                        </a-animation>
+              </a-entity>
+
+<!--point light orbing around marker highlighting reflective surface of marker-->        
+                <a-entity id="orb" 
+                            position="2.5 0.5 0" 
+                            animation__rotate="property: rotation; dur: 5000;
+                                       easing: linear; loop: true; to: 0 360 0">
+
+                            <a-sphere radius=".05"
+                                      color="rgba(255, 255, 255, 0.26)" 
+                                      position="1 0 0" >
+
+                                      <a-entity light="type: point;
+                                           intensity: 0.15; color:rgba(255, 255, 255, 0.38)"
+                                                rotation="-20 -20 0">
+                                      </a-entity>
+                            </a-sphere>
+                  </a-entity>
+
+<!--shadow, currently 3d should be 2d, or better realtime generated on surface-->
+                  <a-entity class="marker-model" 
+                            position="0 -0.3 0" 
+                            rotation="0 87 0" 
+                            scale="0.03 0.00 0.03" 
+                            obj-model="obj: url(/models/v3/pijlDicht.obj)" material="color: rgba(39, 39, 39, 1); roughness:1 metalness:1">
+
+                            <a-animation mixin="scaler"
+                                         from="0.03 0.00 0.03"
+                                         to= "0.035 0.00 0.035">
+                            </a-animation>
+                  </a-entity>
+        
+<!--point light under marker for edge lighting-->
+                  <a-entity light="type: point; intensity: 1;"
+                            position="9.13 -0.74 0.27"
+                            rotation="-45 0 0">
+                  </a-entity>
+                    
+<!--marker text-->
+                  <a-entity class="marker-label" 
+                            position="{{getLabelPosition}}" 
+                            scale="15 15 15" 
+                            rotation="{{getLabelRotation}}" >
+
+                            <a-entity 
+                                text="shader: flat; font:exo2bold; anchor:left; width:1.5; color:white; value:{{this.label.text}}; zOffset:0">
+                            </a-entity>
+                  </a-entity>
     </a-entity>
 </template>

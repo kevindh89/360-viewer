@@ -4,6 +4,7 @@ import '../../../imports/client/pages/main/main.html';
 import '../../../imports/client/pages/main/main.js';
 
 require('aframe-animation-component');
+require('aframe-particle-system-component');
 
 Template.main.onCreated(MainTemplate.onCreated);
 Template.main.onRendered(MainTemplate.onRendered);

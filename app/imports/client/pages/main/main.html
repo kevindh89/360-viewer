@@ -2,7 +2,7 @@
     <a-scene id="scene" inspector="url: https://aframe.io/releases/0.4.0/aframe-inspector.min.js">
         <a-assets>
             <img id="photo" src="{{activeImage}}"/>
-            {{#each hyperlinkObjects}}
+             {{#each hyperlinkObjects}}
                 <img src="{{getDestinationSceneSkyImage this}}" />
             {{/each}}
         </a-assets>
@@ -23,6 +23,11 @@
             <a-animation attribute="material.color" dur="750" from="#fff" to="#000" begin="fade-sky-to-black"></a-animation>
             <a-animation attribute="material.color" dur="750" from="#000" to="#fff" begin="fade-sky-to-image"></a-animation>
         </a-sky>
+        
+<!-- main scene light, ambient-->
+        <a-entity position="0 0 0" 
+                  light="type: ambient; intensity: 1.0;">
+        </a-entity>
     </a-scene>
 
     {{> vrModeInstructions}}

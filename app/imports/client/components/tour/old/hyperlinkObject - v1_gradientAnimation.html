@@ -1,0 +1,81 @@
+<template name="hyperlinkObject">
+    <a-mixin id="pulse" attribute="material.opacity" to="0.3" fill="both" delay="5000" dur="1000" direction="alternate-reverse" repeat="indefinite"></a-mixin>
+    <a-mixin id="scaler" attribute="scale" fill="both" delay="5000" dur="1000" direction= "alternate-reverse" easing ="ease-in-out-circ" repeat="indefinite"> </a-mixin>
+    <a-mixin id="textFX" attribute="position" to="0 0.02 0" dur="2000" direction="alternate-reverse" easing="linear" delay="0" repeat="indefinite"></a-mixin>
+
+    <a-entity class="scene hyperlink-object"
+              rotation="{{getRotation}}" position="{{getPosition}}" style="cursor: pointer !important;" scale="0.8 0.8 0.8"
+              change-scene-on-click="scene: {{getDestinationScene._id}};" mouseover-effect-hyperlink-object>
+
+<!--             <a-entity light="type: directional; castShadow:true;  color: #FFF; intensity: 0.8" position="-0.5 1 1"></a-entity>-->
+        
+              <a-entity class="marker-model" rotation="0 87 0" scale="0.03 0.01 0.03" obj-model="obj: url(/models/v3/pijlDicht.obj)" material="color: rgba(74, 74, 74, 0.89); ">
+<!--                  normalMap:/images/waternormals.jpg-->
+<!--                  obj-model="obj: url(/models/markerV2_arrow.obj)" material="color: yellow">-->
+<!--                   <a-animation mixin="scaler" from="0.15 0.3 0.15" to= "0.16 0.45 0.16" ></a-animation>-->
+              </a-entity>
+        
+<!--        <a-box normal-map="/images/normalPijl.jpg"></a-box>-->
+<!--              <a-circle rotation="-90 0 0" position= "2.35 -0.2 -2.21" scale="3 3 1 "  opacity="0.5" shadow="receive: true"></a-circle>-->
+
+         <a-entity light="
+                          type: point;
+                          angle:40;
+                          castShadow: true;
+                          intensity: 0.8;"
+                   position="2.15 6.34 5.05"
+                            rotation="-45 0 0">
+
+        
+             <a-animation attribute="position" from="1 5 5" to="2 5 -2" delay="1000" dur="3000" repeat="indefinite"></a-animation>
+        </a-entity>
+<!--
+         <a-light type="ambient" color="#222"></a-light>
+        
+-->
+<!--
+         <a-entity light="
+                          type: spot;
+                          angle:20;                          
+                          intensity: 1.0;"
+                   position="2.15 6.34 5.05"
+                            rotation="-45 0 0" 
+                   material="src: /images/batman.png">
+        
+        <a-animation attribute="position" from="1 5 9" to="2 5 -3" delay="5000" dur="3000" direction="alternate-reverse" repeat="indefinite"></a-animation>
+             
+                <a-image src="/images/batman.png" width="15" height="15" data-keep-visible-during-scene-transition="true"
+        rotation="-45 0 0"></a-image>
+        </a-entity>
+-->
+<!--
+              <a-entity class="marker-model" rotation="0 87 0" position="0 0 0" scale="0.15 0.15 0.15"  
+                      obj-model="obj: url(/models/v3/pijlBaseDicht.obj)" material="color: silver">
+
+                   <a-animation mixin="pulse"></a-animation>
+                   <a-animation mixin="scaler" from="0.15 0.15 0.15" to= "0.16 0.15 0.16"></a-animation>
+              </a-entity>
+        
+              <a-entity class="marker-model" rotation="90 87 0" position="-0.1 0 0.1" scale="0.25 0.25 0.25"  
+                      obj-model="obj: url(/models/v3/markerRingKlein.obj)" material="color: yellow">
+
+              </a-entity>
+-->
+
+<!--
+              <a-entity position="0 2.25 -15" particle-system="preset: dust"></a-entity>
+        
+-->
+        
+              <a-entity class="marker-label" position="{{getLabelPosition}}" scale="15 15 15" 
+                      rotation="{{getLabelRotation}}" >
+                <a-entity shader="flat"
+                      text="font:exo2bold;anchor:left;width:1.5;color:white;value:{{this.label.text}};zOffset:0">
+                        <a-animation mixin="textFX"></a-animation>
+                </a-entity>
+              </a-entity>
+           
+    
+        <a-box scale="6 6 6" position="0 0 0" opacity="0"></a-box>
+    </a-entity>
+</template>

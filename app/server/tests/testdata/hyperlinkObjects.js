@@ -355,13 +355,13 @@ TestData.register(
             _id: 'gkv-terras-entree',
             sceneId: 'gkv-terras',
             position: {
-                x: 1.5,
-                y: 3,
-                z: 20
+                x: -4.79,
+                y: 1.38,
+                z: 11
             },
             rotation: {
                 x: 0,
-                y: 75,
+                y: 50,
                 z: 0
             },
             onClickEvents: [
@@ -377,13 +377,13 @@ TestData.register(
             _id: 'gkv-terras-kantine',
             sceneId: 'gkv-terras',
             position: {
-                x: 0,
+                x: 7.57,
                 y: 3,
-                z: -26
+                z: -11
             },
             rotation: {
                 x: 0,
-                y: -90,
+                y: -127,
                 z: 0
             },
             onClickEvents: [
@@ -399,13 +399,13 @@ TestData.register(
             _id: 'gkv-terras-voorveld',
             sceneId: 'gkv-terras',
             position: {
-                x: 30,
+                x: 16.1,
                 y: 2,
-                z: -19
+                z: -0.1
             },
             rotation: {
                 x: 0,
-                y: -146,
+                y: -180,
                 z: 0
             },
             onClickEvents: [
@@ -495,6 +495,9 @@ TestData.register(
                 x: 0,
                 y: -45,
                 z: 0
+            },
+            label: {
+                text: 'De kleedkamers'
             },
             onClickEvents: [
                 {

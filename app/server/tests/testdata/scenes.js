@@ -145,7 +145,7 @@ TestData.register(
                     type: Scene.__properties.SKY,
                     file: '/360-photos/gkv/terras.JPG',
                     previewFile: '/360-photos/gkv/terras.JPG',
-					rotation: {
+                    rotation: {
                         x: 0,
                         y: -35.4,
                         z: 0

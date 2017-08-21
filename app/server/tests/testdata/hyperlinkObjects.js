@@ -496,9 +496,6 @@ TestData.register(
                 y: -45,
                 z: 0
             },
-            label: {
-                text: 'De kleedkamers'
-            },
             onClickEvents: [
                 {
                     type: ViewerEvent.__types.HYPERLINK,

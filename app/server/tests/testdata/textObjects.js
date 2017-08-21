@@ -647,7 +647,7 @@ TestData.register(
             sceneId: 'gkv-kantine',
             position: {
                 x: -10.9,
-                y: 4.34,
+                y: 3.9,
                 z: 5.96
             },
             rotation: {

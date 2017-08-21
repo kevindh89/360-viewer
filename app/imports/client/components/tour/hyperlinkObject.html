@@ -1,20 +1,81 @@
 <template name="hyperlinkObject">
-    <a-entity class="scene hyperlink-object"
-              rotation="{{getRotation}}" position="{{getPosition}}" style="cursor: pointer !important;"
-              change-scene-on-click="scene: {{getDestinationScene._id}};" mouseover-effect-hyperlink-object>
+    <a-mixin id="scaler"
+             attribute="scale"
+             fill="both"
+             delay="4000"
+             dur="1000"
+             direction="alternate-reverse"
+             easing="ease-in-out-circ"
+             repeat="indefinite"></a-mixin>
 
-        <a-entity class="marker-model" scale="0.3 0.3 0.3" model-opacity="0.5"
-                  obj-model="obj: url(/models/gkv-pointer-marker.obj); mtl: url(/models/gkv-pointer-marker.mtl)">
-            <a-animation atribute="model-opacity" dur="1000" to="0" begin="hyperlink-object-fade-out"></a-animation>
+    <a-entity class="scene hyperlink-object"
+              rotation="{{getRotation}}"
+              position="{{getPosition}}"
+              style="cursor: pointer !important;"
+              scale="0.8 0.8 0.8"
+              change-scene-on-click="scene: {{getDestinationScene._id}};">
+
+        <!--marker model-->
+        <a-entity class="marker-model"
+                  rotation="0 87 0"
+                  scale="0.03 0.01 0.03"
+                  obj-model="obj: url(/models/arrow.obj)"
+                  material="color: rgba(255, 255, 0, 0.69); metalness: 0.4 roughness:0.3">
+
+            <a-animation mixin="scaler"
+                         from="0.03 0.01 0.03"
+                         to="0.035 0.01 0.035">
+            </a-animation>
         </a-entity>
 
+        <!--point light orbing around marker highlighting reflective surface of marker-->
+        <a-entity id="orb"
+                  position="2.5 0.5 0"
+                  animation__rotate="property: rotation; dur: 5000;
+                                       easing: linear; loop: true; to: 0 360 0">
+
+            <a-sphere radius=".05"
+                      color="rgba(255, 255, 255, 0.26)"
+                      position="1 0 0">
+
+                <a-entity light="type: point;
+                                           intensity: 0.15; color:rgba(255, 255, 255, 0.38)"
+                          rotation="-20 -20 0">
+                </a-entity>
+            </a-sphere>
+        </a-entity>
+
+        <!--shadow, currently 3d should be 2d, or better realtime generated on surface-->
+        <a-entity class="marker-model"
+                  position="0 -0.3 0"
+                  rotation="0 87 0"
+                  scale="0.03 0.00 0.03"
+                  obj-model="obj: url(/models/arrow.obj)"
+                  material="color: rgba(39, 39, 39, 1); roughness:1 metalness:1">
+
+            <a-animation mixin="scaler"
+                         from="0.03 0.00 0.03"
+                         to="0.035 0.00 0.035">
+            </a-animation>
+        </a-entity>
+
+        <!--point light under marker for edge lighting-->
+        <a-entity light="type: point; intensity: 1;"
+                  position="9.13 -0.74 0.27"
+                  rotation="-45 0 0">
+        </a-entity>
+
+        <!--marker text-->
         {{#if isDefined this.label}}
-            <a-entity class="marker-label" position="{{getLabelPosition}}" scale="15 15 15" visible="false"
-                      rotation="{{getLabelRotation}}" shader="flat"
-                      text="font:exo2bold;anchor:left;width:1.5;color:white;value:{{this.label.text}};zOffset:0">
+            <a-entity class="marker-label"
+                      position="{{getLabelPosition}}"
+                      scale="15 15 15"
+                      rotation="{{getLabelRotation}}">
+
+                <a-entity
+                        text="shader: flat; font:exo2bold; anchor:left; width:1.5; color:white; value:{{this.label.text}}; zOffset:0">
+                </a-entity>
             </a-entity>
         {{/if}}
-
-        <a-box scale="6 6 6" position="0 0 0" opacity="0"></a-box>
     </a-entity>
 </template>

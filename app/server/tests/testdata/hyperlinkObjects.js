@@ -289,13 +289,13 @@ TestData.register(
             _id: 'gkv-bezuidenhoutseweg-entree',
             sceneId: 'gkv-bezuidenhoutseweg',
             position: {
-                x: 2,
-                y: 1,
-                z: -29
+                x: 1,
+                y: 5,
+                z: -17
             },
             rotation: {
                 x: 0,
-                y: -100,
+                y: -90,
                 z: 0
             },
             onClickEvents: [
@@ -311,9 +311,9 @@ TestData.register(
             _id: 'gkv-entree-terras',
             sceneId: 'gkv-entree',
             position: {
-                x: 26,
+                x: 17.5,
                 y: 1,
-                z: -18
+                z: -13
             },
             rotation: {
                 x: 0,
@@ -399,9 +399,9 @@ TestData.register(
             _id: 'gkv-terras-voorveld',
             sceneId: 'gkv-terras',
             position: {
-                x: 16.1,
+                x: 18,
                 y: 2,
-                z: -0.1
+                z: -0.25
             },
             rotation: {
                 x: 0,
@@ -421,9 +421,9 @@ TestData.register(
             _id: 'gkv-kantine-keuken',
             sceneId: 'gkv-kantine',
             position: {
-                x: -33,
-                y: 2,
-                z: 13
+                x: -21,
+                y: 5.75,
+                z: 7.8
             },
             rotation: {
                 x: 0,
@@ -443,13 +443,13 @@ TestData.register(
             _id: 'gkv-kantine-terras',
             sceneId: 'gkv-kantine',
             position: {
-                x: 4,
-                y: -7,
-                z: 24
+                x: 3,
+                y: -2,
+                z: 20
             },
             rotation: {
                 x: 0,
-                y: 90,
+                y: 93,
                 z: 0
             },
             onClickEvents: [
@@ -487,9 +487,9 @@ TestData.register(
             _id: 'gkv-voorveld-kleedkamer',
             sceneId: 'gkv-voorveld',
             position: {
-                x: -22,
-                y: 1.5,
-                z: -21.5
+                x: -14,
+                y: 3,
+                z: -14.5
             },
             rotation: {
                 x: 0,
@@ -509,9 +509,9 @@ TestData.register(
             _id: 'gkv-voorveld-kunstgrasveld',
             sceneId: 'gkv-voorveld',
             position: {
-                x: 34,
-                y: 0,
-                z: 0
+                x: 18,
+                y: 1.5,
+                z: 2.25
             },
             rotation: {
                 x: 0,
@@ -531,13 +531,13 @@ TestData.register(
             _id: 'gkv-kunstgrasveld-achterveld',
             sceneId: 'gkv-kunstgrasveld',
             position: {
-                x: 30,
-                y: 0,
-                z: -2.4
+                x: 14,
+                y: 3.7,
+                z: -1.6
             },
             rotation: {
                 x: 0,
-                y: 185,
+                y: 186,
                 z: 0
             },
             onClickEvents: [
@@ -553,9 +553,9 @@ TestData.register(
             _id: 'gkv-kunstgrasveld-voorveld',
             sceneId: 'gkv-kunstgrasveld',
             position: {
-                x: -28,
-                y: 1,
-                z: 0
+                x: -16.5,
+                y: 4.5,
+                z: 0.3
             },
             rotation: {
                 x: 0,
@@ -575,13 +575,13 @@ TestData.register(
             _id: 'gkv-achterveld-kunstgrasveld',
             sceneId: 'gkv-achterveld',
             position: {
-                x: -29,
-                y: 1,
-                z: -2.5
+                x: -13.8,
+                y: 4.3,
+                z: -0.9
             },
             rotation: {
                 x: 0,
-                y: -7,
+                y: -2.2,
                 z: 0
             },
             onClickEvents: [

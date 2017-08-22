@@ -171,7 +171,7 @@ TestData.register(
                 z: 0
             },
             text: 'En op andere dagen zijn er sport- en beweegactiviteiten i.s.m. partners.\n' +
-            'Heb je een leuk idee? Neem contact op?',
+            'Heb je een leuk idee? Neem contact op!',
             font: {
                 family: 'exo2semibold',
                 color: 'gold'
@@ -603,7 +603,7 @@ TestData.register(
                 y: -45,
                 z: 0
             },
-            text: '1. De kantine gebruiken we voor binnen activiteiten zoals (team) feesten, tafelvoetbal en kantine verhuur.\n' +
+            text: 'De kantine gebruiken we voor binnen activiteiten zoals (team) feesten, tafelvoetbal en kantine verhuur.\n' +
             'Deze ruimte is geschikt voor 110 personen.',
             font: {
                 family: 'exo2semibold',
@@ -629,7 +629,7 @@ TestData.register(
                 y: -90,
                 z: 0
             },
-            text: '2. Bekijk je deze tour met een telefoon en heb je een Google Cardboard? ' +
+            text: 'Bekijk je deze tour met een telefoon en heb je een Google Cardboard? ' +
             'Dan kun je deze tour ook in VR modus bekijken door op het bril icoontje te klikken!',
             font: {
                 family: 'exo2semibold',

@@ -108,6 +108,9 @@ export default MainTemplate = {
             return TextObjects.find({
                 sceneId: Template.instance().activeSceneId.get()
             });
+        },
+        showFullscreenButton() {
+            return Router.current().params.query.embedded !== undefined;
         }
     },
 
@@ -121,6 +124,12 @@ export default MainTemplate = {
                 Meteor.settings.public.fileServer :
                 '';
             return `${fileServer}${scene.findPropertiesOfType(Scene.__properties.SKY).file}`;
+        }
+    },
+
+    events: {
+        'click .fullscreen-button': () => {
+            window.parent.location.href = window.location.href.replace('?embedded=1', '');
         }
     }
 };

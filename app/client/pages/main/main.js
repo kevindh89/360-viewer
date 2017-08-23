@@ -14,3 +14,7 @@ Template.main.helpers(
         MainTemplate.helpers
     )
 );
+
+Template.main.events(
+    MainTemplate.events
+);

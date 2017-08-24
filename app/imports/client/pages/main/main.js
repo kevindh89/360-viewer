@@ -129,7 +129,7 @@ export default MainTemplate = {
 
     events: {
         'click .fullscreen-button': () => {
-            window.parent.location.href = window.location.href.replace('?embedded=1', '');
+            window.parent.postMessage('message', '*');
         }
     }
 };

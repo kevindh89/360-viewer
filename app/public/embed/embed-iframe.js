@@ -4,12 +4,14 @@
  */
 var vw360ViewerEmbed = {
     iframe: undefined,
+    fullscreenActive: false,
 
     createIframe: function () {
         vw360ViewerEmbed.iframe = document.createElement('iframe');
         vw360ViewerEmbed.iframe.setAttribute('src', 'http://localhost:3000/v3n?embedded=1');
         vw360ViewerEmbed.iframe.setAttribute('height', 400);
         vw360ViewerEmbed.iframe.setAttribute('width', 500);
+        vw360ViewerEmbed.iframe.setAttribute('frameborder', 0);
         return vw360ViewerEmbed.iframe;
     },
 
@@ -25,7 +27,7 @@ var vw360ViewerEmbed = {
         if (vw360ViewerEmbed.iframe === undefined) {
             return;
         }
-        vw360ViewerEmbed.iframe.style.position = 'absolute;';
+        vw360ViewerEmbed.iframe.setAttribute('style', 'position: absolute; top: 0;');
         vw360ViewerEmbed.iframe.setAttribute('height', '100%');
         vw360ViewerEmbed.iframe.setAttribute('width', '100%');
     },
@@ -34,6 +36,9 @@ var vw360ViewerEmbed = {
         if (vw360ViewerEmbed.iframe === undefined) {
             return;
         }
+        vw360ViewerEmbed.iframe.setAttribute('style', '');
+        vw360ViewerEmbed.iframe.setAttribute('height', 400);
+        vw360ViewerEmbed.iframe.setAttribute('width', 500);
     }
 };
 
@@ -47,3 +52,13 @@ window.onload = function () {
         domContainerElement.appendChild(vw360ViewerEmbed.createHyperlinkToViewer());
     }
 };
+
+window.addEventListener("message", function (e) {
+    if (vw360ViewerEmbed.fullscreenActive === false) {
+        vw360ViewerEmbed.fullscreen();
+        vw360ViewerEmbed.fullscreenActive = true;
+    } else {
+        vw360ViewerEmbed.exitFullscreen();
+        vw360ViewerEmbed.fullscreenActive = false;
+    }
+}, false);

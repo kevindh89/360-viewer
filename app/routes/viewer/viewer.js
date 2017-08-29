@@ -2,6 +2,7 @@ Router.route('/', function homeRoute() {
     // TODO: Replace hardcoded url with a neat solution
     if (window.location.host === '360.gkvdenhaag.nl') {
         this.redirect('/gkv');
+        return;
     }
 
     this.redirect('/v3n');

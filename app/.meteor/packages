@@ -34,3 +34,4 @@ practicalmeteor:sinon
 dynamic-import
 ostrio:logger
 mystor:device-detection
+force-ssl

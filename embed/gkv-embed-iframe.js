@@ -1,7 +1,3 @@
-/**
- * The client website only has to include this javascript file and put this piece of code on the place where the 360-viewer should be embedded:
- *  <div id="vw-embedded-360-viewer"></div>
- */
 var vw360ViewerEmbed = {
     // Change texts to whatever you fancy
     texts: {
@@ -14,7 +10,7 @@ var vw360ViewerEmbed = {
 
     createIframe: function () {
         vw360ViewerEmbed.iframe = document.createElement('iframe');
-        vw360ViewerEmbed.iframe.setAttribute('src', 'http://localhost:3000/v3n?embedded=1');
+        vw360ViewerEmbed.iframe.setAttribute('src', 'https://360.gkvdenhaag.nl/gkv?embedded=1');
         vw360ViewerEmbed.iframe.setAttribute('height', '100%');
         vw360ViewerEmbed.iframe.setAttribute('width', '100%');
         vw360ViewerEmbed.iframe.setAttribute('frameborder', 0);
@@ -23,7 +19,7 @@ var vw360ViewerEmbed = {
 
     createHyperlinkToViewer: function () {
         var hyperlink = document.createElement('a');
-        hyperlink.setAttribute('href', 'http://localhost:3000/v3n');
+        hyperlink.setAttribute('href', 'https://360.gkvdenhaag.nl/');
         hyperlink.setAttribute('target', '_parent');
         hyperlink.classList.add('to-vw-360-tour-button');
         hyperlink.innerHTML = vw360ViewerEmbed.texts.mobileGoToTourButton;

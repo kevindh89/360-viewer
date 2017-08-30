@@ -1,11 +1,21 @@
-Router.route('/', function homeRoute() {
-    // TODO: Replace hardcoded url with a neat solution
-    if (window.location.host === '360.gkvdenhaag.nl') {
-        this.redirect('/gkv');
-        return;
-    }
+Router.route('home', {
+    path: '/',
+    template: 'main',
+    waitOn() {
+        let client = 'v3n';
+        // TODO: Replace hardcoded url with a neat solution
+        if (window.location.host === '360.gkvdenhaag.nl') {
+            client = 'gkv';
+        }
 
-    this.redirect('/v3n');
+        return [
+            Meteor.subscribe('clientForSlug', client),
+            Meteor.subscribe('scenesForClient', client)
+        ];
+    },
+    data() {
+        return Clients.findOne();
+    }
 });
 
 Router.route('clientViewer', {

@@ -1,13 +1,8 @@
 /**
  * The client website only has to include this javascript file and put this piece of code on the place where the 360-viewer should be embedded:
- *  <div id="vw-embedded-360-viewer"></div>
+ *  <div id="vw-embedded-360-viewer" data-mobile-button-label="Ga naar 360 tour"></div>
  */
 var vw360ViewerEmbed = {
-    // Change texts to whatever you fancy
-    texts: {
-        mobileGoToTourButton: 'Ga naar 360 tour'
-    },
-
     // Embedded viewer states
     iframe: undefined,
     fullscreenActive: false,
@@ -26,7 +21,7 @@ var vw360ViewerEmbed = {
         hyperlink.setAttribute('href', 'http://localhost:3000/v3n');
         hyperlink.setAttribute('target', '_parent');
         hyperlink.classList.add('to-vw-360-tour-button');
-        hyperlink.innerHTML = vw360ViewerEmbed.texts.mobileGoToTourButton;
+        hyperlink.innerHTML = document.getElementById('vw-embedded-360-viewer').getAttribute('data-mobile-button-label');
         return hyperlink;
     },
 
@@ -34,7 +29,7 @@ var vw360ViewerEmbed = {
         if (vw360ViewerEmbed.iframe === undefined) {
             return;
         }
-        vw360ViewerEmbed.iframe.setAttribute('style', 'position: absolute; top: 0;');
+        vw360ViewerEmbed.iframe.setAttribute('style', 'position: fixed; top: 0; left: 0;');
     },
 
     exitFullscreen: function () {

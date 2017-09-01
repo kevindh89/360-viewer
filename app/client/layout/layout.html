@@ -1,4 +1,16 @@
 <template name="layout">
+    {{#if isDefined this.googleAnalyticsTrackingId}}
+        <!-- Global Site Tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{this.googleAnalyticsTrackingId}}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments)};
+            gtag('js', new Date());
+
+            gtag('config', '{{this.googleAnalyticsTrackingId}}');
+        </script>
+    {{/if}}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {{> yield}}

@@ -10,6 +10,7 @@ import '../../../lib/aframeComponents/changeSceneOnClick.js';
 import '../../../lib/aframeComponents/vrCursorAnimations.js';
 import '../../../lib/aframeComponents/modelOpacity.js';
 import '../../components/tour/vrModeInstructions.js';
+import '../../components/tour/googleAnalyticsTracking.js';
 
 export default MainTemplate = {
     onCreated: function onCreated() {
@@ -36,9 +37,17 @@ export default MainTemplate = {
 
         const vrModeUiEnabled = Meteor.Device.isDesktop() !== true ? 'true' : 'false';
         scene.setAttribute('vr-mode-ui', `enabled: ${vrModeUiEnabled}`);
+
+        if (this.data.googleAnalyticsTrackingId &&
+            Meteor.settings.public !== undefined &&
+            Meteor.settings.public.enableGoogleAnalyticsTracking === true) {
+            GoogleAnalyticsTracking.initialize(template);
+        }
     },
 
     onEnterVr(template) {
+        GoogleAnalyticsTracking.trackEvent('Button', 'click', 'Enter VR mode');
+
         template.viewer.vrMode = true;
         Blaze.renderWithData(Template.cursor, Clients.findOne(), document.getElementById('hud'));
         $('#scene').hide();
@@ -46,6 +55,8 @@ export default MainTemplate = {
     },
 
     onExitVr(template) {
+        GoogleAnalyticsTracking.trackEvent('Action', 'click', 'Exit VR mode');
+
         template.viewer.vrMode = false;
         const cursor = document.getElementById('cursor');
         cursor.parentNode.removeChild(cursor);
@@ -70,7 +81,19 @@ export default MainTemplate = {
     },
 
     onChangeScene(evt, template) {
+        GoogleAnalyticsTracking.trackEvent(
+            'HyperlinkObject',
+            'click',
+            `Go from scene "${template.activeSceneId.get()}" to "${evt.detail.destinationId}"`
+        );
+
         template.activeSceneId.set(evt.detail.destinationId);
+    },
+
+    trackEventAnalytics(category, action, label) {
+        if (ga !== undefined) {
+            ga('send', 'event', category, action, label);
+        }
     },
 
     helpers: {
@@ -129,7 +152,21 @@ export default MainTemplate = {
 
     events: {
         'click .fullscreen-button': () => {
+            GoogleAnalyticsTracking.trackEvent('Button', 'click', 'Fullscreen button (in embedded viewer)');
+
             window.parent.postMessage('message', '*');
+        },
+
+        'click #client-logo-hyperlink': evt => {
+            GoogleAnalyticsTracking.trackEvent('Hyperlink', 'click', 'Client logo hyperlink');
+
+            window.open(evt.currentTarget.getAttribute('data-url'), '_blank');
+        },
+
+        'click #made-by-vensterworks-hyperlink': () => {
+            GoogleAnalyticsTracking.trackEvent('Hyperlink', 'click', 'Made by Vensterworks footer hyperlink');
+
+            window.open('https://www.vensterworks.com', '_blank');
         }
     }
 };

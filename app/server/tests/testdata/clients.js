@@ -26,7 +26,8 @@ TestData.register(
             tripodStamp: {
                 image: '/images/gkv-tripod-stamp.png'
             },
-            customCss: 'button.client-logo { min-width: 50px !important; min-height: 39px !important; }'
+            customCss: 'button.client-logo { min-width: 50px !important; min-height: 39px !important; }',
+            googleAnalyticsTrackingId: 'UA-83007301-2'
         })
     ]
 );

@@ -2,7 +2,7 @@
     <div id="vrModeInstructions">
         <h1>Welkom in VR modus</h1>
 
-        <a class="btn btn-block" data-toggle="collapse" data-target="#vr-instructions">
+        <a id="vr-mode-explanation-button" class="btn btn-block" data-toggle="collapse" data-target="#vr-instructions">
             Uitleg <i class="glyphicon glyphicon-question-sign"></i>
         </a>
 
@@ -13,11 +13,11 @@
             <a href="https://www.vensterworks.com/" target="_blank">Meer informatie over VR brillen</a>
         </div>
 
-        <a class="btn btn-block" href="#" onclick="$('#scene').show(); $('#vrModeInstructions').hide();">
+        <a id="vr-mode-start-button" class="btn btn-block" href="#" onclick="$('#scene').show(); $('#vrModeInstructions').hide();">
             Start VR <i class="glyphicon glyphicon-chevron-right"></i>
         </a>
 
-        <a class="btn btn-block" href="#" onclick="document.querySelector('a-scene').exitVR();">
+        <a id="vr-mode-back-button" class="btn btn-block" href="#" onclick="document.querySelector('a-scene').exitVR();">
             <i class="glyphicon glyphicon-chevron-left"></i> Terug
         </a>
     </div>

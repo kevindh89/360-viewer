@@ -31,5 +31,9 @@ ClientSchema = new SimpleSchema({
     customCss: {
         type: String,
         optional: true
+    },
+    googleAnalyticsTrackingId: {
+        type: String,
+        optional: true
     }
 });

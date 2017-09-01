@@ -31,15 +31,14 @@
         </a-sky>
         
 <!-- main scene light, ambient-->
-        <a-entity position="0 0 0" 
-                  light="type: ambient; intensity: 1.0;">
+        <a-entity position="0 0 0" light="type: ambient; intensity: 1.0;">
         </a-entity>
     </a-scene>
 
     {{> vrModeInstructions}}
 
     {{#if isDefined logo}}
-        <a href="{{logo.href}}">
+        <a href="#" id="client-logo-hyperlink" data-url="{{logo.href}}">
             <button class="client-logo" style="background: url('{{logo.file}}') 70% 70%/100% 100% no-repeat;">
             </button>
         </a>
@@ -52,7 +51,7 @@
     {{/if}}
 
     <div id="footer">
-        made by <a href="https://www.vensterworks.com" target="_blank">Vensterworks</a>
+        made by <a href="#" id="made-by-vensterworks-hyperlink">Vensterworks</a>
     </div>
 </template>
 

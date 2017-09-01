@@ -1,5 +1,6 @@
 {
     "public": {
+        "enableGoogleAnalyticsTracking": true,
         "logglyEnabled": true,
         "fileServer": "http://files.kevindh.nl"
     },

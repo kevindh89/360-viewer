@@ -15,7 +15,7 @@ var vw360ViewerEmbed = {
     createHyperlinkToViewer: function () {
         var hyperlink = document.createElement('a');
         hyperlink.setAttribute('href', 'https://360.gkvdenhaag.nl/');
-        hyperlink.setAttribute('target', '_parent');
+        hyperlink.setAttribute('target', '_blank');
         hyperlink.classList.add('to-vw-360-tour-button');
         hyperlink.innerHTML = document.getElementById('vw-embedded-360-viewer').getAttribute('data-mobile-button-label');
         return hyperlink;

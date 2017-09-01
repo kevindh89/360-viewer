@@ -50,6 +50,10 @@ window.onload = function () {
 };
 
 window.addEventListener("message", function (e) {
+    if (e.origin !== 'https://360.gkvdenhaag.nl') {
+        return;
+    }
+
     if (vw360ViewerEmbed.fullscreenActive === false) {
         vw360ViewerEmbed.fullscreen();
         vw360ViewerEmbed.fullscreenActive = true;

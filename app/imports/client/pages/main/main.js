@@ -81,11 +81,13 @@ export default MainTemplate = {
     },
 
     onChangeScene(evt, template) {
-        GoogleAnalyticsTracking.trackEvent(
-            'HyperlinkObject',
-            'click',
-            `Go from scene "${template.activeSceneId.get()}" to "${evt.detail.destinationId}"`
-        );
+        if (template.activeSceneId.get() !== evt.detail.destinationId) {
+            GoogleAnalyticsTracking.trackEvent(
+                'HyperlinkObject',
+                'click',
+                `Go from scene "${template.activeSceneId.get()}" to "${evt.detail.destinationId}"`
+            );
+        }
 
         template.activeSceneId.set(evt.detail.destinationId);
     },

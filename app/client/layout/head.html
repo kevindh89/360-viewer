@@ -30,6 +30,13 @@
 //            alert('We noticed that you are using a device we can\'t give full support for. Our apologies for the inconvenience.');
 //        }
     </script>
+    <script>
+        window.onerror = function (e) {
+            if (e === '\'JSON\' is undefined') {
+                window.location.href = '/error-pages/unsupported.html';
+            }
+        }
+    </script>
     <style type="text/css">
         .a-canvas.vw-mouseover {
             cursor: pointer !important;

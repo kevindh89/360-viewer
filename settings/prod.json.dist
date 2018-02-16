@@ -1,0 +1,13 @@
+{
+    "public": {
+        "enableGoogleAnalyticsTracking": true,
+        "logglyEnabled": true,
+        "fileServer": ""
+    },
+    "private": {
+        "loggly": {
+            "token": "",
+            "tag": "360-viewer"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<template name="adminMenu">
+    <div id="admin-menu" class="admin-menu sidebar-menu">
+        <img src="/images/logo-128x128.png" class="logo" />
+        <div class="logo-header">
+            <span style="font-weight: 600;">Venster</span><span style="font-weight: 100;">works</span>
+        </div>
+        <ul class="main-menu">
+            <li class="menu-item">
+                <a href="{{pathFor 'mainDashboard'}}" class="{{#if isRoute 'mainDashboard'}}active{{/if}}">Dashboard</a>
+            </li>
+            <li class="menu-item">
+                <a href="{{pathFor 'createClient'}}" class="{{#if isRoute 'createClient'}}active{{/if}}">Create client</a>
+            </li>
+            <li class="menu-item">
+                <a href="{{pathFor 'clientOverview'}}" class="{{#if isRoute 'clientOverview'}}active{{/if}}">Client overview</a>
+            </li>
+
+            <li class="divider"></li>
+
+            <li class="menu-item">
+                <a href="{{pathFor 'listTours'}}" class="{{#if isRoute 'listTours' 'manageTour'}}active{{/if}}">Manage tours</a>
+            </li>
+
+            <li class="divider"></li>
+
+            <li class="menu-item">
+                <a href="#" id="logoutButton">Logout</a>
+            </li>
+        </ul>
+    </div>
+</template>

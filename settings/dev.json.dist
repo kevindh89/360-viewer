@@ -1,0 +1,8 @@
+{
+    "public": {
+        "enableGoogleAnalyticsTracking": false,
+        "logglyEnabled": false
+    },
+    "private": {
+    }
+}

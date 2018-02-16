@@ -1,0 +1,57 @@
+<template name="manageTour">
+    <div class="col-md-12 manage-tour-container">
+        <div class="card">
+            <h1>Manage tour: {{name}}</h1>
+
+            <a href="#" data-toggle="modal" data-target="#uploadForm" class="btn btn-success pull-right upload-image-btn">
+                Upload image
+            </a>
+
+            <div id="uploadForm" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            Upload image
+                        </div>
+                        <div class="modal-body">
+                            {{> uploadForm uploadForm=uploadFormData}}
+
+                            <button type="button" id="closeUpload" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{> adjustPosition tourId=_id tourObjectId=tourObjectId}}
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Preview</th>
+                    <th>Position (x, y, z)</th>
+                    <th>#</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {{#each tourObjects}}
+                <tr>
+                    <td><img src="{{getImage previewImage}}" class="preview-image" /></td>
+                    <td>
+                        <label class="label label-primary">{{x}}, {{y}}, {{z}}</label>
+                        <a href="#" class="btn btn-default btn-xs">Adjust position</a>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-danger delete-btn" data-tour-object-id="{{id}}">
+                            Remove
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</template>

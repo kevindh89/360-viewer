@@ -1,0 +1,27 @@
+{
+  "name": "Vensterworks 360 webviewer",
+  "description": "Viewer for 360 photos and images",
+  "scripts": {
+    "lint": "node_modules/.bin/eslint server/ client/ imports/ collections/ routes/"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "devDependencies": {
+    "@meteorjs/eslint-config-meteor": "^1.0.5",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-import-resolver-meteor": "^0.4.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-meteor": "^4.0.1",
+    "eslint-plugin-react": "^6.10.3"
+  },
+  "dependencies": {
+    "aframe-animation-component": "^3.2.5",
+    "aframe-particle-system-component": "^1.0.10",
+    "babel-runtime": "^6.23.0",
+    "winston-loggly-bulk": "^2.0.0"
+  }
+}

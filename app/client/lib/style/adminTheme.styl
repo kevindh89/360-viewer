@@ -1,0 +1,132 @@
+primaryBrandColor = #e9342d;
+secondaryBrandColor = #f08366;
+darkenedSecondaryBrandColor = #d74b2e;
+
+@font-face {
+  font-family: 'berlin'
+  src: url('/fonts/berlin.regular.woff2') format('woff2'), /* Super Modern Browsers */ url('/fonts/berlin.regular.woff') format('woff') /* Pretty Modern Browsers */
+}
+
+html, body {
+  height: 100%;
+}
+
+div.admin-container {
+  background: #f1f1f1;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 10px;
+  }
+
+  .btn-primary {
+    background: darkenedSecondaryBrandColor;
+    border-color: darkenedSecondaryBrandColor;
+    &:hover, &:active {
+      background: secondaryBrandColor;
+      border-color: secondaryBrandColor;
+    }
+  }
+
+  div.admin-container-content {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+  }
+
+  div.card {
+    border-top: 5px solid #dbdbdb;
+    background: #fff;
+    box-shadow: none;
+    padding: 5px 15px;
+    text-align: left;
+    margin: 10px;
+  }
+
+  div.content-container {
+    position: relative;
+    display: table-cell;
+    vertical-align: top;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  div.sidebar-menu {
+    vertical-align: top;
+    background: #303641;
+    width: 280px;
+    position: relative;
+    z-index: 100;
+
+    div.logo-header {
+      font-family: 'berlin';
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 20px;
+      letter-spacing: 5px;
+      padding: 15px 0;
+    }
+
+    img.logo {
+      margin-top: 15px;
+      width: 100px;
+      height: 100px;
+    }
+
+    ul.main-menu {
+      color: #cccccc;
+      list-style: none;
+      padding-left: 0;
+      li.divider {
+        height: 10px;
+      }
+      li.menu-item {
+        height: 35px;
+        line-height: 35px;
+        text-align: left;
+        a {
+          background: #222a3c;
+          color: #cccccc;
+          width: 100%;
+          height: 35px;
+          text-decoration: none;
+          display: inline-block;
+          padding-left: 15px;
+          &:hover {
+            background: #243049;
+            color: white;
+            padding-left: 10px;
+            border-left: 5px solid #ffffff !important;
+          }
+        }
+        a.active {
+          border-left: 5px solid #999;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+
+  form {
+    margin: 20px 10px;
+    label {
+      font-size: 12px;
+    }
+  }
+  table {
+    text-align: left;
+
+    th {
+      font-weight: bold;
+      background: #ffffff;
+      color: #999;
+    }
+  }
+}

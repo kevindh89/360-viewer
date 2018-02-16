@@ -1,0 +1,18 @@
+<template name="adjustPosition">
+    <div class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <a-scene vr-mode-ui="enabled: true"
+                         inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+                    <a-assets>
+                        <img id="photo" src="{{getImsage}}"/>
+                    </a-assets>
+                    <a-entity position="0 0 0">
+                    </a-entity>
+                    <a-entity id="hud" position="0 10 0" camera look-controls></a-entity>
+                    <a-sky id="image" src="#photo" rotation="0 0 0"></a-sky>
+                </a-scene>
+            </div>
+        </div>
+    </div>
+</template>

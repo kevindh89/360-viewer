@@ -1,0 +1,25 @@
+<template name="vrModeInstructions">
+    <div id="vrModeInstructions">
+        <h1>Welkom in VR modus</h1>
+
+        <a id="vr-mode-explanation-button" class="btn btn-block" data-toggle="collapse" data-target="#vr-instructions">
+            Uitleg <i class="glyphicon glyphicon-question-sign"></i>
+        </a>
+
+        <div id="vr-instructions" class="collapse">
+            Na het drukken op ‘Start VR’, plaatst u uw telefoon in een VR bril.<br />
+            Wij raden aan om een Google Cardboard, Boaz of Charlie te gebruiken.<br />
+            In VR modus kunt u door uw hoofd te bewegen rondkijken. Door de rode cirkel op het pijltje te richten zal u naar de volgende locatie verplaatsen.<br />
+            <br />
+            <a href="https://www.vensterworks.com/" target="_blank">Meer uitleg over VR brillen</a>
+        </div>
+
+        <a id="vr-mode-start-button" class="btn btn-block" href="#" onclick="$('#scene').show(); $('#vrModeInstructions').hide();">
+            Start VR <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+
+        <a id="vr-mode-back-button" class="btn btn-block" href="#" onclick="document.querySelector('a-scene').exitVR();">
+            <i class="glyphicon glyphicon-chevron-left"></i> Terug
+        </a>
+    </div>
+</template>

@@ -1,0 +1,30 @@
+<template name="listTours">
+    <div class="col-md-12">
+        <div class="card">
+            <h1>Manage tours</h1>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>360 photos</th>
+                    <th>#</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each tours}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{countTourObjects this}}</td>
+                        <td>
+                            <a href="{{pathFor 'manageTour' id=this._id}}" class="btn btn-default">
+                                Manage tour
+                            </a>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

@@ -4,30 +4,22 @@
 
 This project requires to have JavaScript framework [Meteor](https://www.meteor.com/install) installed.
 
-#### Pull 360-images to your local machine to develop with
+### Pull 360-images to your local machine to develop with
 
 ```
 sh 360-images-download.sh
 ```
 
-#### Start a local Meteor server
+### Start a local Meteor server
 
 Open your terminal and navigate to the project folder and execute this command:
 ```
 cd app/ && meteor --settings ../settings/dev.json.dist
 ```
 
-#### Check your setup
+### Setup complete
 
 The application is now available on: [http://localhost:3000](http://localhost:3000)
-
-##### Meteor settings
-
-There is a dist version of the settings file located in ``settings/dev.json.dist``. 
-
-Duplicate this file to ``settings/dev.json`` to use local configurations so it won't be committed to the Git repo.
-
-When you add new settings please add them both to the ``dev.json.dist`` and ``prod.json.dist`` file.
 
 
 ## Testing

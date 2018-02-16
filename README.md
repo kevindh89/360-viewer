@@ -106,9 +106,14 @@ When something triggers an exception and logging is enabled in the Meteor settin
 [Loggly](http://www.loggly.com) is a log management platform which supports alerts and makes it easy to search through logs.
 
 
+## Authors
+
+The 360 viewer was initially built as a [Vensterworks](http://www.vensterworks.com) product.
+
+* __Steven Bos__ @ Vensterworks [github/aiunderstand](https://github.com/aiunderstand)
+* __Kevin de Heer__ @ Vensterworks [github/kevindh89](https://github.com/kevindh89)
+
+
 ## Copyright and license
 
 Code released under the [MIT License](https://github.com/kevindh89/360-viewer/blob/master/LICENSE).
-
-The 360 viewer was built as a [Vensterworks](http://www.vensterworks.com) project.
-

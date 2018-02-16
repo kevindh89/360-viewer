@@ -97,6 +97,11 @@ When something triggers an exception and logging is enabled in the Meteor settin
 
 [Loggly](http://www.loggly.com) is a log management platform which supports alerts and makes it easy to search through logs.
 
+## Built with
+
+* [Meteor](https://github.com/meteor/meteor)
+* [A-Frame](https://github.com/aframevr/aframe)
+
 
 ## Authors
 
